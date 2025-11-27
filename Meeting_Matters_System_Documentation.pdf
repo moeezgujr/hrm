@@ -1,0 +1,5960 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 1392
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+56.6929133858267775 756.8506299212598378 Td
+(Meeting Matters) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 694.4884251968503577 Td
+(Complete HR Management System) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 632.1262204724408775 Td
+(Documentation) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 513.0711023622046696 Td
+(A comprehensive HR Management System designed to streamline employee lifecycle) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 493.2285826771653205 Td
+(management, featuring automated workflows, intelligent document management, and) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 473.3860629921259147 Td
+(advanced analytics.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 396.850629921259781 Td
+(Version: 1.0) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 377.0081102362204319 Td
+(Date: August 11, 2025) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 357.1655905511810261 Td
+(Document Type: Complete System Documentation) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 1 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 3661
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+56.6929133858267775 756.8506299212598378 Td
+(Meeting Matters - Complete HR Management System) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+56.6929133858267775 737.0081102362204319 Td
+(Documentation) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 660.4726771653542983 Td
+(Table of Contents) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 626.4569291338582389 Td
+(1. [System Overview]\(#system-overview\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 606.614409448818833 Td
+(2. [User Roles and Permissions]\(#user-roles-and-permissions\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 586.7718897637794271 Td
+(3. [Core Modules]\(#core-modules\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 566.9293700787401349 Td
+(4. [Authentication and Security]\(#authentication-and-security\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 547.086850393700729 Td
+(5. [Technical Specifications]\(#technical-specifications\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 527.2443307086614368 Td
+(6. [API Endpoints]\(#api-endpoints\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 507.4018110236219741 Td
+(7. [Database Schema]\(#database-schema\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 487.559291338582625 Td
+(8. [Deployment and Infrastructure]\(#deployment-and-infrastructure\)) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 411.0238582677164914 Td
+(System Overview) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 362.8348818897637216 Td
+(Meeting Matters is a comprehensive HR Management System designed to streamline the entire) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 342.9923622047243725 Td
+(employee lifecycle from recruitment to retirement. The platform centralizes HR operations through) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 323.1498425196849666 Td
+(automated workflows, intelligent document management, advanced analytics, and role-based access) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 303.3073228346455608 Td
+(control.) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 240.9451181102361943 Td
+(Key Value Propositions) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 206.9293700787401349 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 206.9293700787401349 Td
+(**Complete Employee Lifecycle Management**: From recruitment to retirement) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 187.086850393700729 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 187.086850393700729 Td
+(**Intelligent Automation**: Automated workflows reduce manual tasks by 70%) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 167.2443307086613231 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 167.2443307086613231 Td
+(**Advanced Analytics**: Data-driven insights for strategic HR decisions) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 147.4018110236219172 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 147.4018110236219172 Td
+(**Role-Based Security**: Granular access control ensuring data privacy) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 127.559291338582625 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 127.559291338582625 Td
+(**Modern User Experience**: Intuitive interface built with modern web technologies) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 2 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 4683
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 785.1970866141732586 Td
+(User Roles and Permissions) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 708.6616535433070112 Td
+(1. HR Administrator) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 674.6459055118109518 Td
+(Primary Authority: Full system access and administrative control) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 654.8033858267716596 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 654.8033858267716596 Td
+(**Employee Management**: Create, update, delete employee records) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 634.9608661417322537 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 634.9608661417322537 Td
+(**System Configuration**: Manage roles, departments, and system settings) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 615.1183464566928478 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 615.1183464566928478 Td
+(**Approval Workflows**: Review and approve employee registrations) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 595.2758267716535556 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 595.2758267716535556 Td
+(**Analytics Access**: View all reports and analytics dashboards) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 575.4333070866141497 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 575.4333070866141497 Td
+(**Onboarding Management**: Create and manage onboarding checklists) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 555.5907874015747439 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 555.5907874015747439 Td
+(**Psychometric Test Administration**: Configure tests and view all results) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 493.2285826771653205 Td
+(2. Branch Manager) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 459.2128346456692611 Td
+(Scope: Regional/branch-level management authority) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 439.3703149606298552 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 439.3703149606298552 Td
+(**Team Oversight**: Manage employees within their branch) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 419.5277952755905062 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 419.5277952755905062 Td
+(**Project Management**: Create and oversee branch projects) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 399.6852755905511003 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 399.6852755905511003 Td
+(**Performance Monitoring**: Track team performance metrics) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 379.8427559055117513 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 379.8427559055117513 Td
+(**Resource Allocation**: Assign tasks and manage workloads) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 360.0002362204724022 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 360.0002362204724022 Td
+(**Reporting**: Generate branch-specific reports) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 297.6380314960629221 Td
+(3. Team Lead) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 263.6222834645668627 Td
+(Focus: Direct team management and coordination) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 243.7797637795274568 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 243.7797637795274568 Td
+(**Team Management**: Supervise direct reports) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 223.9372440944881646 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 223.9372440944881646 Td
+(**Task Assignment**: Delegate and track team tasks) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 204.0947244094487587 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 204.0947244094487587 Td
+(**Project Coordination**: Lead project initiatives) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 184.2522047244093528 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 184.2522047244093528 Td
+(**Performance Evaluation**: Conduct team assessments) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 164.4096850393699469 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 164.4096850393699469 Td
+(**Communication Hub**: Facilitate team meetings and updates) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 102.0474803149605805 Td
+(4. Employee) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 3 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+9 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 10 0 R
+>>
+endobj
+10 0 obj
+<<
+/Length 4353
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 785.1970866141732586 Td
+(Access: Personal dashboard and assigned responsibilities) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 765.3545669291338527 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 765.3545669291338527 Td
+(**Personal Profile**: Manage personal information and preferences) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 745.5120472440944468 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 745.5120472440944468 Td
+(**Task Management**: View and update assigned tasks) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 725.6695275590550409 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 725.6695275590550409 Td
+(**Project Participation**: Collaborate on assigned projects) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 705.8270078740157487 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 705.8270078740157487 Td
+(**Self-Service**: Access company resources and policies) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 685.9844881889763428 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 685.9844881889763428 Td
+(**Time Tracking**: Log work hours and activities) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 623.6222834645668627 Td
+(5. Logistics Manager) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 589.6065354330708033 Td
+(Specialization: Equipment and resource management) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 569.7640157480313974 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 569.7640157480313974 Td
+(**Inventory Management**: Track company assets and equipment) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 549.9214960629921052 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 549.9214960629921052 Td
+(**Supply Chain**: Manage procurement and logistics) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 530.0789763779526993 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 530.0789763779526993 Td
+(**Equipment Assignment**: Allocate resources to employees) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 510.2364566929133503 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 510.2364566929133503 Td
+(**Maintenance Scheduling**: Oversee equipment maintenance) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 490.3939370078739444 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 490.3939370078739444 Td
+(**Vendor Management**: Handle supplier relationships) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 428.0317322834645211 Td
+(6. Department Head) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 394.0159842519684616 Td
+(Authority: Department-wide oversight and strategic planning) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 374.1734645669290558 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 374.1734645669290558 Td
+(**Strategic Planning**: Department goal setting and planning) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 354.3309448818897067 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 354.3309448818897067 Td
+(**Budget Management**: Control departmental budgets) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 334.4884251968503008 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 334.4884251968503008 Td
+(**Cross-functional Coordination**: Collaborate with other departments) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 314.6459055118109518 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 314.6459055118109518 Td
+(**Policy Implementation**: Ensure compliance with company policies) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 294.8033858267715459 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 294.8033858267715459 Td
+(**Performance Analytics**: Monitor department-wide metrics) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 218.2679527559054122 Td
+(Core Modules) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 141.7325196850392786 Td
+(1. Employee Management System) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 4 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+11 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 12 0 R
+>>
+endobj
+12 0 obj
+<<
+/Length 5017
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 785.1970866141732586 Td
+(Features:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 751.1813385826771992 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 751.1813385826771992 Td
+(**Comprehensive Employee Profiles**: 35+ data fields including personal, professional, and) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 731.3388188976377933 Td
+(emergency contacts) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 711.4962992125983874 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 711.4962992125983874 Td
+(**Document Management**: Secure storage of contracts, certificates, and personal documents) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 691.6537795275589815 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 691.6537795275589815 Td
+(**Profile Completion Tracking**: Visual progress indicators for profile completeness) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 671.8112598425196893 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 671.8112598425196893 Td
+(**Automated Data Validation**: Real-time validation with smart suggestions) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 651.9687401574802834 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 651.9687401574802834 Td
+(**Search and Filtering**: Advanced search capabilities across all employee data) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 589.6065354330708033 Td
+(Functionality:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 555.5907874015747439 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 555.5907874015747439 Td
+(Create new employee records with guided workflows) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 535.748267716535338 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 535.748267716535338 Td
+(Update employee information with audit trails) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 515.9057480314959321 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 515.9057480314959321 Td
+(Bulk import/export capabilities for large datasets) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 496.0632283464566399 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 496.0632283464566399 Td
+(Photo management with automatic resizing) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 476.2207086614172908 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 476.2207086614172908 Td
+(Emergency contact management with notification systems) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 413.8585039370078107 Td
+(2. Onboarding Management System) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 337.323070866141677 Td
+(Pre-Access Onboarding Portal:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 303.3073228346455608 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 303.3073228346455608 Td
+(**Public Access**: Token-based access without system login) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 283.4648031496062686 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 283.4648031496062686 Td
+(**Step-by-Step Guidance**: Interactive checklist with progress tracking) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 263.6222834645668627 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 263.6222834645668627 Td
+(**Document Collection**: Secure upload and storage of required documents) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 243.7797637795274568 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 243.7797637795274568 Td
+(**Automated Notifications**: Email reminders and status updates) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 223.9372440944881646 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 223.9372440944881646 Td
+(**Integration Ready**: Seamless transition to main system access) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 161.5750393700786844 Td
+(Interactive Onboarding Components:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 127.559291338582625 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 127.559291338582625 Td
+(**Psychometric Assessments**: Integrated personality and skill testing) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 107.7167716535432191 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 107.7167716535432191 Td
+(**Training Modules**: Interactive learning components) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 87.8742519685038133 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 87.8742519685038133 Td
+(**Equipment Setup**: Hardware and software configuration guides) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 5 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+13 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 14 0 R
+>>
+endobj
+14 0 obj
+<<
+/Length 4123
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 785.1970866141732586 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 785.1970866141732586 Td
+(**Document Uploads**: Drag-and-drop file management) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 765.3545669291338527 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 765.3545669291338527 Td
+(**Meeting Scheduling**: Calendar integration for onboarding meetings) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 745.5120472440944468 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 745.5120472440944468 Td
+(**Handbook Reviews**: Digital policy acknowledgment system) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 683.1498425196850803 Td
+(Automated Workflows:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 649.1340944881889072 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 649.1340944881889072 Td
+(Registration approval automatically triggers onboarding) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 629.291574803149615 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 629.291574803149615 Td
+(Email notifications with personalized onboarding links) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 609.4490551181102092 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 609.4490551181102092 Td
+(Progress tracking with automated escalations) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 589.6065354330708033 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 589.6065354330708033 Td
+(Completion certificates and welcome packages) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 527.2443307086614368 Td
+(3. Psychometric Testing Suite) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 450.7088976377952463 Td
+(Test Categories:) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 416.69314960629913 Td
+(1. Personality Assessment: Big Five personality traits analysis) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 396.850629921259781 Td
+(2. Cognitive Ability: Problem-solving and analytical thinking) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 377.0081102362204319 Td
+(3. Communication Skills: Written and verbal communication evaluation) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 357.1655905511810261 Td
+(4. Technical Competency: Role-specific skill assessments) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 337.323070866141677 Td
+(5. Culture Fit: Alignment with organizational values) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 274.9608661417322537 Td
+(Features:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 240.9451181102361943 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 240.9451181102361943 Td
+(**Adaptive Testing**: Questions adjust based on previous responses) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 221.1025984251967884 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 221.1025984251967884 Td
+(**Comprehensive Scoring**: Detailed analytics with percentile rankings) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 201.2600787401573825 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 201.2600787401573825 Td
+(**Batch Reporting**: Organization-wide assessment reports) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 181.4175590551179766 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 181.4175590551179766 Td
+(**PDF Export**: Professional reports for HR records) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 161.5750393700786844 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 161.5750393700786844 Td
+(**Analytics Dashboard**: Trend analysis and comparative metrics) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 99.2128346456692043 Td
+(Administration:) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 6 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+15 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 16 0 R
+>>
+endobj
+16 0 obj
+<<
+/Length 4595
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 785.1970866141732586 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 785.1970866141732586 Td
+(**Test Configuration**: Customize questions and scoring criteria) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 765.3545669291338527 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 765.3545669291338527 Td
+(**Results Management**: Secure storage and access controls) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 745.5120472440944468 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 745.5120472440944468 Td
+(**Benchmark Analytics**: Compare results across teams and departments) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 725.6695275590550409 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 725.6695275590550409 Td
+(**Integration**: Links with onboarding and performance management) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 663.3073228346456744 Td
+(4. Project Management System) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 586.7718897637794271 Td
+(Project Structure:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 552.7561417322833677 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 552.7561417322833677 Td
+(**Hierarchical Organization**: Projects, tasks, and subtasks) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 532.9136220472440755 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 532.9136220472440755 Td
+(**Role-Based Access**: Different permissions for stakeholders) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 513.0711023622046696 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 513.0711023622046696 Td
+(**Status Tracking**: Real-time progress monitoring) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 493.2285826771653205 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 493.2285826771653205 Td
+(**Budget Management**: Cost tracking and budget controls) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 473.3860629921259147 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 473.3860629921259147 Td
+(**Timeline Management**: Gantt charts and milestone tracking) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 411.0238582677164914 Td
+(Features:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 377.0081102362204319 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 377.0081102362204319 Td
+(**Collaborative Workspaces**: Team communication and file sharing) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 357.1655905511810261 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 357.1655905511810261 Td
+(**Task Assignment**: Automated workload distribution) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 337.323070866141677 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 337.323070866141677 Td
+(**Progress Reporting**: Visual dashboards and status reports) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 317.480551181102328 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 317.480551181102328 Td
+(**Resource Planning**: Team allocation and capacity management) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 297.6380314960629221 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 297.6380314960629221 Td
+(**Client Management**: External stakeholder communication) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 235.2758267716534419 Td
+(5. Task Management System) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 158.7403937007873083 Td
+(Task Organization:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 124.7246456692912489 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 124.7246456692912489 Td
+(**Priority Levels**: Low, Medium, High, Urgent classifications) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 104.882125984251843 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 104.882125984251843 Td
+(**Status Tracking**: Pending, In Progress, Completed, Overdue) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 85.0396062992125508 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 85.0396062992125508 Td
+(**Assignment System**: Individual and team task allocation) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 7 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+17 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 18 0 R
+>>
+endobj
+18 0 obj
+<<
+/Length 4583
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 785.1970866141732586 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 785.1970866141732586 Td
+(**Dependency Management**: Task relationships and prerequisites) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 765.3545669291338527 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 765.3545669291338527 Td
+(**Deadline Management**: Automated reminders and escalations) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 702.9923622047243725 Td
+(Advanced Features:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 668.9766141732283131 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 668.9766141732283131 Td
+(**Workload Balancing**: Intelligent task distribution) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 649.1340944881889072 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 649.1340944881889072 Td
+(**Performance Metrics**: Completion rates and efficiency tracking) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 629.291574803149615 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 629.291574803149615 Td
+(**Mobile Access**: Full functionality on mobile devices) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 609.4490551181102092 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 609.4490551181102092 Td
+(**Integration**: Links with project management and calendars) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 589.6065354330708033 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 589.6065354330708033 Td
+(**Reporting**: Individual and team performance analytics) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 527.2443307086614368 Td
+(6. Analytics and Reporting) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 450.7088976377952463 Td
+(HR Analytics Dashboard:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 416.69314960629913 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 416.69314960629913 Td
+(**Employee Metrics**: Headcount, turnover, demographics) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 396.850629921259781 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 396.850629921259781 Td
+(**Performance Analytics**: Individual and team performance trends) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 377.0081102362204319 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 377.0081102362204319 Td
+(**Recruitment Insights**: Hiring funnel and effectiveness metrics) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 357.1655905511810261 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 357.1655905511810261 Td
+(**Onboarding Success**: Completion rates and time-to-productivity) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 337.323070866141677 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 337.323070866141677 Td
+(**Engagement Metrics**: Employee satisfaction and engagement scores) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 274.9608661417322537 Td
+(Custom Reports:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 240.9451181102361943 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 240.9451181102361943 Td
+(**Automated Generation**: Scheduled reports via email) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 221.1025984251967884 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 221.1025984251967884 Td
+(**Interactive Dashboards**: Real-time data visualization) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 201.2600787401573825 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 201.2600787401573825 Td
+(**Export Capabilities**: PDF, Excel, and CSV formats) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 181.4175590551179766 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 181.4175590551179766 Td
+(**Compliance Reporting**: Regulatory and audit reports) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 161.5750393700786844 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 161.5750393700786844 Td
+(**Predictive Analytics**: Turnover prediction and trend analysis) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 99.2128346456692043 Td
+(7. Communication and Collaboration) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 8 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+19 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 20 0 R
+>>
+endobj
+20 0 obj
+<<
+/Length 4994
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 785.1970866141732586 Td
+(Team Meetings:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 751.1813385826771992 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 751.1813385826771992 Td
+(**Meeting Scheduling**: Calendar integration with automatic invites) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 731.3388188976377933 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 731.3388188976377933 Td
+(**Agenda Management**: Template-based meeting agendas) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 711.4962992125983874 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 711.4962992125983874 Td
+(**Minutes Tracking**: Automated action item assignment) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 691.6537795275589815 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 691.6537795275589815 Td
+(**Video Integration**: Links with popular video conferencing tools) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 671.8112598425196893 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 671.8112598425196893 Td
+(**Follow-up Automation**: Automatic reminder systems) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 609.4490551181102092 Td
+(Announcements System:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 575.4333070866141497 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 575.4333070866141497 Td
+(**Company-Wide Broadcasting**: Organization-wide communications) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 555.5907874015747439 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 555.5907874015747439 Td
+(**Department Targeting**: Role and department-specific messages) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 535.748267716535338 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 535.748267716535338 Td
+(**Rich Media Support**: Images, videos, and document attachments) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 515.9057480314959321 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 515.9057480314959321 Td
+(**Engagement Tracking**: Read receipts and response analytics) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 496.0632283464566399 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 496.0632283464566399 Td
+(**Emergency Notifications**: Critical communication channels) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 433.7010236220471597 Td
+(8. Recognition and Rewards) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 357.1655905511810261 Td
+(Recognition Programs:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 323.1498425196849666 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 323.1498425196849666 Td
+(**Peer Nominations**: Employee-to-employee recognition) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 303.3073228346455608 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 303.3073228346455608 Td
+(**Achievement Tracking**: Milestone and accomplishment records) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 283.4648031496062686 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 283.4648031496062686 Td
+(**Reward Catalog**: Points-based reward system) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 263.6222834645668627 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 263.6222834645668627 Td
+(**Public Recognition**: Company-wide celebration features) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 243.7797637795274568 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 243.7797637795274568 Td
+(**Performance Integration**: Links with performance management) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 181.4175590551179766 Td
+(Features:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 147.4018110236219172 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 147.4018110236219172 Td
+(**Social Recognition**: Public praise and acknowledgment) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 127.559291338582625 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 127.559291338582625 Td
+(**Points System**: Gamified recognition with rewards) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 107.7167716535432191 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 107.7167716535432191 Td
+(**Certificate Generation**: Automated achievement certificates) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 87.8742519685038133 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 87.8742519685038133 Td
+(**Analytics**: Recognition trends and engagement metrics) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 9 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+21 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 22 0 R
+>>
+endobj
+22 0 obj
+<<
+/Length 4343
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 785.1970866141732586 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 785.1970866141732586 Td
+(**Integration**: Links with performance reviews and promotions) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 722.8348818897637784 Td
+(9. Logistics and Resource Management) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 646.2994488188976447 Td
+(Inventory Management:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 612.2837007874015853 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 612.2837007874015853 Td
+(**Asset Tracking**: Complete inventory of company resources) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 592.4411811023621794 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 592.4411811023621794 Td
+(**Equipment Assignment**: Employee-specific equipment allocation) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 572.5986614173227736 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 572.5986614173227736 Td
+(**Maintenance Scheduling**: Preventive maintenance planning) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 552.7561417322833677 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 552.7561417322833677 Td
+(**Procurement Management**: Vendor relations and purchasing) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 532.9136220472440755 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 532.9136220472440755 Td
+(**Cost Tracking**: Budget management and expense control) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 470.5514173228345953 Td
+(Features:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 436.5356692913385359 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 436.5356692913385359 Td
+(**Barcode Integration**: Quick asset identification and tracking) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 416.69314960629913 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 416.69314960629913 Td
+(**Mobile Access**: Field-based inventory management) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 396.850629921259781 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 396.850629921259781 Td
+(**Automated Reordering**: Smart procurement triggers) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 377.0081102362204319 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 377.0081102362204319 Td
+(**Depreciation Tracking**: Asset value management) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 357.1655905511810261 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 357.1655905511810261 Td
+(**Reporting**: Comprehensive inventory and cost reports) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 294.8033858267715459 Td
+(10. Settings and Configuration) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 218.2679527559054122 Td
+(System Administration:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 184.2522047244093528 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 184.2522047244093528 Td
+(**Role Management**: Create and modify user roles) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 164.4096850393699469 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 164.4096850393699469 Td
+(**Permission Controls**: Granular access control settings) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 144.5671653543306547 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 144.5671653543306547 Td
+(**Department Management**: Organizational structure configuration) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 124.7246456692912489 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 124.7246456692912489 Td
+(**Integration Settings**: Third-party system connections) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 104.882125984251843 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 104.882125984251843 Td
+(**Security Configuration**: Authentication and access policies) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 10 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+23 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 24 0 R
+>>
+endobj
+24 0 obj
+<<
+/Length 4836
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 785.1970866141732586 Td
+(Customization:) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+70.8661417322834666 751.1813385826771992 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 751.1813385826771992 Td
+(**Branding Options**: Company logo and color customization) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 731.3388188976377933 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 731.3388188976377933 Td
+(**Workflow Configuration**: Custom approval processes) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 711.4962992125983874 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 711.4962992125983874 Td
+(**Form Customization**: Tailored data collection forms) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 691.6537795275589815 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 691.6537795275589815 Td
+(**Notification Settings**: Communication preferences) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 671.8112598425196893 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 671.8112598425196893 Td
+(**Backup Management**: Data protection and recovery options) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 595.2758267716535556 Td
+(Authentication and Security) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 518.7403937007873083 Td
+(Authentication System) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 484.7246456692913057 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 484.7246456692913057 Td
+(**Replit Auth Integration**: OpenID Connect \(OIDC\) standard implementation) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 464.8821259842518998 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 464.8821259842518998 Td
+(**Session Management**: Server-side sessions with PostgreSQL storage) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 445.0396062992125508 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 445.0396062992125508 Td
+(**Multi-Factor Authentication**: Optional 2FA for enhanced security) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 425.1970866141731449 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 425.1970866141731449 Td
+(**Single Sign-On**: Integration capabilities with enterprise systems) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 405.3545669291337958 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 405.3545669291337958 Td
+(**Password Policies**: Configurable complexity requirements) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 342.9923622047243725 Td
+(Security Features) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 308.9766141732283131 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 308.9766141732283131 Td
+(**Role-Based Access Control \(RBAC\)**: Granular permission management) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 289.1340944881889072 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 289.1340944881889072 Td
+(**Data Encryption**: End-to-end encryption for sensitive data) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 269.2915748031495013 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 269.2915748031495013 Td
+(**Audit Trails**: Comprehensive logging of all system activities) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 249.4490551181102092 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 249.4490551181102092 Td
+(**Session Security**: HTTP-only cookies with CSRF protection) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 229.6065354330708033 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 229.6065354330708033 Td
+(**Data Privacy**: GDPR and compliance-ready data handling) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 167.2443307086613231 Td
+(Public Access Controls) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 133.2285826771652637 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 133.2285826771652637 Td
+(**Token-Based Access**: Secure onboarding portal access) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 113.3860629921258578 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 113.3860629921258578 Td
+(**Time-Limited Tokens**: Automatic expiration for security) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 93.5435433070865656 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 93.5435433070865656 Td
+(**Email Verification**: Multi-step verification process) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 11 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+25 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 26 0 R
+>>
+endobj
+26 0 obj
+<<
+/Length 5049
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 785.1970866141732586 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 785.1970866141732586 Td
+(**IP Restriction**: Optional geographic access controls) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 765.3545669291338527 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 765.3545669291338527 Td
+(**Rate Limiting**: Protection against brute force attacks) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 688.819133858267719 Td
+(Technical Specifications) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 612.2837007874015853 Td
+(Frontend Architecture) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 578.2679527559055259 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 578.2679527559055259 Td
+(**Framework**: React 18 with TypeScript for type safety) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 558.42543307086612 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 558.42543307086612 Td
+(**Build System**: Vite for fast development and optimized builds) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 538.5829133858267141 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 538.5829133858267141 Td
+(**UI Components**: shadcn/ui built on Radix UI primitives) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 518.7403937007873083 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 518.7403937007873083 Td
+(**Styling**: Tailwind CSS with custom design system) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 498.8978740157479592 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 498.8978740157479592 Td
+(**State Management**: TanStack React Query for server state) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 479.0553543307086102 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 479.0553543307086102 Td
+(**Routing**: Wouter for lightweight client-side routing) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 459.2128346456692611 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 459.2128346456692611 Td
+(**Form Management**: React Hook Form with Zod validation) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 396.850629921259781 Td
+(Backend Architecture) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 362.8348818897637216 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 362.8348818897637216 Td
+(**Runtime**: Node.js with Express.js framework) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 342.9923622047243725 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 342.9923622047243725 Td
+(**Language**: TypeScript for full-stack type safety) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 323.1498425196849666 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 323.1498425196849666 Td
+(**API Design**: RESTful API with OpenAPI documentation) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 303.3073228346455608 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 303.3073228346455608 Td
+(**Session Management**: Express sessions with PostgreSQL storage) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 283.4648031496062686 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 283.4648031496062686 Td
+(**File Processing**: Multi-format support with validation) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 263.6222834645668627 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 263.6222834645668627 Td
+(**Email System**: Nodemailer with HTML template support) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 201.2600787401573825 Td
+(Database Design) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 167.2443307086613231 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 167.2443307086613231 Td
+(**Primary Database**: PostgreSQL with Neon serverless hosting) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 147.4018110236219172 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 147.4018110236219172 Td
+(**ORM**: Drizzle ORM for type-safe database operations) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 127.559291338582625 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 127.559291338582625 Td
+(**Schema Management**: Version-controlled migrations) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 107.7167716535432191 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 107.7167716535432191 Td
+(**Performance**: Optimized queries with proper indexing) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 87.8742519685038133 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 87.8742519685038133 Td
+(**Backup Strategy**: Automated daily backups with point-in-time recovery) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 12 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+27 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 28 0 R
+>>
+endobj
+28 0 obj
+<<
+/Length 2686
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 785.1970866141732586 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 785.1970866141732586 Td
+(**Scalability**: Horizontal scaling capabilities with connection pooling) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 722.8348818897637784 Td
+(Infrastructure) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 688.819133858267719 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 688.819133858267719 Td
+(**Hosting**: Replit deployment platform) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 668.9766141732283131 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 668.9766141732283131 Td
+(**CDN**: Global content delivery for optimal performance) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 649.1340944881889072 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 649.1340944881889072 Td
+(**Monitoring**: Real-time application and database monitoring) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 629.291574803149615 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 629.291574803149615 Td
+(**Logging**: Structured logging with error tracking) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 609.4490551181102092 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 609.4490551181102092 Td
+(**Performance**: Optimized for sub-second response times) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 532.9136220472440755 Td
+(API Endpoints) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 456.378188976377885 Td
+(Authentication Endpoints) Tj
+ET
+0.96 g
+56.6929133858267775 422.3624409448818255 481.8897637795275841 -127.5590551181102512 re
+f
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 408.1892125984251152 Td
+(GET  /api/auth/user           - Get current user information) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 388.3466929133857661 Td
+(POST /api/auth/login          - User login) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 368.5041732283464171 Td
+(POST /api/auth/logout         - User logout) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 348.6616535433070112 Td
+(POST /api/auth/register       - User registration) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 252.2837007874014716 Td
+(Employee Management) Tj
+ET
+0.96 g
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 13 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+29 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 30 0 R
+>>
+endobj
+30 0 obj
+<<
+/Length 3472
+>>
+stream
+0.5670000000000001 w
+0 G
+56.6929133858267775 799.3703149606299121 481.8897637795275841 -187.0866141732283552 re
+f
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 785.1970866141732586 Td
+(GET    /api/employees         - List all employees) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 765.3545669291338527 Td
+(GET    /api/employees/:id     - Get specific employee) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 745.5120472440944468 Td
+(POST   /api/employees         - Create new employee) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 725.6695275590550409 Td
+(PUT    /api/employees/:id     - Update employee) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 705.8270078740157487 Td
+(DELETE /api/employees/:id     - Delete employee) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 685.9844881889763428 Td
+(GET    /api/employees/profile - Get current user profile) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 666.1419685039369369 Td
+(PUT    /api/employees/profile - Update current user profile) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 569.7640157480313974 Td
+(Project Management) Tj
+ET
+0.96 g
+56.6929133858267775 535.748267716535338 481.8897637795275841 -167.2440944881890061 re
+f
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 521.5750393700786844 Td
+(GET    /api/projects          - List all projects) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 501.7325196850393354 Td
+(GET    /api/projects/:id      - Get specific project) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 481.8899999999999295 Td
+(POST   /api/projects          - Create new project) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 462.0474803149605805 Td
+(PUT    /api/projects/:id      - Update project) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 442.2049606299212314 Td
+(DELETE /api/projects/:id      - Delete project) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 422.3624409448818255 Td
+(GET    /api/projects/:id/tasks - Get project tasks) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 325.9844881889763428 Td
+(Task Management) Tj
+ET
+0.96 g
+56.6929133858267775 291.9687401574802266 481.8897637795275841 -167.2440944881890061 re
+f
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 277.7955118110235162 Td
+(GET    /api/tasks             - List all tasks) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 257.952992125984224 Td
+(GET    /api/tasks/:id         - Get specific task) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 238.1104724409448181 Td
+(POST   /api/tasks             - Create new task) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 218.2679527559054122 Td
+(PUT    /api/tasks/:id         - Update task) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 198.4254330708660063 Td
+(DELETE /api/tasks/:id         - Delete task) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 178.5829133858267141 Td
+(PUT    /api/tasks/:id/status  - Update task status) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 14 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+31 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 32 0 R
+>>
+endobj
+32 0 obj
+<<
+/Length 3420
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 785.1970866141732586 Td
+(Onboarding System) Tj
+ET
+0.96 g
+56.6929133858267775 751.1813385826770855 481.8897637795275841 -147.4015748031496287 re
+f
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 737.0081102362204319 Td
+(GET    /api/onboarding/checklist/:token     - Get onboarding checklist) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 717.1655905511811397 Td
+(PUT    /api/onboarding/progress/:token      - Update onboarding progress) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 697.3230708661417339 Td
+(POST   /api/onboarding/complete/:token      - Complete onboarding) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 677.480551181102328 Td
+(GET    /api/onboarding/steps/:id            - Get onboarding steps) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 657.6380314960629221 Td
+(POST   /api/onboarding/upload/:token        - Upload onboarding documents) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 561.2600787401574962 Td
+(Psychometric Testing) Tj
+ET
+0.96 g
+56.6929133858267775 527.2443307086613231 481.8897637795275841 -147.4015748031496287 re
+f
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 513.0711023622046696 Td
+(GET    /api/psychometric-tests              - List available tests) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 493.2285826771653205 Td
+(GET    /api/psychometric-tests/:id          - Get specific test) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 473.3860629921259147 Td
+(POST   /api/psychometric-tests/attempt      - Submit test attempt) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 453.5435433070865656 Td
+(GET    /api/psychometric-results/all        - Get all test results \(HR only\)) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 433.7010236220471597 Td
+(GET    /api/psychometric-results/:id        - Get specific test result) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 337.323070866141677 Td
+(Analytics and Reporting) Tj
+ET
+0.96 g
+56.6929133858267775 303.3073228346455608 481.8897637795275841 -147.4015748031496287 re
+f
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 289.1340944881889072 Td
+(GET    /api/analytics/dashboard             - Get dashboard metrics) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 269.2915748031495013 Td
+(GET    /api/analytics/employees             - Employee analytics) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 249.4490551181102092 Td
+(GET    /api/analytics/projects              - Project analytics) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 229.6065354330708033 Td
+(GET    /api/analytics/performance           - Performance metrics) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 209.7640157480313974 Td
+(POST   /api/reports/generate                - Generate custom reports) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 99.2128346456692043 Td
+(Database Schema) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 15 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+33 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 34 0 R
+>>
+endobj
+34 0 obj
+<<
+/Length 2459
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 785.1970866141732586 Td
+(Core Tables) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 708.6616535433070112 Td
+(Users Table) Tj
+ET
+0.96 g
+56.6929133858267775 674.6459055118109518 481.8897637795275841 -306.1417322834645915 re
+f
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 660.4726771653542983 Td
+(- id: Primary key \(serial\)) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 640.6301574803148924 Td
+(- username: Unique identifier) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 620.7876377952754865 Td
+(- email: Contact email \(unique\)) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 600.9451181102361943 Td
+(- password: Encrypted password) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 581.1025984251967884 Td
+(- firstName, lastName: Personal information) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 561.2600787401574962 Td
+(- role: Enum \(hr_admin, branch_manager, team_lead, employee, logistics_manager, department_head\)) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 541.4175590551180903 Td
+(- status: Enum \(active, inactive, onboarding, terminated, pending_approval\)) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 521.5750393700786844 Td
+(- department: Department assignment) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 501.7325196850393354 Td
+(- position: Job title) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 481.8899999999999295 Td
+(- managerId: Hierarchical reporting structure) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 462.0474803149605805 Td
+(- onboardingToken: Secure onboarding access) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 442.2049606299212314 Td
+(- accountEnabled: Account activation status) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 422.3624409448818255 Td
+(- Created/updated timestamps) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 325.9844881889763428 Td
+(Projects Table) Tj
+ET
+0.96 g
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 16 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+35 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 36 0 R
+>>
+endobj
+36 0 obj
+<<
+/Length 3389
+>>
+stream
+0.5670000000000001 w
+0 G
+56.6929133858267775 799.3703149606299121 481.8897637795275841 -246.6141732283464876 re
+f
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 785.1970866141732586 Td
+(- id: Primary key \(serial\)) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 765.3545669291338527 Td
+(- name: Project name) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 745.5120472440944468 Td
+(- description: Detailed description) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 725.6695275590550409 Td
+(- projectManagerId: Foreign key to users) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 705.8270078740157487 Td
+(- status: Enum \(planning, active, on_hold, completed, cancelled\)) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 685.9844881889763428 Td
+(- startDate, endDate: Timeline management) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 666.1419685039369369 Td
+(- budget: Financial tracking) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 646.2994488188976447 Td
+(- priority: Enum \(low, medium, high, urgent\)) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 626.4569291338582389 Td
+(- clientName: External client information) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 606.614409448818833 Td
+(- Created/updated timestamps) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 510.2364566929133503 Td
+(Tasks Table) Tj
+ET
+0.96 g
+56.6929133858267775 476.220708661417234 481.8897637795275841 -266.4566929133858366 re
+f
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 462.0474803149605805 Td
+(- id: Primary key \(serial\)) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 442.2049606299212314 Td
+(- title: Task name) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 422.3624409448818255 Td
+(- description: Detailed description) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 402.5199212598424765 Td
+(- assigneeId: Foreign key to users) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 382.6774015748030706 Td
+(- projectId: Foreign key to projects \(optional\)) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 362.8348818897637216 Td
+(- status: Enum \(pending, in_progress, completed, overdue\)) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 342.9923622047243725 Td
+(- priority: Enum \(low, medium, high, urgent\)) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 323.1498425196849666 Td
+(- dueDate: Deadline management) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 303.3073228346455608 Td
+(- estimatedHours: Time estimation) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 283.4648031496062686 Td
+(- actualHours: Time tracking) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 263.6222834645668627 Td
+(- Created/updated timestamps) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 167.2443307086613231 Td
+(Onboarding Tables) Tj
+ET
+0.96 g
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 17 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+37 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 38 0 R
+>>
+endobj
+38 0 obj
+<<
+/Length 3491
+>>
+stream
+0.5670000000000001 w
+0 G
+56.6929133858267775 799.3703149606299121 481.8897637795275841 -206.9291338582677326 re
+f
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 785.1970866141732586 Td
+(OnboardingChecklists:) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 765.3545669291338527 Td
+(- id, title, description, isActive) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 745.5120472440944468 Td
+(- steps: JSON array of onboarding steps) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 705.8270078740157487 Td
+(OnboardingProgress:) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 685.9844881889763428 Td
+(- id, userId, checklistId, currentStep, isCompleted) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 666.1419685039369369 Td
+(- completedSteps: JSON array tracking progress) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 646.2994488188976447 Td
+(- completionDate: Final completion timestamp) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+56.6929133858267775 549.9214960629921052 Td
+(Psychometric Testing) Tj
+ET
+0.96 g
+56.6929133858267775 515.9057480314960458 481.8897637795275841 -206.9291338582677326 re
+f
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 501.7325196850393354 Td
+(PsychometricTests:) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 481.8899999999999295 Td
+(- id, title, category, description, questions \(JSON\)) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 462.0474803149605805 Td
+(- timeLimit, passingScore, isActive) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 422.3624409448818255 Td
+(PsychometricTestAttempts:) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 402.5199212598424765 Td
+(- id, testId, candidateEmail, candidateName) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 382.6774015748030706 Td
+(- answers \(JSON\), score, percentageScore) Tj
+ET
+BT
+/F5 9 Tf
+10.3499999999999996 TL
+0 g
+70.8661417322834666 362.8348818897637216 Td
+(- completedAt, timeSpent) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 266.4569291338582389 Td
+(Relationships and Constraints) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 232.4411811023621794 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 232.4411811023621794 Td
+(Foreign key constraints ensure data integrity) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 212.5986614173227736 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 212.5986614173227736 Td
+(Cascading deletes for related records) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 192.7561417322833677 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 192.7561417322833677 Td
+(Indexes on frequently queried columns) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 172.9136220472439618 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 172.9136220472439618 Td
+(Enum constraints for data validation) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 153.0711023622046696 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 153.0711023622046696 Td
+(Unique constraints prevent duplicate data) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 18 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+39 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 40 0 R
+>>
+endobj
+40 0 obj
+<<
+/Length 4792
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 785.1970866141732586 Td
+(Deployment and Infrastructure) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 708.6616535433070112 Td
+(Development Environment) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 674.6459055118109518 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 674.6459055118109518 Td
+(**Local Development**: Replit development environment) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 654.8033858267716596 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 654.8033858267716596 Td
+(**Hot Reloading**: Instant updates during development) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 634.9608661417322537 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 634.9608661417322537 Td
+(**TypeScript Checking**: Real-time type validation) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 615.1183464566928478 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 615.1183464566928478 Td
+(**Database**: Local PostgreSQL with Neon connection) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 595.2758267716535556 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 595.2758267716535556 Td
+(**Environment Variables**: Secure configuration management) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 532.9136220472440755 Td
+(Production Deployment) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 498.8978740157479592 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 498.8978740157479592 Td
+(**Platform**: Replit deployment infrastructure) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 479.0553543307086102 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 479.0553543307086102 Td
+(**Database**: Neon serverless PostgreSQL) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 459.2128346456692611 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 459.2128346456692611 Td
+(**Domain**: Custom domain support with SSL) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 439.3703149606298552 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 439.3703149606298552 Td
+(**Monitoring**: Real-time performance monitoring) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 419.5277952755905062 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 419.5277952755905062 Td
+(**Backup**: Automated database backups) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 399.6852755905511003 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 399.6852755905511003 Td
+(**Scaling**: Automatic scaling based on traffic) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 337.323070866141677 Td
+(Performance Optimization) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 303.3073228346455608 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 303.3073228346455608 Td
+(**Frontend**: Code splitting and lazy loading) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 283.4648031496062686 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 283.4648031496062686 Td
+(**Backend**: Efficient database queries and caching) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 263.6222834645668627 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 263.6222834645668627 Td
+(**Assets**: Optimized images and static files) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 243.7797637795274568 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 243.7797637795274568 Td
+(**CDN**: Global content delivery network) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 223.9372440944881646 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 223.9372440944881646 Td
+(**Monitoring**: Performance tracking and alerting) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 161.5750393700786844 Td
+(Security Measures) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 127.559291338582625 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 127.559291338582625 Td
+(**SSL/TLS**: End-to-end encryption) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 107.7167716535432191 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 107.7167716535432191 Td
+(**Environment Variables**: Secure secret management) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 87.8742519685038133 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 87.8742519685038133 Td
+(**Access Control**: Role-based permissions) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 19 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+41 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 42 0 R
+>>
+endobj
+42 0 obj
+<<
+/Length 4313
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 785.1970866141732586 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 785.1970866141732586 Td
+(**Audit Logging**: Comprehensive activity tracking) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 765.3545669291338527 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 765.3545669291338527 Td
+(**Data Protection**: GDPR compliance ready) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 688.819133858267719 Td
+(Integration Capabilities) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 612.2837007874015853 Td
+(Email Integration) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 578.2679527559055259 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 578.2679527559055259 Td
+(**SMTP Configuration**: Custom email server support) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 558.42543307086612 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 558.42543307086612 Td
+(**Template System**: Professional HTML email templates) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 538.5829133858267141 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 538.5829133858267141 Td
+(**Automation**: Triggered email notifications) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 518.7403937007873083 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 518.7403937007873083 Td
+(**Tracking**: Delivery and engagement analytics) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 498.8978740157479592 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 498.8978740157479592 Td
+(**Compliance**: Unsubscribe and privacy controls) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 436.5356692913385359 Td
+(Calendar Integration) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 402.5199212598424765 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 402.5199212598424765 Td
+(**Meeting Scheduling**: Automatic calendar invites) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 382.6774015748030706 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 382.6774015748030706 Td
+(**Reminder System**: Automated deadline reminders) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 362.8348818897637216 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 362.8348818897637216 Td
+(**Availability Checking**: Team calendar coordination) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 342.9923622047243725 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 342.9923622047243725 Td
+(**Time Zone Support**: Global team coordination) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 323.1498425196849666 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 323.1498425196849666 Td
+(**External Calendars**: Google Calendar, Outlook integration) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 260.7876377952754865 Td
+(File Storage Integration) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 226.7718897637794271 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 226.7718897637794271 Td
+(**Document Management**: Secure file storage and retrieval) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 206.9293700787401349 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 206.9293700787401349 Td
+(**Version Control**: Document versioning and history) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 187.086850393700729 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 187.086850393700729 Td
+(**Access Control**: Permission-based file access) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 167.2443307086613231 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 167.2443307086613231 Td
+(**Backup System**: Automated file backup and recovery) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 147.4018110236219172 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 147.4018110236219172 Td
+(**Format Support**: Wide range of document formats) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 20 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+43 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 44 0 R
+>>
+endobj
+44 0 obj
+<<
+/Length 4647
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 785.1970866141732586 Td
+(Third-Party Integrations) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 751.1813385826771992 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 751.1813385826771992 Td
+(**Slack/Teams**: Communication platform integration) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 731.3388188976377933 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 731.3388188976377933 Td
+(**Zoom/Meet**: Video conferencing integration) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 711.4962992125983874 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 711.4962992125983874 Td
+(**Jira/Asana**: Project management tool synchronization) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 691.6537795275589815 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 691.6537795275589815 Td
+(**Workday/BambooHR**: HRIS system integration) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 671.8112598425196893 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 671.8112598425196893 Td
+(**Single Sign-On**: Enterprise authentication systems) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 595.2758267716535556 Td
+(Support and Maintenance) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 518.7403937007873083 Td
+(Documentation) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 484.7246456692913057 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 484.7246456692913057 Td
+(**User Guides**: Comprehensive user documentation) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 464.8821259842518998 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 464.8821259842518998 Td
+(**API Documentation**: Complete API reference) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 445.0396062992125508 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 445.0396062992125508 Td
+(**Admin Guides**: System administration manuals) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 425.1970866141731449 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 425.1970866141731449 Td
+(**Video Tutorials**: Step-by-step video guides) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 405.3545669291337958 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 405.3545669291337958 Td
+(**FAQ**: Frequently asked questions database) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 342.9923622047243725 Td
+(Training and Support) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 308.9766141732283131 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 308.9766141732283131 Td
+(**Onboarding Training**: New user orientation programs) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 289.1340944881889072 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 289.1340944881889072 Td
+(**Advanced Training**: Power user and admin training) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 269.2915748031495013 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 269.2915748031495013 Td
+(**Help Desk**: Technical support system) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 249.4490551181102092 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 249.4490551181102092 Td
+(**Community Forum**: User community and knowledge sharing) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 229.6065354330708033 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 229.6065354330708033 Td
+(**Professional Services**: Custom implementation support) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 167.2443307086613231 Td
+(Maintenance and Updates) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 133.2285826771652637 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 133.2285826771652637 Td
+(**Regular Updates**: Feature enhancements and bug fixes) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 113.3860629921258578 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 113.3860629921258578 Td
+(**Security Patches**: Timely security updates) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 93.5435433070865656 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 93.5435433070865656 Td
+(**Performance Optimization**: Continuous performance improvements) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 21 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+45 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 46 0 R
+>>
+endobj
+46 0 obj
+<<
+/Length 3937
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 785.1970866141732586 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 785.1970866141732586 Td
+(**Database Maintenance**: Regular optimization and cleanup) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 765.3545669291338527 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 765.3545669291338527 Td
+(**Monitoring**: 24/7 system monitoring and alerts) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 688.819133858267719 Td
+(Future Roadmap) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 612.2837007874015853 Td
+(Planned Features) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 578.2679527559055259 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 578.2679527559055259 Td
+(**AI-Powered Analytics**: Machine learning insights) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 558.42543307086612 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 558.42543307086612 Td
+(**Mobile Applications**: Native iOS and Android apps) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 538.5829133858267141 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 538.5829133858267141 Td
+(**Advanced Automation**: Workflow automation engine) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 518.7403937007873083 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 518.7403937007873083 Td
+(**Real-time Collaboration**: Live document collaboration) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 498.8978740157479592 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 498.8978740157479592 Td
+(**Voice Commands**: Voice-activated system controls) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+56.6929133858267775 436.5356692913385359 Td
+(Technology Upgrades) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+70.8661417322834666 402.5199212598424765 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 402.5199212598424765 Td
+(**Microservices Architecture**: Scalable service architecture) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 382.6774015748030706 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 382.6774015748030706 Td
+(**GraphQL API**: Enhanced API capabilities) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 362.8348818897637216 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 362.8348818897637216 Td
+(**Progressive Web App**: Offline-capable web application) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 342.9923622047243725 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 342.9923622047243725 Td
+(**Real-time Updates**: WebSocket-based live updates) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+70.8661417322834666 323.1498425196849666 Td
+(•) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+99.2125984251968589 323.1498425196849666 Td
+(**Advanced Security**: Biometric authentication options) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 274.9608661417322537 Td
+(*This documentation is maintained and updated regularly to reflect the current state of the Meeting Matters) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 255.1183464566928478 Td
+(HR Management System. For the most up-to-date information, please refer to the latest version of this) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 235.2758267716534419 Td
+(document.*) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 201.2600787401573825 Td
+(Document Version: 1.0  ) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 181.4175590551179766 Td
+(Last Updated: August 11, 2025  ) Tj
+ET
+BT
+/F2 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 161.5750393700786844 Td
+(Next Review Date: November 11, 2025) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+56.6929133858267775 28.3466929133857093 Td
+(Meeting Matters HR System Documentation - Page 22 of 22) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0 g
+396.8503937007874356 28.3466929133857093 Td
+(Confidential - Internal Use Only) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R 29 0 R 31 0 R 33 0 R 35 0 R 37 0 R 39 0 R 41 0 R 43 0 R 45 0 R ]
+/Count 22
+>>
+endobj
+47 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+48 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+49 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+50 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+51 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+52 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+53 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+54 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+55 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+56 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+57 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+58 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+59 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+60 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 47 0 R
+/F2 48 0 R
+/F3 49 0 R
+/F4 50 0 R
+/F5 51 0 R
+/F6 52 0 R
+/F7 53 0 R
+/F8 54 0 R
+/F9 55 0 R
+/F10 56 0 R
+/F11 57 0 R
+/F12 58 0 R
+/F13 59 0 R
+/F14 60 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+61 0 obj
+<<
+/Producer (jsPDF 3.0.1)
+/CreationDate (D:20250811110521-00'00')
+>>
+endobj
+62 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 63
+0000000000 65535 f 
+0000092464 00000 n 
+0000094431 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000001596 00000 n 
+0000001733 00000 n 
+0000005446 00000 n 
+0000005583 00000 n 
+0000010318 00000 n 
+0000010456 00000 n 
+0000014862 00000 n 
+0000015001 00000 n 
+0000020071 00000 n 
+0000020210 00000 n 
+0000024386 00000 n 
+0000024525 00000 n 
+0000029173 00000 n 
+0000029312 00000 n 
+0000033948 00000 n 
+0000034087 00000 n 
+0000039134 00000 n 
+0000039273 00000 n 
+0000043669 00000 n 
+0000043808 00000 n 
+0000048697 00000 n 
+0000048836 00000 n 
+0000053938 00000 n 
+0000054077 00000 n 
+0000056816 00000 n 
+0000056955 00000 n 
+0000060480 00000 n 
+0000060619 00000 n 
+0000064092 00000 n 
+0000064231 00000 n 
+0000066743 00000 n 
+0000066882 00000 n 
+0000070324 00000 n 
+0000070463 00000 n 
+0000074007 00000 n 
+0000074146 00000 n 
+0000078991 00000 n 
+0000079130 00000 n 
+0000083496 00000 n 
+0000083635 00000 n 
+0000088335 00000 n 
+0000088474 00000 n 
+0000092666 00000 n 
+0000092792 00000 n 
+0000092923 00000 n 
+0000093057 00000 n 
+0000093195 00000 n 
+0000093319 00000 n 
+0000093448 00000 n 
+0000093580 00000 n 
+0000093716 00000 n 
+0000093844 00000 n 
+0000093971 00000 n 
+0000094100 00000 n 
+0000094233 00000 n 
+0000094335 00000 n 
+0000094684 00000 n 
+0000094770 00000 n 
+trailer
+<<
+/Size 63
+/Root 62 0 R
+/Info 61 0 R
+/ID [ <9FB7A8BDAE13F2855F2639DBEE58C5C6> <9FB7A8BDAE13F2855F2639DBEE58C5C6> ]
+>>
+startxref
+94874
+%%EOF

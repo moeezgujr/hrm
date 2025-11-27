@@ -1,0 +1,22 @@
+USAMA'S WORKING ONBOARDING LINK
+==============================
+
+URL: http://localhost:5000/employee-onboarding?token=onb_1755150300000_usama_test
+
+This link provides access to:
+- Complete Employee Handbook Review
+- Submit Required Documents (CV, CNIC Copy, Profile Picture) ✅ WORKING
+- Set Up Direct Deposit (already completed)
+- Complete Safety Training  
+- Complete Personality Assessment
+- Set Up IT Equipment
+
+The document upload functionality is now working properly.
+You can upload:
+- CV/Resume (PDF format, max 15MB)
+- CNIC Copy (PDF/JPEG/PNG, max 10MB)  
+- Profile Picture (JPEG/PNG, max 5MB)
+
+API ENDPOINTS WORKING:
+- GET /api/public/onboarding/onb_1755150300000_usama_test (fetches checklist)
+- PUT /api/public/onboarding/onb_1755150300000_usama_test/item/12 (uploads documents)

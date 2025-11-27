@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222, 84%, 4.9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222, 84%, 4.9%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222, 84%, 4.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(210, 40%, 96%);
+  --secondary-foreground: hsl(222, 84%, 4.9%);
+  --muted: hsl(210, 40%, 96%);
+  --muted-foreground: hsl(215, 13%, 65%);
+  --accent: hsl(123, 38%, 57%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --ring: hsl(222, 84%, 4.9%);
+  --radius: 0.5rem;
+  --warning: hsl(33, 100%, 50%);
+  --warning-foreground: hsl(210, 40%, 98%);
+  --surface: hsl(0, 0%, 100%);
+  --surface-foreground: hsl(222, 84%, 4.9%);
+  --gray-50: hsl(210, 40%, 98%);
+  --gray-100: hsl(210, 40%, 96%);
+  --gray-200: hsl(214, 32%, 91%);
+  --gray-300: hsl(213, 27%, 84%);
+  --gray-400: hsl(215, 20%, 65%);
+  --gray-500: hsl(215, 16%, 47%);
+  --gray-600: hsl(215, 19%, 35%);
+  --gray-700: hsl(215, 25%, 27%);
+  --gray-800: hsl(217, 33%, 17%);
+  --gray-900: hsl(222, 84%, 4.9%);
+}
+
+.dark {
+  --background: hsl(222, 84%, 4.9%);
+  --foreground: hsl(210, 40%, 98%);
+  --card: hsl(222, 84%, 4.9%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --popover: hsl(222, 84%, 4.9%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(217, 32%, 17%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217, 32%, 17%);
+  --muted-foreground: hsl(215, 20%, 65%);
+  --accent: hsl(123, 38%, 57%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62%, 30%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217, 32%, 17%);
+  --input: hsl(217, 32%, 17%);
+  --ring: hsl(212, 72%, 59%);
+  --radius: 0.5rem;
+  --warning: hsl(33, 100%, 50%);
+  --warning-foreground: hsl(210, 40%, 98%);
+  --surface: hsl(222, 84%, 4.9%);
+  --surface-foreground: hsl(210, 40%, 98%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Meeting Matters specific styles */
+.meeting-matters-primary {
+  @apply bg-primary text-primary-foreground;
+}
+
+.meeting-matters-secondary {
+  @apply bg-secondary text-secondary-foreground;
+}
+
+.meeting-matters-surface {
+  @apply bg-card text-card-foreground;
+}
+
+.meeting-matters-accent {
+  @apply bg-accent text-accent-foreground;
+}
+
+.meeting-matters-warning {
+  @apply bg-yellow-500 text-yellow-50;
+}
+
+.meeting-matters-error {
+  @apply bg-destructive text-destructive-foreground;
+}
+
+/* Sidebar styles */
+.sidebar-active {
+  @apply bg-blue-50 text-blue-700 font-medium;
+}
+
+.sidebar-inactive {
+  @apply text-gray-700 hover:bg-gray-100 transition-colors;
+}
+
+/* Stats card styles */
+.stats-card {
+  @apply bg-card rounded-xl shadow-sm border border-gray-200 p-6;
+}
+
+.stats-card-icon {
+  @apply w-12 h-12 rounded-lg flex items-center justify-center;
+}
+
+/* Activity feed styles */
+.activity-item {
+  @apply flex items-start space-x-4;
+}
+
+.activity-icon {
+  @apply w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1;
+}
+
+.activity-badge {
+  @apply px-2 py-1 text-xs font-medium rounded-full;
+}
+
+/* Button variations */
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+}
+
+.btn-accent {
+  @apply bg-purple-600 text-white hover:bg-purple-700;
+}
+
+.btn-warning {
+  @apply bg-yellow-500 text-white hover:bg-yellow-600;
+}
+
+.btn-error {
+  @apply bg-red-600 text-white hover:bg-red-700;
+}
+
+/* Status badges */
+.status-active {
+  @apply bg-green-100 text-green-700;
+}
+
+.status-inactive {
+  @apply bg-gray-100 text-gray-600;
+}
+
+.status-pending {
+  @apply bg-yellow-100 text-yellow-700;
+}
+
+.status-completed {
+  @apply bg-green-100 text-green-700;
+}
+
+.status-overdue {
+  @apply bg-red-100 text-red-700 border border-red-300 font-semibold;
+  animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    background-color: rgb(254 226 226); /* bg-red-100 */
+  }
+  50% {
+    background-color: rgb(252 165 165); /* bg-red-300 */
+  }
+}
+
+.overdue-task-card {
+  @apply border-l-4 border-l-red-500 bg-red-50;
+  box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.1), 0 2px 4px -1px rgba(239, 68, 68, 0.06);
+}
+
+/* Progress bars */
+.progress-bar {
+  @apply w-full bg-gray-200 rounded-full h-2;
+}
+
+.progress-fill {
+  @apply h-2 rounded-full transition-all duration-300;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: hsl(var(--gray-100));
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--gray-300));
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--gray-400));
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    @apply hidden;
+  }
+  
+  .mobile-full {
+    @apply w-full;
+  }
+}

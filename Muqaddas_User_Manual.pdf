@@ -1,0 +1,1831 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 2299
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 20 Tf
+23. TL
+0 g
+151.737795275590571 785.1970866141732586 Td
+(Business Management System) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+170.197795275590579 756.8506299212598378 Td
+(User Manual for Muqaddas Saeed) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 671.8112598425196893 Td
+(Welcome to Meeting Matters Business Management System) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 619.6537795275589815 Td
+(This manual will guide you through using the Business Management System as a Customer) Tj
+T* (Relationship Manager at Meeting Matters Clinic.) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 536.3151968503937042 Td
+(Login Credentials) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0 g
+42.5196850393700814 484.1577165354329964 Td
+(IMPORTANT: Keep these credentials secure and do not share them with anyone) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 451.2758267716534419 Td
+() Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 416.69314960629913 Td
+(Username: Muqaddas_1049) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 382.110472440944875 Td
+(Employee ID: EMP410420 \(Alternative login method\)) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 347.5277952755905631 Td
+(Password: password123) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 312.9451181102361943 Td
+(Position: Customer Relationship Manager) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 278.3624409448819961 Td
+(Department: Customer Relations) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 229.606535433070917 Td
+(First Time Login Process) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 189.3545669291339664 Td
+(1. Navigate to the login page) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 154.7718897637796545 Td
+(2. Choose your login method:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 120.1892125984253425 Td
+(   - Option A: Enter your Username \(Muqaddas_1049\) and Password) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 85.6065354330710306 Td
+(   - Option B: Enter your Employee ID \(EMP410420\) and Password) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 2558
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(3. Click "Sign In") Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 750.614409448818833 Td
+(4. Complete Contract Signing \(First time only\):) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 716.0317322834645211 Td
+(   - A contract signing modal will appear automatically) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 681.4490551181102092 Td
+(   - Review your employment contract carefully) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 646.8663779527557836 Td
+(   - Provide your digital signature to complete the process) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 612.2837007874014716 Td
+(   - Once signed, you will gain full access to the system) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 549.354566929133739 Td
+(System Overview) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 497.197086614173088 Td
+(The Business Management System helps you manage your daily work activities, including:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 462.614409448818833 Td
+(• Task Management: View and complete assigned tasks) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 428.0317322834645211 Td
+(• Project Collaboration: Work with team members on projects) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 393.4490551181102092 Td
+(• Document Management: Access and upload important documents) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 358.8663779527558972 Td
+(• Communications: Stay updated with announcements and notifications) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 324.2837007874015853 Td
+(• Profile Management: Keep your personal information up to date) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 261.3545669291339664 Td
+(Dashboard Navigation) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 195.023858267716605 Td
+(Main Menu \(Left Sidebar\)) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 154.7718897637795408 Td
+(• Dashboard: Your main workspace and overview) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 120.1892125984252289 Td
+(• Tasks: View and manage your assigned tasks) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 85.606535433070917 Td
+(• Projects: Access projects you are involved in) Tj
+ET
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 2379
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(• Documents: Upload and access important files) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 750.614409448818833 Td
+(• Profile: Update your personal information) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 716.0317322834645211 Td
+(• Announcements: Read company updates and news) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 667.2758267716535556 Td
+(Top Navigation Bar) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 627.0238582677164914 Td
+(• Notifications: Bell icon showing new alerts) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 592.4411811023621794 Td
+(• User Menu: Your profile and logout option) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 529.5120472440944468 Td
+(Task Management) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 463.1813385826770286 Td
+(Viewing Your Tasks) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 422.929370078740078 Td
+(1. Click "Tasks" in the left sidebar) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 388.3466929133857661 Td
+(2. You will see a list of tasks assigned to you) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 353.7640157480314542 Td
+(3. Each task shows:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 319.1813385826771992 Td
+(   - Task title and description) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 284.5986614173228872 Td
+(   - Due date and priority level) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 250.0159842519685753 Td
+(   - Current status \(Pending, In Progress, Completed\)) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 215.4333070866142634 Td
+(   - Project association \(if applicable\)) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 166.677401574803298 Td
+(Working with Tasks) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 126.4254330708662337 Td
+(1. To start a task: Click on the task and change status to "In Progress") Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 91.8427559055119218 Td
+(2. To complete a task: Mark it as "Completed" when finished) Tj
+ET
+endstream
+endobj
+9 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 10 0 R
+>>
+endobj
+10 0 obj
+<<
+/Length 2381
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(3. To add comments: Use the comment section to communicate with your team) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 750.614409448818833 Td
+(4. To view details: Click on any task to see full information) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 701.8585039370078675 Td
+(Task Priorities) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 661.6065354330708033 Td
+(• High: Red indicator - Complete immediately) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 627.0238582677164914 Td
+(• Medium: Yellow indicator - Complete within deadline) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 592.4411811023621794 Td
+(• Low: Green indicator - Complete when time allows) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 529.5120472440944468 Td
+(Project Management) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 463.1813385826770286 Td
+(Accessing Projects) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 422.929370078740078 Td
+(1. Click "Projects" in the left sidebar) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 388.3466929133857661 Td
+(2. View all projects you are assigned to) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 353.7640157480314542 Td
+(3. Click on any project to see:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 319.1813385826771992 Td
+(   - Project description and goals) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 284.5986614173228872 Td
+(   - Team members involved) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 250.0159842519685753 Td
+(   - Related tasks and deadlines) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 215.4333070866142634 Td
+(   - Project timeline and progress) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 166.677401574803298 Td
+(Your Role in Projects) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 126.4254330708662337 Td
+(As a Customer Relationship Manager, you may be involved in:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 91.8427559055119218 Td
+(• Customer service improvement projects) Tj
+ET
+endstream
+endobj
+11 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 12 0 R
+>>
+endobj
+12 0 obj
+<<
+/Length 2205
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(• Client communication initiatives) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 750.614409448818833 Td
+(• Customer satisfaction surveys) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 716.0317322834645211 Td
+(• Relationship building campaigns) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 653.1025984251967884 Td
+(Document Management) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 586.7718897637794271 Td
+(Uploading Documents) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 546.5199212598424765 Td
+(1. Go to "Documents" section) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 511.9372440944881077 Td
+(2. Click "Upload Document") Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 477.354566929133739 Td
+(3. Select your file and add a description) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 442.7718897637794271 Td
+(4. Choose the appropriate category) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 408.1892125984251152 Td
+(5. Click "Upload" to save) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 359.4333070866141497 Td
+(Document Types You May Need) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 319.1813385826771992 Td
+(• Customer feedback reports) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 284.5986614173228872 Td
+(• Communication templates) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 250.0159842519685753 Td
+(• Training certificates) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 215.4333070866142634 Td
+(• Meeting notes) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 180.8506299212599515 Td
+(• Project documentation) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 132.0947244094489861 Td
+(Accessing Documents) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 91.8427559055119218 Td
+(• All your uploaded documents appear in the Documents section) Tj
+ET
+endstream
+endobj
+13 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 14 0 R
+>>
+endobj
+14 0 obj
+<<
+/Length 2241
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(• Use search to find specific files quickly) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 750.614409448818833 Td
+(• Download documents by clicking on them) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 687.6852755905511003 Td
+(Profile Management) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 621.3545669291338527 Td
+(Updating Your Information) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 581.1025984251967884 Td
+(1. Click "Profile" in the left sidebar) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 546.5199212598424765 Td
+(2. Update your information as needed:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 511.9372440944881077 Td
+(   - Contact details \(phone, address\)) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 477.354566929133739 Td
+(   - Emergency contact information) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 442.7718897637794271 Td
+(   - Professional skills and qualifications) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 408.1892125984251152 Td
+(   - Profile photo) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 373.6065354330708601 Td
+(3. Click "Save Changes" when done) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 324.8506299212598378 Td
+(Important Profile Sections) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 284.5986614173228872 Td
+(• Personal Information: Keep contact details current) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 250.0159842519685753 Td
+(• Professional Details: Update skills and experience) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 215.4333070866142634 Td
+(• Emergency Contact: Ensure this information is accurate) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 180.8506299212599515 Td
+(• Banking Information: Required for salary processing) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 117.9214960629922189 Td
+(Notifications and Communication) Tj
+ET
+endstream
+endobj
+15 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 16 0 R
+>>
+endobj
+16 0 obj
+<<
+/Length 2361
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(Checking Notifications) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 744.9451181102361943 Td
+(1. Click the bell icon in the top navigation) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 710.3624409448818824 Td
+(2. View recent notifications including:) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 675.7797637795274568 Td
+(   - New task assignments) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 641.1970866141731449 Td
+(   - Project updates) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 606.614409448818833 Td
+(   - System announcements) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 572.0317322834644074 Td
+(   - Deadline reminders) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 523.2758267716534419 Td
+(Reading Announcements) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 483.0238582677164345 Td
+(1. Go to "Announcements" section) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 448.4411811023621226 Td
+(2. Read company-wide updates) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 413.8585039370078107 Td
+(3. Important announcements are highlighted) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 379.2758267716534988 Td
+(4. Mark as read when reviewed) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 316.346692913385823 Td
+(Your Role as Customer Relationship Manager) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 250.0159842519684616 Td
+(Daily Responsibilities) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 209.7640157480315111 Td
+(• Customer Communication: Respond to customer inquiries promptly) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 175.1813385826771992 Td
+(• Relationship Building: Maintain positive relationships with clients) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 140.5986614173228872 Td
+(• Issue Resolution: Address customer concerns and complaints) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 106.0159842519684616 Td
+(• Documentation: Record customer interactions and feedback) Tj
+ET
+endstream
+endobj
+17 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 18 0 R
+>>
+endobj
+18 0 obj
+<<
+/Length 2477
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(• Reporting: Complete assigned reports and surveys) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 736.4411811023621794 Td
+(Key Performance Areas) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 696.1892125984251152 Td
+(• Customer Satisfaction: Ensure clients are happy with services) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 661.6065354330708033 Td
+(• Response Time: Reply to customers within set timeframes) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 627.0238582677164914 Td
+(• Communication Quality: Maintain professional and helpful interactions) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 592.4411811023621794 Td
+(• Problem Solving: Resolve issues effectively and efficiently) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 529.5120472440944468 Td
+(Troubleshooting Common Issues) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 463.1813385826770286 Td
+(Login Problems) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 422.929370078740078 Td
+(• Forgot Password: Contact your HR administrator for password reset) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 388.3466929133857661 Td
+(• Account Locked: Contact IT support if multiple login attempts fail) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 353.7640157480314542 Td
+(• Browser Issues: Try clearing browser cache or using a different browser) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 305.0081102362204319 Td
+(Contract Signing Issues) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 264.7561417322834814 Td
+(• Modal Not Appearing: Refresh the page and try again) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 230.1734645669291695 Td
+(• Signature Not Saving: Ensure you have a stable internet connection) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 195.5907874015748575 Td
+(• Contract Questions: Contact HR Manager Shahzad Ahmad for clarification) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 146.8348818897638921 Td
+(System Access Issues) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 106.5829133858269415 Td
+(• Limited Access: Make sure you have completed contract signing) Tj
+ET
+endstream
+endobj
+19 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 20 0 R
+>>
+endobj
+20 0 obj
+<<
+/Length 2095
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(• Missing Features: Verify your role permissions with HR) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 750.614409448818833 Td
+(• Page Loading Slowly: Check your internet connection) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 687.6852755905511003 Td
+(Support and Contacts) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 621.3545669291338527 Td
+(For Technical Issues) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 581.1025984251967884 Td
+(• Contact your IT support team) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 546.5199212598424765 Td
+(• Report system bugs or glitches immediately) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 497.7640157480313974 Td
+(For HR Related Questions) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 457.51204724409439 Td
+(• HR Manager: Shahzad Ahmad) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 422.929370078740078 Td
+(• Email: hr@themeetingmatters.com) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 388.3466929133857661 Td
+(• Contact for: Employment questions, policy clarifications, benefits information) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 339.5907874015747439 Td
+(For Work-Related Support) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 299.3388188976377933 Td
+(• Supervisor: Your direct manager) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 264.7561417322834814 Td
+(• Team Lead: Contact for project guidance and task clarification) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 201.8270078740157487 Td
+(Security and Best Practices) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 135.4962992125985011 Td
+(Password Security) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 95.2443307086614368 Td
+(• Never share your login credentials) Tj
+ET
+endstream
+endobj
+21 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 22 0 R
+>>
+endobj
+22 0 obj
+<<
+/Length 2367
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(• Use a strong, unique password) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 750.614409448818833 Td
+(• Log out when leaving your workstation) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 716.0317322834645211 Td
+(• Report any suspicious activity immediately) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 667.2758267716535556 Td
+(Data Protection) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 627.0238582677164914 Td
+(• Keep customer information confidential) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 592.4411811023621794 Td
+(• Only access information necessary for your role) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 557.8585039370077538 Td
+(• Follow company data protection policies) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 523.2758267716534419 Td
+(• Secure physical and digital documents) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 474.5199212598424197 Td
+(Professional Conduct) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 434.2679527559054122 Td
+(• Maintain professional communication at all times) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 399.6852755905511003 Td
+(• Respect confidentiality of company and customer information) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 365.1025984251968453 Td
+(• Follow company policies and procedures) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 330.5199212598425333 Td
+(• Report any concerns to your supervisor) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 267.5907874015748575 Td
+(Quick Reference) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 201.2600787401574962 Td
+(Essential Daily Actions) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 161.0081102362205456 Td
+(1. Log in to the system every morning) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 126.4254330708662337 Td
+(2. Check notifications for new updates) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 91.8427559055118081 Td
+(3. Review assigned tasks and prioritize your work) Tj
+ET
+endstream
+endobj
+23 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 24 0 R
+>>
+endobj
+24 0 obj
+<<
+/Length 2573
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(4. Update task status as you progress) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 750.614409448818833 Td
+(5. Upload any required documents) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 716.0317322834645211 Td
+(6. Check announcements for company updates) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 681.4490551181102092 Td
+(7. Log out securely when finished) Tj
+ET
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 632.69314960629913 Td
+(Important Reminders) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 592.4411811023621794 Td
+('   C o m p l e t e   c o n t r a c t   s i g n i n g   o n   f i r s t   l o g i n) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 557.8585039370077538 Td
+('   K e e p   y o u r   p r o f i l e   i n f o r m a t i o n   u p d a t e d) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 523.2758267716534419 Td
+('   R e s p o n d   t o   t a s k s   w i t h i n   d e a d l i n e s) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 488.6931496062990732 Td
+('   M a i n t a i n   p r o f e s s i o n a l   c o m m u n i c a t i o n) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 454.1104724409448181 Td
+('   S e c u r e   y o u r   l o g i n   c r e d e n t i a l s) Tj
+ET
+BT
+/F2 14 Tf
+16.0999999999999979 TL
+0 g
+42.5196850393700814 391.1813385826770855 Td
+(Employment Details Summary) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 339.0238582677164345 Td
+(• Position: Customer Relationship Manager) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 304.4411811023621794 Td
+(• Department: Customer Relations) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 269.8585039370078675 Td
+(• Salary: PKR 60,000 per month) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 235.2758267716535556 Td
+(• Working Hours: Monday-Friday, 9:00 AM - 6:00 PM) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 200.6931496062992437 Td
+(• Start Date: August 19, 2025) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 166.1104724409449318 Td
+(• Probation Period: 3 months) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 131.5277952755906199 Td
+(• Benefits: Health insurance, annual leave \(15 days\), sick leave \(10 days\), professional) Tj
+T* (development) Tj
+ET
+endstream
+endobj
+25 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 26 0 R
+>>
+endobj
+26 0 obj
+<<
+/Length 759
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 785.1970866141732586 Td
+(Welcome to the team, Muqaddas! We look forward to working with you.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 722.2679527559055259 Td
+(For any questions about this manual or the system, please contact your supervisor or HR) Tj
+T* (department.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 610.5829133858267141 Td
+(Document Created: August 18, 2025) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 576.0002362204724022 Td
+(Version: 1.0) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+42.5196850393700814 541.4175590551180903 Td
+(Meeting Matters Clinic - Business Management System) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R ]
+/Count 12
+>>
+endobj
+27 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+28 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+29 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+30 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+31 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+32 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+33 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+34 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+35 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+36 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+37 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+38 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+39 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+40 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 27 0 R
+/F2 28 0 R
+/F3 29 0 R
+/F4 30 0 R
+/F5 31 0 R
+/F6 32 0 R
+/F7 33 0 R
+/F8 34 0 R
+/F9 35 0 R
+/F10 36 0 R
+/F11 37 0 R
+/F12 38 0 R
+/F13 39 0 R
+/F14 40 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+41 0 obj
+<<
+/Producer (jsPDF 3.0.1)
+/CreationDate (D:20250818150442-00'00')
+>>
+endobj
+42 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 43
+0000000000 65535 f 
+0000029003 00000 n 
+0000030900 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000002503 00000 n 
+0000002640 00000 n 
+0000005250 00000 n 
+0000005387 00000 n 
+0000007818 00000 n 
+0000007956 00000 n 
+0000010390 00000 n 
+0000010529 00000 n 
+0000012787 00000 n 
+0000012926 00000 n 
+0000015220 00000 n 
+0000015359 00000 n 
+0000017773 00000 n 
+0000017912 00000 n 
+0000020442 00000 n 
+0000020581 00000 n 
+0000022729 00000 n 
+0000022868 00000 n 
+0000025288 00000 n 
+0000025427 00000 n 
+0000028053 00000 n 
+0000028192 00000 n 
+0000029135 00000 n 
+0000029261 00000 n 
+0000029392 00000 n 
+0000029526 00000 n 
+0000029664 00000 n 
+0000029788 00000 n 
+0000029917 00000 n 
+0000030049 00000 n 
+0000030185 00000 n 
+0000030313 00000 n 
+0000030440 00000 n 
+0000030569 00000 n 
+0000030702 00000 n 
+0000030804 00000 n 
+0000031153 00000 n 
+0000031239 00000 n 
+trailer
+<<
+/Size 43
+/Root 42 0 R
+/Info 41 0 R
+/ID [ <1C74DA5E7ACDA33C01A274FC3488F792> <1C74DA5E7ACDA33C01A274FC3488F792> ]
+>>
+startxref
+31343
+%%EOF
