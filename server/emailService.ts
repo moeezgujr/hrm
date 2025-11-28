@@ -10,14 +10,19 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Verify transporter configuration
-transporter.verify((error: any, success: any) => {
-  if (error) {
-    console.error('Email configuration error:', error);
-  } else {
-    console.log('Email service ready to send notifications');
-  }
-});
+// Verify transporter configuration (with error handling)
+try {
+  transporter.verify((error: any, success: any) => {
+    if (error) {
+      console.warn('⚠️ Email configuration warning:', error.message);
+      console.log('📧 Email notifications will be skipped until configured properly');
+    } else {
+      console.log('✅ Email service ready to send notifications');
+    }
+  });
+} catch (error: any) {
+  console.warn('⚠️ Email service initialization warning:', error?.message);
+}
 
 interface EmailTemplate {
   subject: string;
