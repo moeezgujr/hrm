@@ -8,6 +8,7 @@ import { storage } from "./storage";
 import { HRNotifications } from './hr-notifications';
 import { User as SelectUser } from "@shared/schema";
 import connectPg from "connect-pg-simple";
+import { pool } from "./db";
 
 declare global {
   namespace Express {
@@ -24,10 +25,6 @@ async function comparePasswords(supplied: string, stored: string): Promise<boole
 }
 
 export function setupAuth(app: Express) {
-  if (!process.env.DATABASE_URL) {
-    throw new Error("DATABASE_URL environment variable is required");
-  }
-  
   if (!process.env.SESSION_SECRET) {
     throw new Error("SESSION_SECRET environment variable is required");
   }
@@ -35,7 +32,7 @@ export function setupAuth(app: Express) {
   const sessionTtl = 7 * 24 * 60 * 60 * 1000; // 1 week
   const PgStore = connectPg(session);
   const sessionStore = new PgStore({
-    conString: process.env.DATABASE_URL,
+    pool: pool, // Use the same connection pool as Drizzle ORM
     createTableIfMissing: true,
     ttl: sessionTtl,
     tableName: "session",
