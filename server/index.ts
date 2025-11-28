@@ -20,7 +20,7 @@ app.use((req, res, next) => {
     // process.env.REPL_SLUG ? `https://${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.replit.dev` : null,
     // process.env.REPLIT_DEV_DOMAIN ? `https://${process.env.REPLIT_DEV_DOMAIN}` : null,
     // Local development
-    'http://13.40.224.134/',
+    'http://13.40.224.134',
     'http://localhost:5000',
     'http://127.0.0.1:5000'
   ].filter(Boolean);
