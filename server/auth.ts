@@ -39,8 +39,10 @@ export function setupAuth(app: Express) {
   });
 
   // Determine if we're in a secure deployed environment
-  // const isDeployment = !!(process.env.REPL_SLUG && process.env.REPL_SLUG !== 'workspace');
-  const isSecureEnvironment = process.env.NODE_ENV === 'production'; // || isDeployment;
+  // Since trust proxy is enabled, we can check X-Forwarded-Proto header
+  // For local/direct HTTP access on AWS, allow insecure cookies
+  // Production recommendation: Use HTTPS with a domain name
+  const isSecureEnvironment = process.env.NODE_ENV === 'production' && process.env.ENABLE_SECURE_COOKIES === 'true';
   
   const sessionSettings: session.SessionOptions = {
     secret: process.env.SESSION_SECRET,
@@ -49,10 +51,10 @@ export function setupAuth(app: Express) {
     store: sessionStore,
     cookie: {
       httpOnly: true,
-      secure: isSecureEnvironment, // Enable secure for production or deployed environments
+      secure: isSecureEnvironment || false, // Allow HTTP cookies for testing on AWS
       maxAge: sessionTtl,
-      sameSite: isSecureEnvironment ? 'lax' : 'lax', // Use 'lax' for better compatibility
-      domain: undefined, // Remove domain restriction for easier deployment
+      sameSite: 'lax',
+      domain: undefined,
     },
   };
 
