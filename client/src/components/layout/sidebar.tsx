@@ -180,7 +180,7 @@ export default function Sidebar() {
     {
       title: 'Studio & Content',
       items: [
-        { icon: Instagram, label: 'Meeting Matters Studio', href: '/social-media', roles: ['studio_manager', 'social_media_manager', 'content_creator', 'content_editor', 'social_media_specialist', 'creative_director', 'hr_admin', 'admin'] },
+        { icon: Instagram, label: 'Q361 Studio', href: '/social-media', roles: ['studio_manager', 'social_media_manager', 'content_creator', 'content_editor', 'social_media_specialist', 'creative_director', 'hr_admin', 'admin'] },
         { icon: Share2, label: 'Social Media Manager', href: '/social-media-manager', roles: ['studio_manager', 'social_media_manager', 'content_creator', 'content_editor', 'social_media_specialist', 'creative_director', 'hr_admin', 'admin'] },
       ]
     },
@@ -220,7 +220,7 @@ export default function Sidebar() {
             <Users className="text-white" size={20} />
           </div>
           <div>
-            <h1 className="text-xl font-semibold text-gray-900">Meeting Matters</h1>
+            <h1 className="text-xl font-semibold text-gray-900">Q361</h1>
             <p className="text-sm text-gray-500">Business Management</p>
           </div>
         </div>

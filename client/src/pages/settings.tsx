@@ -58,8 +58,8 @@ export default function Settings() {
 
   // System settings state (for admins)
   const [systemSettings, setSystemSettings] = useState({
-    companyName: 'Meeting Matters',
-    emailDomain: '@themeetingmatters.com',
+    companyName: 'Q361',
+    emailDomain: '@q361.com',
     defaultOnboardingDays: '7',
     maxProjectMembers: '15',
     autoApproveRegistrations: false,

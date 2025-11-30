@@ -13,7 +13,7 @@ export default function OnboardingHub() {
             <Building className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Welcome to Meeting Matters
+            Welcome to Q361
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Your comprehensive Business Management System. Choose your pathway to get started with the platform.
@@ -173,7 +173,7 @@ export default function OnboardingHub() {
             </CardHeader>
             <CardContent>
               <p className="text-green-100 mb-4">
-                Meeting Matters provides a complete business management solution with advanced HR capabilities, 
+                Q361 provides a complete business management solution with advanced HR capabilities, 
                 project management, logistics tracking, and comprehensive employee lifecycle management.
               </p>
               <ul className="text-sm text-green-100 space-y-1">
@@ -191,7 +191,7 @@ export default function OnboardingHub() {
           <p className="text-gray-600 dark:text-gray-400">
             Need help? Contact our support team at{" "}
             <a href="mailto:support@meetingmatters.com" className="text-blue-600 dark:text-blue-400 hover:underline">
-              support@meetingmatters.com
+              support@q361.com
             </a>
           </p>
         </div>

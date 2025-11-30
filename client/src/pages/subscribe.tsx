@@ -64,7 +64,7 @@ const SubscribeForm = ({ planId, billingCycle, plan, userEmail, userName }: { pl
       } else {
         toast({
           title: "Payment Successful",
-          description: "Welcome to Meeting Matters! Your subscription is now active.",
+          description: "Welcome to Q361! Your subscription is now active.",
         });
         setLocation('/subscription-success');
       }
@@ -350,7 +350,7 @@ export default function Subscribe() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-            Subscribe to Meeting Matters
+            Subscribe to Q361
           </h1>
           <p className="text-gray-600 dark:text-gray-400">
             Complete your subscription to start transforming your business operations
@@ -363,7 +363,7 @@ export default function Subscribe() {
             <CardHeader>
               <CardTitle>Complete Your Information</CardTitle>
               <p className="text-gray-600 dark:text-gray-400">
-                Tell us about your organization to get started with Meeting Matters.
+                Tell us about your organization to get started with Q361.
               </p>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -526,7 +526,7 @@ export default function Subscribe() {
                     Trial Request Submitted
                   </h3>
                   <p className="text-green-700 dark:text-green-300">
-                    Thank you for your interest in Meeting Matters! We've received your free trial request for the {plan.name} plan.
+                    Thank you for your interest in Q361! We've received your free trial request for the {plan.name} plan.
                   </p>
                 </div>
                 

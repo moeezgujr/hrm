@@ -225,7 +225,7 @@ export default function PsychometricReport() {
     
     pdf.setFontSize(12);
     pdf.setTextColor(100, 100, 100);
-    pdf.text('Meeting Matters Business Management System', 105, 220, { align: 'center' });
+    pdf.text('Q361 Business Management System', 105, 220, { align: 'center' });
     pdf.text(`Generated on ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`, 105, 235, { align: 'center' });
     
     // Warning box
@@ -573,7 +573,7 @@ export default function PsychometricReport() {
       pdf.setFontSize(8);
       pdf.setTextColor(150, 150, 150);
       pdf.text(`Page ${i} of ${totalPages}`, 20, pdf.internal.pageSize.height - 10);
-      pdf.text('Meeting Matters Business - Confidential Assessment Report', pdf.internal.pageSize.width - 120, pdf.internal.pageSize.height - 10);
+      pdf.text('Q361 Business - Confidential Assessment Report', pdf.internal.pageSize.width - 120, pdf.internal.pageSize.height - 10);
     }
     
     // Save with descriptive filename
@@ -948,7 +948,7 @@ export default function PsychometricReport() {
               Results should be interpreted by qualified professionals and used in conjunction with other assessment methods.
             </p>
             <p className="text-xs opacity-60 mt-2">
-              Generated on {new Date().toLocaleDateString()} • Meeting Matters Business System
+              Generated on {new Date().toLocaleDateString()} • Q361 Business System
             </p>
           </CardContent>
         </Card>

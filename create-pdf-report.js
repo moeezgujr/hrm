@@ -210,7 +210,7 @@ const htmlContent = `
     </div>
     
     <div class="company-info">
-        <div>Meeting Matters HR Management System</div>
+        <div>Q361 HR Management System</div>
         <div>Generated on ${pdfData.generatedDate}</div>
     </div>
     
@@ -336,7 +336,7 @@ const htmlContent = `
 </div>
 
 <div class="footer">
-    Meeting Matters HR - Confidential Assessment Report
+    Q361 HR - Confidential Assessment Report
 </div>
 
 </body>
@@ -354,6 +354,6 @@ console.log('✅ Executive summary with key details and overall score');
 console.log('✅ 5 Global Factors analysis (Extraversion, Anxiety, Tough-mindedness, Independence, Self-Control)');
 console.log('✅ Complete 16 Primary Personality Factors breakdown');
 console.log('✅ Detailed scoring interpretations and workplace applications');
-console.log('✅ Professional styling with Meeting Matters branding');
+console.log('✅ Professional styling with Q361 branding');
 console.log('');
 console.log('The HTML file is ready for viewing or conversion to PDF.');

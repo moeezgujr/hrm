@@ -6,7 +6,7 @@ export default function DemoBanner() {
     <Alert className="mb-4 border-blue-200 bg-blue-50 text-blue-800">
       <AlertCircle className="h-4 w-4" />
       <AlertDescription>
-        <strong>Demo Mode:</strong> This is a demonstration of the Meeting Matters Business Management System. 
+        <strong>Demo Mode:</strong> This is a demonstration of the Q361 Business Management System. 
         All data shown is sample data for showcase purposes. 
         Contact your administrator to connect to live data.
       </AlertDescription>

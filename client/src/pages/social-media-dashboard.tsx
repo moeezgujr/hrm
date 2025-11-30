@@ -887,8 +887,8 @@ export default function SocialMediaDashboard() {
   const mockBrandGuidelines = [
     {
       id: 1,
-      brandName: "Meeting Matters",
-      description: "Official brand guidelines for Meeting Matters",
+      brandName: "Q361",
+      description: "Official brand guidelines for Q361",
       colorPalette: ["#3B82F6", "#10B981", "#8B5CF6", "#EA580C"],
       fonts: ["Inter", "Roboto", "Open Sans"],
       toneOfVoice: "Professional, friendly, and approachable"
@@ -1091,7 +1091,7 @@ export default function SocialMediaDashboard() {
       <div className="mb-8">
         <div className="flex justify-between items-center mb-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Meeting Matters Studio</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Q361 Studio</h1>
             <p className="text-gray-600 mt-1">Content creation and marketing management platform</p>
           </div>
           <div className="flex space-x-3">
