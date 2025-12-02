@@ -1,10 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, Crown, Star, Zap } from "lucide-react";
+import { Check, Crown, Star, Zap, Gift, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
+import { useToast } from "@/hooks/use-toast";
+import { apiRequest, queryClient } from "@/lib/queryClient";
 
 interface SubscriptionPlan {
   id: number;
@@ -35,6 +37,8 @@ const planColors = {
 export default function SubscriptionPlans() {
   const [, setLocation] = useLocation();
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
+  const [freeTrialRequested, setFreeTrialRequested] = useState(false);
+  const { toast } = useToast();
   
   const { data: plans, isLoading } = useQuery({
     queryKey: ['/api/subscription-plans'],
@@ -82,7 +86,7 @@ export default function SubscriptionPlans() {
             Choose Your Business Management Plan
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Transform your business operations with Meeting Matters. Select the perfect plan for your organization.
+            Transform your business operations with Q361. Select the perfect plan for your organization.
           </p>
         </div>
 
@@ -128,7 +132,94 @@ export default function SubscriptionPlans() {
         )}
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {/* Free Trial Card */}
+          <Card className="relative overflow-hidden transition-all duration-300 hover:shadow-2xl border-2 border-dashed border-blue-300 bg-gradient-to-b from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-800">
+            <div className="absolute top-0 right-0">
+              <Badge className="rounded-none rounded-bl-lg bg-blue-500 text-white px-3 py-1">
+                <Sparkles className="h-3 w-3 mr-1" />
+                7-Day Free Trial
+              </Badge>
+            </div>
+            
+            {/* Plan Icon Header */}
+            <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 text-white">
+              <div className="flex items-center space-x-2">
+                <Gift className="h-6 w-6" />
+                <h3 className="text-xl font-bold">Free Trial</h3>
+              </div>
+            </div>
+
+            <CardHeader className="pb-4">
+              <CardDescription className="text-sm text-gray-600 dark:text-gray-400">
+                Try Q361 free for 7 days - no credit card needed
+              </CardDescription>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gray-900 dark:text-white">
+                  $0
+                  <span className="text-lg font-normal text-gray-500">
+                    /7 days
+                  </span>
+                </div>
+                <p className="text-sm text-blue-600 mt-1 font-medium">
+                  No credit card required
+                </p>
+              </div>
+            </CardHeader>
+
+            <CardContent className="pb-6">
+              <ul className="space-y-3">
+                <li className="flex items-start space-x-3">
+                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300">Up to 5 employees</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300">Basic employee management</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300">1 active project</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300">Task management</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300">Community support</span>
+                </li>
+              </ul>
+
+              <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <div className="text-sm text-gray-600 dark:text-gray-400 space-y-2">
+                  <div className="flex justify-between">
+                    <span>Employees:</span>
+                    <span className="font-semibold">Up to 5</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Projects:</span>
+                    <span className="font-semibold">1 Project</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Storage:</span>
+                    <span className="font-semibold">500MB</span>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+
+            <CardFooter>
+              <Button
+                onClick={() => setLocation('/subscribe?plan=free')}
+                className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white"
+                disabled={freeTrialRequested}
+              >
+                {freeTrialRequested ? 'Trial Request Sent!' : 'Request Free Trial'}
+              </Button>
+            </CardFooter>
+          </Card>
+
           {plans?.map((plan) => {
             const isCurrentPlan = userSubscription?.subscriptionPlan === plan.planId;
             const price = billingCycle === 'yearly' ? plan.yearlyPrice : plan.monthlyPrice;
@@ -241,6 +332,7 @@ export default function SubscriptionPlans() {
               <thead>
                 <tr className="border-b border-gray-200 dark:border-gray-700">
                   <th className="text-left p-4 font-semibold text-gray-900 dark:text-white">Feature</th>
+                  <th className="text-center p-4 font-semibold text-green-600">Free</th>
                   <th className="text-center p-4 font-semibold text-gray-900 dark:text-white">Starter</th>
                   <th className="text-center p-4 font-semibold text-gray-900 dark:text-white">Professional</th>
                   <th className="text-center p-4 font-semibold text-gray-900 dark:text-white">Enterprise</th>
@@ -252,21 +344,53 @@ export default function SubscriptionPlans() {
                   <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
                   <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
                   <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
+                  <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
                 </tr>
                 <tr className="border-b border-gray-100 dark:border-gray-700">
                   <td className="p-4">Task Management</td>
                   <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
                   <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
                   <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
+                  <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-gray-100 dark:border-gray-700">
+                  <td className="p-4">Max Employees</td>
+                  <td className="text-center p-4 font-medium">5</td>
+                  <td className="text-center p-4 font-medium">25</td>
+                  <td className="text-center p-4 font-medium">100</td>
+                  <td className="text-center p-4 font-medium">Unlimited</td>
+                </tr>
+                <tr className="border-b border-gray-100 dark:border-gray-700">
+                  <td className="p-4">Projects</td>
+                  <td className="text-center p-4 font-medium">1</td>
+                  <td className="text-center p-4 font-medium">5</td>
+                  <td className="text-center p-4 font-medium">Unlimited</td>
+                  <td className="text-center p-4 font-medium">Unlimited</td>
                 </tr>
                 <tr className="border-b border-gray-100 dark:border-gray-700">
                   <td className="p-4">Psychometric Testing</td>
+                  <td className="text-center p-4">-</td>
                   <td className="text-center p-4">-</td>
                   <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
                   <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
                 </tr>
                 <tr className="border-b border-gray-100 dark:border-gray-700">
                   <td className="p-4">Advanced Analytics</td>
+                  <td className="text-center p-4">-</td>
+                  <td className="text-center p-4">-</td>
+                  <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
+                  <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-gray-100 dark:border-gray-700">
+                  <td className="p-4">CRM & Daily Meetings</td>
+                  <td className="text-center p-4">-</td>
+                  <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
+                  <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
+                  <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-gray-100 dark:border-gray-700">
+                  <td className="p-4">Q361 Studio</td>
+                  <td className="text-center p-4">-</td>
                   <td className="text-center p-4">-</td>
                   <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
                   <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
@@ -275,13 +399,15 @@ export default function SubscriptionPlans() {
                   <td className="p-4">API Access</td>
                   <td className="text-center p-4">-</td>
                   <td className="text-center p-4">-</td>
+                  <td className="text-center p-4">-</td>
                   <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
                 </tr>
-                <tr>
-                  <td className="p-4">24/7 Support</td>
-                  <td className="text-center p-4">-</td>
-                  <td className="text-center p-4">-</td>
-                  <td className="text-center p-4"><Check className="h-5 w-5 text-green-500 mx-auto" /></td>
+                <tr className="border-b border-gray-100 dark:border-gray-700">
+                  <td className="p-4">Support</td>
+                  <td className="text-center p-4 text-xs">Community</td>
+                  <td className="text-center p-4 text-xs">Email</td>
+                  <td className="text-center p-4 text-xs">Priority</td>
+                  <td className="text-center p-4 text-xs">24/7 Dedicated</td>
                 </tr>
               </tbody>
             </table>
@@ -305,10 +431,10 @@ export default function SubscriptionPlans() {
               </div>
               <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                  Is there a free trial?
+                  Is there a free plan?
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400">
-                  We offer a 14-day free trial on all plans. No credit card required to get started.
+                  Yes! We offer a 7-day free trial for organizations to try Q361. Simply request a trial through the form, and once HR approves your request, you'll get full access for 7 days. No credit card required - perfect for evaluating if Q361 is right for your team.
                 </p>
               </div>
               <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">

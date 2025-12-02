@@ -2,7 +2,7 @@ import {
   users,
   userPermissions,
   employees,
-  // companies,
+  companies,
   tasks,
   taskUpdates,
   taskRequests,
@@ -23,7 +23,7 @@ import {
   projectMessages,
   projectNotes,
   projectFiles,
-  // projectOverview,
+  projectOverview,
   subscriptionPlans,
   subscriptionHistory,
   trialRequests,
@@ -32,8 +32,8 @@ import {
   leaveRequests,
   vacancies,
   crmInquiries,
+  crmDailyMeetings,
   type User,
-  type Company,
   type UpsertUser,
   type UserPermission,
   type InsertUserPermission,
@@ -47,6 +47,8 @@ import {
   type InsertVacancy,
   type CrmInquiry,
   type InsertCrmInquiry,
+  type CrmDailyMeeting,
+  type InsertCrmDailyMeeting,
   type Task,
   type InsertTask,
   type TaskRequest,
@@ -722,6 +724,9 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getAggregatedPermissions(userId: number, userRole: string): Promise<Record<string, string>> {
+    // Check if user is designated as HR Personnel
+    const user = await this.getUser(userId);
+    
     // Default role-based permissions
     const rolePermissions: Record<string, Record<string, string>> = {
       hr_admin: {
@@ -759,7 +764,16 @@ export class DatabaseStorage implements IStorage {
     // Start with role defaults
     const permissions = { ...(rolePermissions[userRole] || {}) };
 
-    // Apply user-specific overrides
+    // If user is designated as HR Personnel, MERGE HR permissions at manage level
+    // This augments existing permissions without removing non-HR access
+    if (user?.isHRPersonnel) {
+      permissions.employee_management = 'manage';
+      permissions.contract_management = 'manage';
+      permissions.announcements = 'manage';
+      permissions.leave_management = 'manage';
+    }
+
+    // Apply user-specific overrides (these can override both role and HR Personnel permissions)
     const userOverrides = await this.getUserPermissions(userId);
     userOverrides.forEach(override => {
       permissions[override.module] = override.level;
@@ -3642,6 +3656,7 @@ HR Team - Meeting Matters
     try {
       const result = await this.client.query(`
         SELECT 
+          pta.id,
           pta.candidate_email,
           pta.candidate_name,
           pta.test_id,
@@ -3650,6 +3665,7 @@ HR Team - Meeting Matters
           pta.completed_at,
           pta.responses,
           pta.results,
+          pta.status,
           pt.test_name,
           pt.test_type,
           pt.description as test_description
@@ -3660,18 +3676,19 @@ HR Team - Meeting Matters
       `);
 
       return result.rows.map(row => ({
-        employeeId: null, // These are pre-employment tests
+        id: row.id,
+        candidateName: row.candidate_name || 'Unknown Candidate',
+        candidateEmail: row.candidate_email,
         testId: row.test_id,
-        score: row.percentage_score || 0,
+        percentageScore: row.percentage_score || 0,
         timeSpent: row.time_spent || 0,
         completedAt: row.completed_at,
-        answers: row.responses || [],
+        responses: row.responses || [],
         results: row.results || {},
+        status: row.status || 'completed',
         testName: row.test_name,
         testType: row.test_type,
-        testDescription: row.test_description,
-        employeeName: row.candidate_name || 'Unknown',
-        employeeEmail: row.candidate_email
+        testDescription: row.test_description
       }));
     } catch (error) {
       console.error('Error fetching all psychometric results:', error);
@@ -6041,6 +6058,119 @@ ${hrSummary}
 
   async deleteCrmInquiry(id: number): Promise<void> {
     await db.delete(crmInquiries).where(eq(crmInquiries.id, id));
+  }
+
+  // CRM Daily Meetings operations
+  async getCrmDailyMeetings(organizationId: string, filters?: { userId?: number; dateFrom?: Date; dateTo?: Date }): Promise<(CrmDailyMeeting & { user: User })[]> {
+    const conditions = [eq(crmDailyMeetings.organizationId, organizationId)];
+    
+    if (filters?.userId) {
+      conditions.push(eq(crmDailyMeetings.userId, filters.userId));
+    }
+    if (filters?.dateFrom) {
+      conditions.push(gte(crmDailyMeetings.meetingDate, filters.dateFrom));
+    }
+    if (filters?.dateTo) {
+      conditions.push(lte(crmDailyMeetings.meetingDate, filters.dateTo));
+    }
+
+    const result = await db
+      .select()
+      .from(crmDailyMeetings)
+      .leftJoin(users, eq(crmDailyMeetings.userId, users.id))
+      .where(and(...conditions))
+      .orderBy(desc(crmDailyMeetings.meetingDate));
+
+    return result.map(row => ({
+      ...row.crm_daily_meetings,
+      user: row.users!,
+    }));
+  }
+
+  async getCrmDailyMeeting(id: number): Promise<(CrmDailyMeeting & { user: User }) | undefined> {
+    const result = await db
+      .select()
+      .from(crmDailyMeetings)
+      .leftJoin(users, eq(crmDailyMeetings.userId, users.id))
+      .where(eq(crmDailyMeetings.id, id));
+    
+    if (result.length === 0) return undefined;
+    return {
+      ...result[0].crm_daily_meetings,
+      user: result[0].users!,
+    };
+  }
+
+  async createCrmDailyMeeting(meeting: InsertCrmDailyMeeting): Promise<CrmDailyMeeting> {
+    const [created] = await db.insert(crmDailyMeetings).values(meeting).returning();
+    return created;
+  }
+
+  async updateCrmDailyMeeting(id: number, meeting: Partial<InsertCrmDailyMeeting>): Promise<CrmDailyMeeting> {
+    const [updated] = await db
+      .update(crmDailyMeetings)
+      .set({ ...meeting, updatedAt: new Date() })
+      .where(eq(crmDailyMeetings.id, id))
+      .returning();
+    return updated;
+  }
+
+  async deleteCrmDailyMeeting(id: number): Promise<void> {
+    await db.delete(crmDailyMeetings).where(eq(crmDailyMeetings.id, id));
+  }
+
+  async getCrmDailyMeetingSummary(organizationId: string, dateFrom?: Date, dateTo?: Date): Promise<{ totalSessions: number; totalInquiries: number; newLeads: number; closedDeals: number; callsPlaced: number; emailsSent: number; avgConversionRate: number }> {
+    const conditions = [eq(crmDailyMeetings.organizationId, organizationId)];
+    
+    if (dateFrom) conditions.push(gte(crmDailyMeetings.meetingDate, dateFrom));
+    if (dateTo) conditions.push(lte(crmDailyMeetings.meetingDate, dateTo));
+
+    const result = await db
+      .select({
+        totalSessions: sum(crmDailyMeetings.totalSessions),
+        totalInquiries: sum(crmDailyMeetings.totalInquiries),
+        newLeads: sum(crmDailyMeetings.newLeads),
+        closedDeals: sum(crmDailyMeetings.closedDeals),
+        callsPlaced: sum(crmDailyMeetings.callsPlaced),
+        emailsSent: sum(crmDailyMeetings.emailsSent),
+        avgConversionRate: sql<number>`AVG(CAST(${crmDailyMeetings.conversionRate} AS FLOAT))`,
+      })
+      .from(crmDailyMeetings)
+      .where(and(...conditions));
+
+    const summary = result[0] || {};
+    return {
+      totalSessions: summary.totalSessions || 0,
+      totalInquiries: summary.totalInquiries || 0,
+      newLeads: summary.newLeads || 0,
+      closedDeals: summary.closedDeals || 0,
+      callsPlaced: summary.callsPlaced || 0,
+      emailsSent: summary.emailsSent || 0,
+      avgConversionRate: summary.avgConversionRate || 0,
+    };
+  }
+
+  async getCrmTeamStats(organizationId: string, userId: number, dateFrom?: Date, dateTo?: Date): Promise<any> {
+    const conditions = [eq(crmDailyMeetings.organizationId, organizationId), eq(crmDailyMeetings.userId, userId)];
+    
+    if (dateFrom) conditions.push(gte(crmDailyMeetings.meetingDate, dateFrom));
+    if (dateTo) conditions.push(lte(crmDailyMeetings.meetingDate, dateTo));
+
+    const result = await db
+      .select({
+        totalSessions: sum(crmDailyMeetings.totalSessions),
+        totalInquiries: sum(crmDailyMeetings.totalInquiries),
+        newLeads: sum(crmDailyMeetings.newLeads),
+        closedDeals: sum(crmDailyMeetings.closedDeals),
+        callsPlaced: sum(crmDailyMeetings.callsPlaced),
+        emailsSent: sum(crmDailyMeetings.emailsSent),
+        avgConversionRate: sql<number>`AVG(CAST(${crmDailyMeetings.conversionRate} AS FLOAT))`,
+        recordsCount: count(),
+      })
+      .from(crmDailyMeetings)
+      .where(and(...conditions));
+
+    return result[0] || {};
   }
 
   // Organizational Hierarchy operations

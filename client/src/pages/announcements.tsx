@@ -3,7 +3,6 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
@@ -17,6 +16,7 @@ import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
 import { isUnauthorizedError } from '@/lib/authUtils';
 import { Announcement } from '@shared/schema';
+import { RichTextEditor } from '@/components/editor/RichTextEditor';
 
 const announcementSchema = z.object({
   title: z.string().min(1, 'Title is required'),
@@ -284,12 +284,12 @@ export default function Announcements() {
                     name="content"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Content</FormLabel>
+                        <FormLabel>Content (Rich Text)</FormLabel>
                         <FormControl>
-                          <Textarea 
-                            placeholder="Enter announcement content" 
-                            className="min-h-[120px]" 
-                            {...field} 
+                          <RichTextEditor 
+                            content={field.value || ''}
+                            onChange={field.onChange}
+                            placeholder="Write your announcement with formatting..."
                           />
                         </FormControl>
                         <FormMessage />
@@ -446,9 +446,10 @@ export default function Announcements() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 mb-4 whitespace-pre-wrap">
-                  {announcement.content}
-                </p>
+                <div 
+                  className="text-gray-700 mb-4 prose prose-sm max-w-none"
+                  dangerouslySetInnerHTML={{ __html: announcement.content }}
+                />
                 
                 {announcement.targetRoles && announcement.targetRoles.length > 0 && (
                   <div className="flex flex-wrap gap-2">

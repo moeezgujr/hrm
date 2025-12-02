@@ -190,8 +190,8 @@ export default function OnboardingHub() {
         <div className="text-center mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
           <p className="text-gray-600 dark:text-gray-400">
             Need help? Contact our support team at{" "}
-            <a href="mailto:support@meetingmatters.com" className="text-blue-600 dark:text-blue-400 hover:underline">
-              support@q361.com
+            <a href="mailto:support@q361.qanzakglobal.com" className="text-blue-600 dark:text-blue-400 hover:underline">
+              support@q361.qanzakglobal.com
             </a>
           </p>
         </div>

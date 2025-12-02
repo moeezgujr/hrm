@@ -1,8 +1,9 @@
-import { ReactNode, useState, useEffect } from 'react';
+import { ReactNode, useState, useEffect, createContext, useContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Sidebar from './sidebar';
 import Header from './header';
 import ContractSigningModal from '@/components/contract-signing-modal';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -15,8 +16,24 @@ interface EmploymentContract {
   contractSigned: boolean;
 }
 
+interface MobileMenuContextType {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+  toggle: () => void;
+}
+
+export const MobileMenuContext = createContext<MobileMenuContextType>({
+  isOpen: false,
+  setIsOpen: () => {},
+  toggle: () => {},
+});
+
+export const useMobileMenu = () => useContext(MobileMenuContext);
+
 export default function MainLayout({ children }: MainLayoutProps) {
   const [showContractModal, setShowContractModal] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   // Check if user has pending contract that needs signing
   const { data: pendingContract } = useQuery<EmploymentContract>({
@@ -25,7 +42,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
     refetchOnWindowFocus: false,
     meta: {
       errorHandler: (error: any) => {
-        // Don't show errors for contract checking - this is expected for users without contracts
         return;
       }
     }
@@ -38,28 +54,41 @@ export default function MainLayout({ children }: MainLayoutProps) {
     }
   }, [pendingContract]);
 
+  // Close mobile menu when switching to desktop
+  useEffect(() => {
+    if (!isMobile) {
+      setMobileMenuOpen(false);
+    }
+  }, [isMobile]);
+
   const handleContractSigned = () => {
     setShowContractModal(false);
-    // Refresh the page to update user authentication state
     window.location.reload();
   };
 
+  const mobileMenuValue = {
+    isOpen: mobileMenuOpen,
+    setIsOpen: setMobileMenuOpen,
+    toggle: () => setMobileMenuOpen(prev => !prev),
+  };
+
   return (
-    <div className="min-h-screen flex bg-background">
-      <Sidebar />
-      <main className="flex-1 overflow-auto">
-        <Header />
-        <div className="custom-scrollbar">
-          {children}
-        </div>
-      </main>
-      
-      {/* Contract Signing Modal */}
-      <ContractSigningModal
-        isOpen={showContractModal}
-        onClose={() => {}} // Prevent closing - user must sign
-        onSigningComplete={handleContractSigned}
-      />
-    </div>
+    <MobileMenuContext.Provider value={mobileMenuValue}>
+      <div className="min-h-screen flex bg-background">
+        <Sidebar />
+        <main className="flex-1 overflow-auto w-full">
+          <Header />
+          <div className="custom-scrollbar">
+            {children}
+          </div>
+        </main>
+        
+        <ContractSigningModal
+          isOpen={showContractModal}
+          onClose={() => {}}
+          onSigningComplete={handleContractSigned}
+        />
+      </div>
+    </MobileMenuContext.Provider>
   );
 }

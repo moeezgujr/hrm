@@ -234,7 +234,7 @@ export default function Logistics() {
 
   if (requestsLoading) {
     return (
-      <div className="p-6 space-y-6">
+      <div className="p-4 md:p-6 space-y-4 md:space-y-6">
         <div className="animate-pulse space-y-4">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="h-24 bg-gray-200 rounded"></div>
@@ -245,12 +245,12 @@ export default function Logistics() {
   }
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-4 md:space-y-6">
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Logistics Management</h1>
-          <p className="text-gray-600">Request → HR Approval → Purchase → Receipt → Complete</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Logistics Management</h1>
+          <p className="text-sm md:text-base text-gray-600">Request → HR Approval → Purchase → Receipt → Complete</p>
         </div>
         {canRequestItems && (
           <Dialog open={showRequestDialog} onOpenChange={setShowRequestDialog}>

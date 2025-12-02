@@ -56,7 +56,7 @@ export default function EmployeeOnboardingPortal() {
       <div className="bg-white shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-6">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-gray-900">Welcome to Meeting Matters</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Welcome to Q361</h1>
             <p className="text-gray-600 mt-2">Employee Onboarding Portal</p>
           </div>
         </div>

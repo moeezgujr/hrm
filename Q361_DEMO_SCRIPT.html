@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q361 - Complete Demo Script</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 50px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .cover-page {
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom: 3px solid #2563eb;
+            margin-bottom: 40px;
+        }
+        
+        .cover-page h1 {
+            font-size: 48px;
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .cover-page .subtitle {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .cover-page .description {
+            font-size: 16px;
+            color: #999;
+            margin-bottom: 40px;
+        }
+        
+        .cover-page .metadata {
+            font-size: 14px;
+            color: #666;
+            margin-top: 60px;
+        }
+        
+        .page-break {
+            page-break-after: always;
+            margin: 40px 0;
+            padding: 20px 0;
+            border-top: 2px solid #eee;
+        }
+        
+        h1 {
+            color: #2563eb;
+            font-size: 32px;
+            margin-bottom: 20px;
+            margin-top: 40px;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #1e40af;
+            font-size: 24px;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #2563eb;
+            font-size: 18px;
+            margin-bottom: 12px;
+            margin-top: 20px;
+        }
+        
+        h4 {
+            color: #444;
+            font-size: 16px;
+            margin-bottom: 10px;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .segment {
+            background-color: #f0f9ff;
+            border-left: 4px solid #2563eb;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .segment h3 {
+            margin-top: 0;
+            color: #2563eb;
+        }
+        
+        .talking-point {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        .demo-step {
+            background-color: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        
+        .demo-step strong {
+            color: #059669;
+        }
+        
+        .timing {
+            background-color: #fce7f3;
+            padding: 8px 12px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #be185d;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th {
+            background-color: #2563eb;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        .benefit-list {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .benefit-list li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+        
+        .benefit-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .checkbox-list {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .checkbox-list li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .checkbox-list li:before {
+            content: "□";
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+            font-weight: bold;
+        }
+        
+        .toc {
+            background-color: #f8fafc;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .toc h2 {
+            margin-top: 0;
+        }
+        
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .toc li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        
+        .toc li:before {
+            content: "→";
+            position: absolute;
+            margin-left: -20px;
+            color: #2563eb;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .stat .number {
+            font-size: 24px;
+            color: #2563eb;
+            font-weight: 700;
+        }
+        
+        .stat .label {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .section-time {
+            font-size: 12px;
+            color: #2563eb;
+            font-weight: 600;
+        }
+        
+        .quote {
+            border-left: 4px solid #8b5cf6;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #666;
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 40px;
+                max-width: 100%;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- COVER PAGE -->
+        <div class="cover-page">
+            <h1>Q361</h1>
+            <div class="subtitle">Complete Demo Script</div>
+            <div class="description">Professional Presentation Guide<br>30-45 Minute Demonstration</div>
+            <div class="metadata">
+                <p><strong>Version:</strong> 1.0</p>
+                <p><strong>Date:</strong> November 2025</p>
+                <p><strong>Document Type:</strong> Live Presentation Script</p>
+                <p><strong>Duration:</strong> 30-45 minutes</p>
+            </div>
+        </div>
+        
+        <!-- TABLE OF CONTENTS -->
+        <div class="toc">
+            <h2>Presentation Agenda</h2>
+            <ul>
+                <li>Opening (2 min)</li>
+                <li>Login & First Impressions (2 min)</li>
+                <li>Dashboard Overview (5 min)</li>
+                <li>Employee Management (6 min)</li>
+                <li>Leave Management System (7 min)</li>
+                <li>Onboarding System (5 min)</li>
+                <li>Project Management (6 min)</li>
+                <li>Meeting Matters Studio (5 min)</li>
+                <li>Permissions & Security (3 min)</li>
+                <li>Reporting & Analytics (4 min)</li>
+                <li>ROI & Benefits (2 min)</li>
+                <li>Implementation Timeline (2 min)</li>
+                <li>Closing & Q&A (3 min)</li>
+            </ul>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- OPENING -->
+        <h1>OPENING <span class="section-time">(2 minutes)</span></h1>
+        
+        <h2>Welcome & Introduction</h2>
+        <p class="quote">"Good morning/afternoon, everyone. Thank you for taking the time to be here. Today, I want to introduce you to Q361 — a comprehensive Business Management System that's transforming how modern organizations manage their entire operation, from the moment someone joins your company until they leave."</p>
+        
+        <p class="quote">"We've spent the last 18 months building Q361 to solve a real problem: organizations are drowning in disconnected systems. HR data lives in spreadsheets, leave approvals happen via email, onboarding takes weeks, and nobody has a clear picture of what's actually happening in their organization. Q361 changes that. Everything — and I mean everything — is now in one unified platform."</p>
+        
+        <h2>Agenda</h2>
+        <div class="demo-step">
+            <strong>Show on screen:</strong>
+            <ul>
+                <li>Dashboard Overview - The command center</li>
+                <li>Employee Management - Complete workforce data</li>
+                <li>Leave Management System - Approval workflows that work</li>
+                <li>Onboarding - Getting new hires productive fast</li>
+                <li>Projects & Tasks - Unified project management</li>
+                <li>Content Creation Studio - Strategic planning and execution</li>
+                <li>Analytics & Insights - Data-driven decisions</li>
+                <li>Q&A - Your questions answered</li>
+            </ul>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- SEGMENT 1 -->
+        <h1>SEGMENT 1: Login & First Impressions <span class="section-time">(2 minutes)</span></h1>
+        
+        <div class="segment">
+            <h3>Demo Steps:</h3>
+            <ol>
+                <li>Open browser to Q361 login page</li>
+                <li>Enter credentials:
+                    <ul>
+                        <li>Username: Warda_6286</li>
+                        <li>Password: [actual password]</li>
+                    </ul>
+                </li>
+                <li>Click Login</li>
+                <li>Wait for dashboard to load</li>
+            </ol>
+        </div>
+        
+        <h2>Talking Points:</h2>
+        <div class="talking-point"><strong>Say:</strong> "Notice the design — it's modern, intuitive. No confusing menus or buried settings."</div>
+        <div class="talking-point"><strong>Say:</strong> "The system is lightning-fast. Your data loads in milliseconds, not minutes."</div>
+        <div class="talking-point"><strong>Say:</strong> "Security is built-in. HTTPS encryption, secure sessions, password protection."</div>
+        <div class="talking-point"><strong>Say:</strong> "Employees login with their credentials. It's familiar. No training needed."</div>
+        
+        <div class="page-break"></div>
+        
+        <!-- SEGMENT 2 -->
+        <h1>SEGMENT 2: Dashboard Overview <span class="section-time">(5 minutes)</span></h1>
+        
+        <p class="quote">"This is your command center. Everything important appears right here."</p>
+        
+        <h2>Point 1: Stats Cards (Top of Page)</h2>
+        <div class="demo-step">
+            <strong>Say:</strong> "These four cards give you organizational health at a glance."
+        </div>
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="number">50</div>
+                <div class="label">Total Employees</div>
+            </div>
+            <div class="stat">
+                <div class="number">12</div>
+                <div class="label">Active Projects</div>
+            </div>
+            <div class="stat">
+                <div class="number">18</div>
+                <div class="label">Pending Approvals</div>
+            </div>
+            <div class="stat">
+                <div class="number">8</div>
+                <div class="label">Departments</div>
+            </div>
+        </div>
+        <div class="talking-point"><strong>Talking Point:</strong> "Real-time metrics. No more digging through spreadsheets. Every number updates automatically."</div>
+        
+        <h2>Point 2: Activity Feed (Center Section)</h2>
+        <div class="demo-step">
+            <strong>Say:</strong> "Here's the activity timeline. Every important action is logged."
+        </div>
+        <ul>
+            <li>"Employee uploaded contract" — HR can see what documents are being submitted</li>
+            <li>"Project status updated" — Track project progress</li>
+            <li>"Leave approved" — See approvals happening in real-time</li>
+            <li>"Onboarding completed" — Know when new hires are ready</li>
+        </ul>
+        <div class="talking-point"><strong>Talking Point:</strong> "Transparency. Everyone knows what's happening. No missed communications."</div>
+        
+        <h2>Point 3: Pending Approvals Widget (Right Sidebar)</h2>
+        <div class="demo-step">
+            <strong>Say:</strong> "All approvals in one place. Never miss an important decision."<br><br>
+            <strong>Click on one pending approval to show:</strong>
+            <ul>
+                <li>Employee name</li>
+                <li>Leave type and duration</li>
+                <li>Dates requested</li>
+                <li>Manager can review, comment, approve, or reject in seconds</li>
+            </ul>
+        </div>
+        <div class="talking-point"><strong>Talking Point:</strong> "What used to take 3-5 days now takes 24 hours. Employees are happier. HR workload drops 40-50%."</div>
+        
+        <h2>Point 4: Reporting Structure (Bottom Section)</h2>
+        <div class="demo-step">
+            <strong>Say:</strong> "This is your organizational hierarchy. See who reports to whom."
+        </div>
+        <div class="talking-point"><strong>Talking Point:</strong> "Perfect for performance reviews, succession planning, and understanding organizational dynamics."</div>
+        
+        <div class="page-break"></div>
+        
+        <!-- SEGMENT 3 -->
+        <h1>SEGMENT 3: Employee Management <span class="section-time">(6 minutes)</span></h1>
+        
+        <p class="quote">"Let's look at comprehensive employee management. This is where all workforce data lives."</p>
+        
+        <h2>Screen 1: Employee List</h2>
+        <div class="demo-step">
+            <strong>Navigation:</strong> Click "Employees" in sidebar<br><br>
+            <strong>Show:</strong>
+            <ul>
+                <li>Table with all employees</li>
+                <li>Columns: Name, Email, Department, Position, Status</li>
+                <li>Filter buttons: "By Department", "By Status", "By Role"</li>
+                <li>Search box at top</li>
+            </ul>
+        </div>
+        
+        <h2>Screen 2: Employee Profile (Click on One Employee)</h2>
+        <p><strong>Say:</strong> "This is the complete employee record. Everything you need is here."</p>
+        
+        <h3>Tab 1: Personal Information</h3>
+        <ul>
+            <li>Name, Email, Phone</li>
+            <li>Date of Birth, Address</li>
+            <li>Emergency Contact</li>
+        </ul>
+        
+        <h3>Tab 2: Employment Details</h3>
+        <ul>
+            <li>Employee ID and Department</li>
+            <li>Position and Reporting Manager</li>
+            <li>Hire Date and Employment Status</li>
+            <li>Salary Band and Employment Type</li>
+        </ul>
+        <div class="talking-point"><strong>Talking Point:</strong> "Reporting manager field is critical — it drives approval workflows. Change it here, and leave approvals automatically route to the new manager."</div>
+        
+        <h3>Tab 3: Documents</h3>
+        <ul>
+            <li>Contracts</li>
+            <li>Offer Letters</li>
+            <li>ID Proofs</li>
+            <li>Tax Documents</li>
+            <li>Upload button for new documents</li>
+        </ul>
+        <div class="talking-point"><strong>Talking Point:</strong> "No more hunting through email for that contract from 2 years ago. It's here, organized, secure."</div>
+        
+        <h3>Tab 4: Leave Balance</h3>
+        <ul>
+            <li>Annual Leave: 15 days</li>
+            <li>Sick Leave: 12 days</li>
+            <li>Casual Leave: 10 days</li>
+            <li>Balance updates automatically when leaves are approved</li>
+            <li>Adjust Balance button for HR corrections</li>
+        </ul>
+        
+        <h3>Tab 5: Leave History</h3>
+        <ul>
+            <li>All past leave requests</li>
+            <li>Dates, duration, type, status</li>
+            <li>Shows approved, pending, and rejected requests</li>
+        </ul>
+        
+        <h3>Tab 6 & 7: Tasks & Projects</h3>
+        <ul>
+            <li>Tasks currently assigned</li>
+            <li>Projects this person is working on</li>
+            <li>Current status of each</li>
+        </ul>
+        
+        <div class="page-break"></div>
+        
+        <!-- SEGMENT 4 -->
+        <h1>SEGMENT 4: Leave Management System <span class="section-time">(7 minutes)</span></h1>
+        
+        <h2>Problem Statement (30 seconds):</h2>
+        <p class="quote">"Before Q361, leave management looked like:
+        1. Employee sends email to manager
+        2. Manager forwards to HR
+        3. HR updates spreadsheet
+        4. Employee wonders when it'll be approved
+        5. Manager wonders if they already approved it
+        6. HR wonders if the balance was updated
+        
+        This process takes 5-7 days. Employees are frustrated. HR is buried in emails. Q361 changes everything."</p>
+        
+        <h2>Screen 1: Employee Perspective - Request Leave</h2>
+        <div class="demo-step">
+            <strong>Say:</strong> "Let's see how an employee requests leave."<br><br>
+            <strong>Demo:</strong>
+            <ol>
+                <li>Click "Request New Leave" button</li>
+                <li>Show form:
+                    <ul>
+                        <li><strong>Leave Type Dropdown:</strong> Annual, Sick, Casual, etc.</li>
+                        <li><strong>Start Date:</strong> Pick using calendar</li>
+                        <li><strong>End Date:</strong> System calculates duration automatically</li>
+                        <li><strong>Number of Days:</strong> Shows automatically</li>
+                        <li><strong>Reason:</strong> Employee explains why</li>
+                    </ul>
+                </li>
+                <li>Click Submit</li>
+            </ol>
+        </div>
+        <div class="talking-point"><strong>Say:</strong> "That's it. One form. Employee submits in 30 seconds."</div>
+        
+        <h2>Screen 2: Manager Perspective - Approve Leave</h2>
+        <div class="demo-step">
+            <strong>Demo:</strong>
+            <ol>
+                <li>Switch to manager account</li>
+                <li>Dashboard shows "Pending Approvals: 1"</li>
+                <li>Click on Pending Approvals widget</li>
+                <li>Shows employee name, leave type, dates, duration, reason</li>
+                <li>Click "Approve" button</li>
+                <li>Add optional comment</li>
+                <li>Click "Confirm Approval"</li>
+                <li>"Request approved and sent to HR for final verification"</li>
+            </ol>
+        </div>
+        
+        <h2>Screen 3: HR Perspective - Final Approval</h2>
+        <div class="demo-step">
+            <strong>Demo:</strong>
+            <ol>
+                <li>Switch to HR account</li>
+                <li>Go to Leave Management</li>
+                <li>Click "Pending Leave Requests" tab</li>
+                <li>Show all requests awaiting HR approval</li>
+                <li>Click on the request</li>
+                <li>Review: Employee details, manager's approval, leave balance</li>
+                <li>Click "Approve"</li>
+                <li>System automatically:
+                    <ul>
+                        <li>Updates employee's leave balance</li>
+                        <li>Sends notification to employee</li>
+                        <li>Sends notification to manager</li>
+                        <li>Logs it in leave history</li>
+                        <li>Updates calendar</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        <div class="talking-point"><strong>Say:</strong> "All done. What took 5-7 days in email and spreadsheets takes 10 minutes total. Three-step process, complete automation."</div>
+        
+        <h2>Screen 4: Leave Balances Tab</h2>
+        <div class="demo-step">
+            <strong>Say:</strong> "HR can see everyone's leave balance in one table."<br><br>
+            <strong>Show:</strong>
+            <ul>
+                <li>All employees with their balances</li>
+                <li>Annual, Sick, Casual, Compensatory columns</li>
+                <li>Sort by any column</li>
+                <li>Filter by department</li>
+                <li>"Adjust Balance" button for any employee</li>
+            </ul>
+        </div>
+        
+        <h2>Screen 5: Leave History Tab</h2>
+        <div class="demo-step">
+            <strong>Say:</strong> "Complete audit trail of all leave taken."<br><br>
+            <strong>Show:</strong>
+            <ul>
+                <li>Table with all leave records</li>
+                <li>Employee, dates, duration, type, status</li>
+                <li>Filter by date range and status</li>
+                <li>Export to PDF or Excel</li>
+            </ul>
+        </div>
+        <div class="talking-point"><strong>Talking Point:</strong> "For compliance and auditing, you have complete records. Every leave is documented. Every approval is logged."</div>
+        
+        <div class="page-break"></div>
+        
+        <!-- SEGMENT 5 -->
+        <h1>SEGMENT 5: Onboarding System <span class="section-time">(5 minutes)</span></h1>
+        
+        <h2>The Problem (20 seconds):</h2>
+        <p class="quote">"Traditionally, onboarding is a mess:
+        - No one knows what the new hire should do
+        - Checklists exist in different places
+        - Manager forgot to give IT access
+        - HR doesn't know if they've completed documents
+        - New hire is confused
+        - Productivity ramp is months, not weeks
+        
+        Q361 solves this with structured onboarding checklists."</p>
+        
+        <h2>Screen 1: Onboarding Checklist List</h2>
+        <div class="demo-step">
+            <strong>Navigation:</strong> Click "Onboarding"<br><br>
+            <strong>Show:</strong>
+            <ul>
+                <li>All ongoing onboardings</li>
+                <li>Employee name, hire date, progress percentage</li>
+                <li>Filter by status and department</li>
+                <li>"Add New Onboarding" button</li>
+            </ul>
+        </div>
+        
+        <h2>Screen 2: Individual Onboarding Progress</h2>
+        <p><strong>Click on one employee's onboarding to show structured checklist:</strong></p>
+        
+        <h3>Checklist Items:</h3>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Status</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Personal Profile Setup</td>
+                <td>✓ Completed</td>
+                <td>Employee filled out personal details (Oct 15)</td>
+            </tr>
+            <tr>
+                <td>Document Submission</td>
+                <td>◐ In Progress</td>
+                <td>ID Proof, Address Proof, Bank Details needed</td>
+            </tr>
+            <tr>
+                <td>IT Access Setup</td>
+                <td>○ Not Started</td>
+                <td>Email account, System access, Hardware</td>
+            </tr>
+            <tr>
+                <td>Department Introduction</td>
+                <td>○ Not Started</td>
+                <td>Meet team members, Learn processes</td>
+            </tr>
+            <tr>
+                <td>Policy Acknowledgment</td>
+                <td>○ Not Started</td>
+                <td>Read handbook, Code of conduct</td>
+            </tr>
+            <tr>
+                <td>Training Modules</td>
+                <td>○ Not Started</td>
+                <td>Generic, role-specific, safety training</td>
+            </tr>
+            <tr>
+                <td>Psychometric Assessment</td>
+                <td>○ Not Started</td>
+                <td>Personality & aptitude tests (30 min)</td>
+            </tr>
+            <tr>
+                <td>Manager Check-in</td>
+                <td>○ Not Started</td>
+                <td>Initial performance discussion</td>
+            </tr>
+        </table>
+
+        <h3>Overall Progress: 68% Complete</h3>
+        
+        <h2>HR Features:</h2>
+        <ul class="benefit-list">
+            <li>Mark items complete on behalf of employees</li>
+            <li>Send automated reminders for incomplete items</li>
+            <li>Upload documents and training materials</li>
+            <li>Track progress with visual indicators</li>
+            <li>Assign items to multiple people automatically</li>
+        </ul>
+        
+        <div class="talking-point"><strong>Talking Point:</strong> "Most companies take 6-8 weeks for onboarding. With Q361, structured approach, and tracking — you can do it in 2 weeks. Employees are productive faster. HR has visibility. Nothing falls through the cracks."</div>
+        
+        <div class="page-break"></div>
+        
+        <!-- SEGMENT 6 -->
+        <h1>SEGMENT 6: Project Management <span class="section-time">(6 minutes)</span></h1>
+        
+        <p class="quote">"Now let's look at unified project management. Q361 brings all your projects together."</p>
+        
+        <h2>Screen 1: Projects List</h2>
+        <div class="demo-step">
+            <strong>Navigation:</strong> Click "Projects"<br><br>
+            <strong>Show:</strong>
+            <ul>
+                <li>Project cards with status badges</li>
+                <li>Status: Planning, In Progress, On Hold, Completed, Cancelled</li>
+                <li>Color-coded for quick visual recognition</li>
+                <li>Department, project lead, team size</li>
+                <li>Filters: By status, department, team lead</li>
+            </ul>
+        </div>
+        
+        <h2>Screen 2: Project Detail Page</h2>
+        <p><strong>Click on one project:</strong></p>
+        
+        <h3>Project Overview Section</h3>
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td><strong>Project Name</strong></td>
+                <td>Mobile App Redesign</td>
+            </tr>
+            <tr>
+                <td><strong>Description</strong></td>
+                <td>Complete redesign of our mobile customer app</td>
+            </tr>
+            <tr>
+                <td><strong>Status</strong></td>
+                <td>In Progress</td>
+            </tr>
+            <tr>
+                <td><strong>Progress</strong></td>
+                <td>65% complete</td>
+            </tr>
+            <tr>
+                <td><strong>Team Lead</strong></td>
+                <td>Sarah Johnson</td>
+            </tr>
+            <tr>
+                <td><strong>Department</strong></td>
+                <td>Engineering</td>
+            </tr>
+            <tr>
+                <td><strong>Start Date</strong></td>
+                <td>Oct 1, 2025</td>
+            </tr>
+            <tr>
+                <td><strong>End Date</strong></td>
+                <td>Jan 15, 2026</td>
+            </tr>
+            <tr>
+                <td><strong>Budget</strong></td>
+                <td>$50,000</td>
+            </tr>
+        </table>
+        
+        <h3>Team Members Tab</h3>
+        <div class="demo-step">
+            <strong>Show:</strong>
+            <ul>
+                <li>Table of team members</li>
+                <li>Name, role, start date</li>
+                <li>Easy to add/remove team members</li>
+                <li>Roles: Developer, Designer, QA, Project Manager</li>
+            </ul>
+        </div>
+        
+        <h3>Tasks Tab</h3>
+        <div class="demo-step">
+            <strong>Show:</strong>
+            <ul>
+                <li>List of all project tasks</li>
+                <li>Task title, assigned to, status</li>
+                <li>Due date and priority</li>
+                <li>Click on one to show details, comments, subtasks</li>
+            </ul>
+        </div>
+        
+        <h3>Timeline/Gantt Chart Tab</h3>
+        <div class="demo-step">
+            <strong>Say:</strong> "Visual project timeline. You can see at a glance which tasks are on track and identify bottlenecks before they become problems."
+        </div>
+        
+        <h3>Documents Tab</h3>
+        <ul>
+            <li>Project files uploaded</li>
+            <li>Design specifications, architecture docs</li>
+            <li>Reports and other project files</li>
+            <li>Upload new files button</li>
+        </ul>
+        
+        <div class="page-break"></div>
+        
+        <!-- SEGMENT 7 -->
+        <h1>SEGMENT 7: Meeting Matters Studio <span class="section-time">(5 minutes)</span></h1>
+        
+        <p class="quote">"Now I want to show you something that separates Q361 from traditional HR systems. The Meeting Matters Studio. This isn't just for HR. It's for strategy, content creation, marketing, and organization-wide collaboration."</p>
+        
+        <h2>Screen 1: Weekly Presentation/CEO Dashboard</h2>
+        <div class="demo-step">
+            <strong>Navigate to:</strong> Meeting Matters Studio<br><br>
+            <strong>Say:</strong> "Every week, leadership runs a strategic meeting. Here's where they prep and execute it."
+        </div>
+        
+        <h3>Customizable Dashboard Sections:</h3>
+        <ul>
+            <li><strong>Executive Summary</strong> — Key metrics and strategic updates</li>
+            <li><strong>KPI Dashboard</strong> — Revenue, customers, satisfaction, completion rates</li>
+            <li><strong>Key Decisions This Week</strong> — What was decided and by whom</li>
+            <li><strong>Previous Meeting Work Done</strong> — Work completed since last meeting (unique feature)</li>
+            <li><strong>Team Performance</strong> — Department updates, project status, metrics</li>
+        </ul>
+        
+        <div class="talking-point"><strong>Say:</strong> "During the actual meeting, they use Presentation Mode — full-screen, professional appearance, perfect for board meetings or investor updates."</div>
+        
+        <h2>Screen 2: Creative Briefs</h2>
+        <div class="demo-step">
+            <strong>Navigate to:</strong> Creative Briefs<br><br>
+            <strong>Show:</strong>
+            <ul>
+                <li>List of active briefs</li>
+                <li>Status: Draft, In Review, Approved, In Production, Completed</li>
+                <li>Click on one brief to show:
+                    <ul>
+                        <li>Title, Objective, Target Audience</li>
+                        <li>Deliverables, Timeline, Budget</li>
+                        <li>Approve/Request Changes buttons</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <h2>Screen 3: Asset Library</h2>
+        <div class="demo-step">
+            <strong>Show:</strong>
+            <ul>
+                <li>Organized media library</li>
+                <li>Filter by: Type, Campaign, Project</li>
+                <li>Search functionality</li>
+                <li>Click on an asset to preview, download, or use</li>
+            </ul>
+        </div>
+        <div class="talking-point"><strong>Say:</strong> "No more hunting through email for that logo or brand guide. It's here, organized, easy to find."</div>
+        
+        <h2>Screen 4: Analytics Dashboard</h2>
+        <div class="demo-step">
+            <strong>Show:</strong>
+            <ul>
+                <li>Social media metrics across platforms</li>
+                <li>Reach, impressions, engagement</li>
+                <li>Top-performing content</li>
+                <li>Audience growth and platform comparison</li>
+            </ul>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- SEGMENT 8 -->
+        <h1>SEGMENT 8: Permissions & Security <span class="section-time">(3 minutes)</span></h1>
+        
+        <p class="quote">"Security and permissions are critical. Let me show you how Q361 handles this."</p>
+        
+        <h2>Screen 1: User Roles</h2>
+        <div class="demo-step">
+            <strong>Navigate to:</strong> Settings or Admin Panel<br><br>
+            <strong>Show role list:</strong>
+            <ul>
+                <li>HR Admin (full HR access)</li>
+                <li>Branch Manager (branch-level access)</li>
+                <li>Team Lead (team access)</li>
+                <li>Employee (self-service)</li>
+                <li>Content Creator</li>
+                <li>Creative Director</li>
+                <li>Social Media Manager</li>
+                <li>Logistics Manager</li>
+            </ul>
+        </div>
+        <div class="talking-point"><strong>Say:</strong> "Each role has specific permissions. An employee can't see salary information. A manager can approve leave for their team but not other teams."</div>
+        
+        <h2>Screen 2: Module Permissions</h2>
+        <table>
+            <tr>
+                <th>Module</th>
+                <th>HR Admin</th>
+                <th>Manager</th>
+                <th>Employee</th>
+            </tr>
+            <tr>
+                <td>Employee Management</td>
+                <td>Manage</td>
+                <td>View Team</td>
+                <td>View Self</td>
+            </tr>
+            <tr>
+                <td>Leave Management</td>
+                <td>Approve</td>
+                <td>Approve Team</td>
+                <td>Request Own</td>
+            </tr>
+            <tr>
+                <td>Projects</td>
+                <td>Manage All</td>
+                <td>Manage Own</td>
+                <td>View Assigned</td>
+            </tr>
+            <tr>
+                <td>Studio</td>
+                <td>Full Access</td>
+                <td>View Only</td>
+                <td>Creator Role</td>
+            </tr>
+        </table>
+        <div class="talking-point"><strong>Say:</strong> "Granular control. Everyone has exactly what they need. Nothing more. Nothing less. Security by design."</div>
+        
+        <h2>Security Features</h2>
+        <ul class="benefit-list">
+            <li>HTTPS encryption for all data</li>
+            <li>HTTP-only cookies (can't be stolen)</li>
+            <li>CSRF protection on every form</li>
+            <li>Passwords hashed with bcrypt</li>
+            <li>Complete audit logging</li>
+            <li>IP-based access controls available</li>
+            <li>GDPR-compliant</li>
+        </ul>
+        
+        <div class="page-break"></div>
+        
+        <!-- SEGMENT 9 -->
+        <h1>SEGMENT 9: Reporting & Analytics <span class="section-time">(4 minutes)</span></h1>
+        
+        <p class="quote">"Data without insights is just noise. Q361 turns data into actionable insights."</p>
+        
+        <h2>Screen 1: HR Analytics Dashboard</h2>
+        <div class="demo-step">
+            <strong>Navigate to:</strong> Reports or Analytics<br><br>
+            <strong>Show:</strong>
+            <ul>
+                <li>Headcount by department (pie chart)</li>
+                <li>Employee turnover rate (line chart)</li>
+                <li>Leave utilization (bar chart)</li>
+                <li>Onboarding completion rate (progress bar)</li>
+                <li>Leave approval time: average 18 hours</li>
+                <li>Employee satisfaction score</li>
+            </ul>
+        </div>
+        <div class="talking-point"><strong>Say:</strong> "All your key HR metrics in one view. Updated daily."</div>
+        
+        <h2>Screen 2: Custom Reports</h2>
+        <div class="demo-step">
+            <strong>Show:</strong>
+            <ul>
+                <li>Report templates</li>
+                <li>Customize date range and filters</li>
+                <li>"Generate Report" button</li>
+                <li>Export to PDF or Excel</li>
+                <li>"Schedule delivery" (daily, weekly, monthly)</li>
+            </ul>
+        </div>
+        
+        <h2>Screen 3: Project Analytics</h2>
+        <ul>
+            <li>Project on-time delivery rate: 92%</li>
+            <li>Budget variance: -5% (under budget)</li>
+            <li>Team utilization: 85%</li>
+            <li>Average project duration vs planned</li>
+        </ul>
+        
+        <h2>Screen 4: Key Metrics Dashboard</h2>
+        <table>
+            <tr>
+                <th>KPI</th>
+                <th>Value</th>
+                <th>Target</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Leave approval turnaround</td>
+                <td>24 hours</td>
+                <td>&lt; 24 hours</td>
+                <td>✓</td>
+            </tr>
+            <tr>
+                <td>Onboarding completion rate</td>
+                <td>97%</td>
+                <td>&gt; 95%</td>
+                <td>✓</td>
+            </tr>
+            <tr>
+                <td>Project on-time delivery</td>
+                <td>92%</td>
+                <td>&gt; 90%</td>
+                <td>✓</td>
+            </tr>
+            <tr>
+                <td>System uptime</td>
+                <td>99.8%</td>
+                <td>&gt; 99.5%</td>
+                <td>✓</td>
+            </tr>
+        </table>
+        
+        <div class="page-break"></div>
+        
+        <!-- SEGMENT 10 -->
+        <h1>SEGMENT 10: ROI & Benefits <span class="section-time">(2 minutes)</span></h1>
+        
+        <p class="quote">"Let me show you what Q361 means financially for your organization."</p>
+        
+        <h2>Quantifiable Benefits (100-person company)</h2>
+        <table>
+            <tr>
+                <th>Benefit</th>
+                <th>Current State</th>
+                <th>With Q361</th>
+                <th>Annual Savings</th>
+            </tr>
+            <tr>
+                <td>HR Manual Work</td>
+                <td>160 hrs/month</td>
+                <td>80 hrs/month</td>
+                <td>$25K - $35K</td>
+            </tr>
+            <tr>
+                <td>Leave Approval Time</td>
+                <td>5 days average</td>
+                <td>1 day average</td>
+                <td>$15K - $20K</td>
+            </tr>
+            <tr>
+                <td>Onboarding Time</td>
+                <td>8 weeks</td>
+                <td>2 weeks</td>
+                <td>Faster ROI, $50K+</td>
+            </tr>
+            <tr>
+                <td>Data Errors</td>
+                <td>5%</td>
+                <td>0.1%</td>
+                <td>$10K - $15K</td>
+            </tr>
+            <tr style="font-weight: bold;">
+                <td>TOTAL ANNUAL SAVINGS</td>
+                <td></td>
+                <td></td>
+                <td>$95K - $160K</td>
+            </tr>
+        </table>
+        
+        <h2>Break-Even Analysis</h2>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Cost</th>
+            </tr>
+            <tr>
+                <td>Implementation Cost</td>
+                <td>$5K - $15K</td>
+            </tr>
+            <tr>
+                <td>Annual Subscription</td>
+                <td>$200/month</td>
+            </tr>
+            <tr>
+                <td>Annual Savings</td>
+                <td>$95K - $160K</td>
+            </tr>
+            <tr style="font-weight: bold;">
+                <td>Break-Even</td>
+                <td>3-4 months</td>
+            </tr>
+            <tr style="font-weight: bold;">
+                <td>3-Year ROI</td>
+                <td>400-800%</td>
+            </tr>
+        </table>
+        
+        <h2>Intangible Benefits</h2>
+        <ul class="benefit-list">
+            <li>Employees are happier (faster approvals, less bureaucracy)</li>
+            <li>Managers have more time for team development</li>
+            <li>HR team can focus on strategy, not paperwork</li>
+            <li>Better decision-making with real-time data</li>
+            <li>Compliance certainty with complete audit trails</li>
+            <li>Scalability for future growth</li>
+        </ul>
+        
+        <div class="page-break"></div>
+        
+        <!-- SEGMENT 11 -->
+        <h1>SEGMENT 11: Implementation Timeline <span class="section-time">(2 minutes)</span></h1>
+        
+        <p class="quote">"You're probably thinking: how long does this take? How disruptive is it? The answer is simple: 4-6 weeks, and it's not disruptive at all."</p>
+        
+        <h2>6-Phase Implementation</h2>
+        <table>
+            <tr>
+                <th>Phase</th>
+                <th>Duration</th>
+                <th>What Happens</th>
+            </tr>
+            <tr>
+                <td><strong>Planning</strong></td>
+                <td>1 week</td>
+                <td>Gather requirements, identify champions, plan change</td>
+            </tr>
+            <tr>
+                <td><strong>Setup</strong></td>
+                <td>1 week</td>
+                <td>Configure system, set up org structure, define policies</td>
+            </tr>
+            <tr>
+                <td><strong>Data Migration</strong></td>
+                <td>2 weeks</td>
+                <td>Migrate employee data, leave history, documents</td>
+            </tr>
+            <tr>
+                <td><strong>Training</strong></td>
+                <td>1 week</td>
+                <td>Train HR team, managers, and power users</td>
+            </tr>
+            <tr>
+                <td><strong>Go-Live</strong></td>
+                <td>1 week</td>
+                <td>Soft launch, monitor closely, support intensively</td>
+            </tr>
+            <tr>
+                <td><strong>Optimization</strong></td>
+                <td>Ongoing</td>
+                <td>Tune performance, gather feedback, improve</td>
+            </tr>
+        </table>
+        
+        <p><strong>Total: 4-6 weeks</strong></p>
+        <div class="talking-point"><strong>Say:</strong> "Most companies are fully operational within 6 weeks. You don't lose productivity. In fact, you gain it almost immediately."</div>
+        
+        <div class="page-break"></div>
+        
+        <!-- SEGMENT 12 -->
+        <h1>CLOSING & CALL TO ACTION <span class="section-time">(3 minutes)</span></h1>
+        
+        <h2>Summary of Key Points</h2>
+        <ul class="benefit-list">
+            <li><strong>Centralization</strong> — All employee and business data in one place</li>
+            <li><strong>Automation</strong> — Workflows that used to take days now take hours</li>
+            <li><strong>Visibility</strong> — Real-time dashboards and analytics</li>
+            <li><strong>Scalability</strong> — Grows with your organization</li>
+            <li><strong>Ease of Use</strong> — Intuitive design, minimal training</li>
+            <li><strong>Security</strong> — Enterprise-grade protection</li>
+            <li><strong>ROI</strong> — Break-even in 3-4 months</li>
+        </ul>
+        
+        <h2>Call to Action</h2>
+        <p class="quote">"We're excited about Q361. We believe it can transform how your organization operates. Here are your next steps:"</p>
+        
+        <ol>
+            <li>Schedule a personalized demo for your team</li>
+            <li>Start a free 14-day trial today</li>
+            <li>Discuss your specific needs and how Q361 can address them</li>
+        </ol>
+        
+        <h2>Questions & Discussion</h2>
+        <p class="quote">"I'm happy to answer any questions. Let's discuss how Q361 fits into your organization's future."</p>
+        
+        <div class="page-break"></div>
+        
+        <!-- OBJECTIONS -->
+        <h1>Handling Common Objections</h1>
+        
+        <h2>Objection 1: "How is this different from [competitor]?"</h2>
+        <div class="segment">
+            <h4>Answer:</h4>
+            <p>"Three key differences:
+            <ol>
+                <li><strong>Complete integration</strong> — HR, projects, content creation, analytics — all in one platform</li>
+                <li><strong>Speed</strong> — Workflows that took days now take hours</li>
+                <li><strong>Value</strong> — Q361 pays for itself in 3-4 months through efficiency gains</li>
+            </ol>
+            Plus, [other differentiators specific to your needs]."</p>
+        </div>
+        
+        <h2>Objection 2: "Will our team adopt it?"</h2>
+        <div class="segment">
+            <h4>Answer:</h4>
+            <p>"Adoption is our #1 focus. We provide:
+            <ul>
+                <li>Comprehensive training for all user types</li>
+                <li>Role-specific guides and video tutorials</li>
+                <li>Dedicated support during transition</li>
+                <li>Power user program to help colleagues</li>
+            </ul>
+            In our implementations, we achieve > 90% adoption within 6 weeks."</p>
+        </div>
+        
+        <h2>Objection 3: "What about security? Is our data safe?"</h2>
+        <div class="segment">
+            <h4>Answer:</h4>
+            <p>"Absolutely. Q361 has:
+            <ul>
+                <li>HTTPS encryption for all data</li>
+                <li>Secure session management</li>
+                <li>Regular security audits</li>
+                <li>Compliance with GDPR, CCPA, and industry standards</li>
+                <li>99.9% uptime SLA</li>
+                <li>Automatic daily backups with disaster recovery</li>
+            </ul>
+            Your data is your data — we never sell or use it."</p>
+        </div>
+        
+        <h2>Objection 4: "How much does it cost?"</h2>
+        <div class="segment">
+            <h4>Answer:</h4>
+            <p>"Q361 pricing is transparent and scalable:
+            <ul>
+                <li><strong>Starter Plan:</strong> [price] — Basic HR for small teams</li>
+                <li><strong>Professional Plan:</strong> [price] — Full features for growing companies</li>
+                <li><strong>Enterprise Plan:</strong> [price] — Custom features and dedicated support</li>
+            </ul>
+            Most companies see ROI within 3-4 months of implementation."</p>
+        </div>
+        
+        <h2>Objection 5: "What about integration with our existing systems?"</h2>
+        <div class="segment">
+            <h4>Answer:</h4>
+            <p>"Q361 integrates with:
+            <ul>
+                <li>Email systems (Gmail, Outlook)</li>
+                <li>Payroll systems (via API)</li>
+                <li>Accounting systems (via API)</li>
+                <li>LDAP/Active Directory</li>
+                <li>Slack, Teams, and other collaboration tools</li>
+                <li>Custom integrations available</li>
+            </ul>
+            We handle the technical work. You focus on your business."</p>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- TIPS -->
+        <h1>Demo Tips & Best Practices</h1>
+        
+        <h2>Before Demo</h2>
+        <ul class="checkbox-list">
+            <li>Clear browser cache and cookies</li>
+            <li>Close all unnecessary tabs</li>
+            <li>Have all windows ready in separate browser tabs</li>
+            <li>Test internet speed</li>
+            <li>Have backup laptop/tablet if demo tech fails</li>
+            <li>Print backup slides with screenshots</li>
+            <li>Wear professional attire</li>
+        </ul>
+        
+        <h2>During Demo</h2>
+        <ul class="checkbox-list">
+            <li>Speak clearly — explain technical terms</li>
+            <li>Go slowly — let people absorb information</li>
+            <li>Make eye contact — not staring at screen constantly</li>
+            <li>Ask questions — "Does your organization face this challenge?"</li>
+            <li>Show real data — actual employee data (sanitized) not demo data</li>
+            <li>Highlight relevant features — skip features not relevant to audience</li>
+            <li>Pause for questions — engagement matters more than covering everything</li>
+        </ul>
+        
+        <h2>Timing Management</h2>
+        <ul>
+            <li>5 min per section — Don't spend 15 minutes on one feature</li>
+            <li>Watch the clock — End on time or slightly early</li>
+            <li>Save Q&A — Last 5 minutes for questions</li>
+            <li>If running long — Skip "Implementation" section temporarily</li>
+        </ul>
+        
+        <h2>Key Stats to Memorize</h2>
+        <ul>
+            <li>40-50% reduction in HR manual work</li>
+            <li>Leave approval: 5 days → 1 day (5x faster)</li>
+            <li>Onboarding: 8 weeks → 2 weeks (4x faster)</li>
+            <li>Data accuracy: 99%+</li>
+            <li>System uptime: 99.9%</li>
+            <li>Implementation: 4-6 weeks</li>
+            <li>ROI break-even: 3-4 months</li>
+            <li>3-year ROI: 400-800%</li>
+        </ul>
+        
+        <div class="footer">
+            <p>© 2025 Q361. All rights reserved.</p>
+            <p>For more information, visit www.q361.io or contact demo-support@q361.io</p>
+            <p style="margin-top: 20px; color: #999; font-size: 11px;">This document is proprietary and confidential. Unauthorized reproduction or distribution is prohibited.</p>
+        </div>
+    </div>
+</body>
+</html>

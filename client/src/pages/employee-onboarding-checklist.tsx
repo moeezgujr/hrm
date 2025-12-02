@@ -292,7 +292,7 @@ export default function EmployeeOnboardingChecklist() {
         <div className="max-w-4xl mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Welcome to Meeting Matters</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Welcome to Q361</h1>
               <p className="text-gray-600">Complete your onboarding checklist to get started</p>
             </div>
             <div className="text-right">

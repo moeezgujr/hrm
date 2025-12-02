@@ -888,7 +888,7 @@ export default function SocialMediaDashboard() {
     {
       id: 1,
       brandName: "Q361",
-      description: "Official brand guidelines for Q361",
+      description: "Official brand guidelines for Q361 by Qanzak Global",
       colorPalette: ["#3B82F6", "#10B981", "#8B5CF6", "#EA580C"],
       fonts: ["Inter", "Roboto", "Open Sans"],
       toneOfVoice: "Professional, friendly, and approachable"

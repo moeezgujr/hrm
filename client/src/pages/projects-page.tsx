@@ -88,10 +88,10 @@ export default function ProjectsPage() {
 
   if (isLoading) {
     return (
-      <div className="p-6">
-        <div className="space-y-6">
+      <div className="p-4 md:p-6">
+        <div className="space-y-4 md:space-y-6">
           <div className="h-8 bg-gray-200 rounded animate-pulse" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {[1, 2, 3].map((i) => (
               <div key={i} className="h-64 bg-gray-200 rounded animate-pulse" />
             ))}
@@ -104,15 +104,15 @@ export default function ProjectsPage() {
   const canCreateProject = user?.role === "hr_admin" || user?.role === "branch_manager" || user?.username === "admin";
 
   return (
-    <div className="p-6 space-y-6">
-      <div className="flex items-center justify-between">
+    <div className="p-4 md:p-6 space-y-4 md:space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-bold">Projects</h1>
-          <p className="text-gray-600 mt-2">
+          <h1 className="text-2xl md:text-3xl font-bold">Projects</h1>
+          <p className="text-sm md:text-base text-gray-600 mt-1 md:mt-2">
             Manage and track project progress across your organization
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           {user?.role === "hr_admin" && (
             <Button 
               variant="outline" 

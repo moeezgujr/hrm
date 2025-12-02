@@ -8,7 +8,6 @@ import { storage } from "./storage";
 import { HRNotifications } from './hr-notifications';
 import { User as SelectUser } from "@shared/schema";
 import connectPg from "connect-pg-simple";
-import { pool } from "./db";
 
 declare global {
   namespace Express {
@@ -25,6 +24,10 @@ async function comparePasswords(supplied: string, stored: string): Promise<boole
 }
 
 export function setupAuth(app: Express) {
+  if (!process.env.DATABASE_URL) {
+    throw new Error("DATABASE_URL environment variable is required");
+  }
+  
   if (!process.env.SESSION_SECRET) {
     throw new Error("SESSION_SECRET environment variable is required");
   }
@@ -32,17 +35,15 @@ export function setupAuth(app: Express) {
   const sessionTtl = 7 * 24 * 60 * 60 * 1000; // 1 week
   const PgStore = connectPg(session);
   const sessionStore = new PgStore({
-    pool: pool, // Use the same connection pool as Drizzle ORM
+    conString: process.env.DATABASE_URL,
     createTableIfMissing: true,
     ttl: sessionTtl,
     tableName: "session",
   });
 
   // Determine if we're in a secure deployed environment
-  // Since trust proxy is enabled, we can check X-Forwarded-Proto header
-  // For local/direct HTTP access on AWS, allow insecure cookies
-  // Production recommendation: Use HTTPS with a domain name
-  const isSecureEnvironment = process.env.NODE_ENV === 'production' && process.env.ENABLE_SECURE_COOKIES === 'true';
+  const isDeployment = !!(process.env.REPL_SLUG && process.env.REPL_SLUG !== 'workspace');
+  const isSecureEnvironment = process.env.NODE_ENV === 'production' || isDeployment;
   
   const sessionSettings: session.SessionOptions = {
     secret: process.env.SESSION_SECRET,
@@ -51,10 +52,10 @@ export function setupAuth(app: Express) {
     store: sessionStore,
     cookie: {
       httpOnly: true,
-      secure: isSecureEnvironment || false, // Allow HTTP cookies for testing on AWS
+      secure: isSecureEnvironment, // Enable secure for production or deployed environments
       maxAge: sessionTtl,
-      sameSite: 'lax',
-      domain: undefined,
+      sameSite: isSecureEnvironment ? 'lax' : 'lax', // Use 'lax' for better compatibility
+      domain: undefined, // Remove domain restriction for easier deployment
     },
   };
 
@@ -178,6 +179,7 @@ export function setupAuth(app: Express) {
         lastName: user.lastName,
         role: user.role,
         status: user.status,
+        isHRPersonnel: user.isHRPersonnel || false,
         requiresOnboarding: true
       });
     }
@@ -194,6 +196,7 @@ export function setupAuth(app: Express) {
         lastName: user.lastName,
         role: user.role,
         status: user.status,
+        isHRPersonnel: user.isHRPersonnel || false,
         hasCrmAccess: user.hasCrmAccess,
         hasJobApplicationsAccess: user.hasJobApplicationsAccess,
         permissions, // Include aggregated permissions
@@ -209,6 +212,7 @@ export function setupAuth(app: Express) {
         lastName: user.lastName,
         role: user.role,
         status: user.status,
+        isHRPersonnel: user.isHRPersonnel || false,
         hasCrmAccess: user.hasCrmAccess,
         hasJobApplicationsAccess: user.hasJobApplicationsAccess,
         permissions: {}, // Empty permissions on error
@@ -239,6 +243,7 @@ export function setupAuth(app: Express) {
         lastName: user.lastName,
         role: user.role,
         status: user.status,
+        isHRPersonnel: user.isHRPersonnel || false,
         hasCrmAccess: user.hasCrmAccess,
         hasJobApplicationsAccess: user.hasJobApplicationsAccess,
         permissions, // Include aggregated permissions
@@ -254,6 +259,7 @@ export function setupAuth(app: Express) {
         lastName: user.lastName,
         role: user.role,
         status: user.status,
+        isHRPersonnel: user.isHRPersonnel || false,
         hasCrmAccess: user.hasCrmAccess,
         hasJobApplicationsAccess: user.hasJobApplicationsAccess,
         permissions: {}, // Empty permissions on error
@@ -326,6 +332,38 @@ export function requirePermission(module: string, requiredLevel: 'view' | 'manag
     } catch (error) {
       console.error('Permission check error:', error);
       return res.status(500).json({ error: 'Permission check failed' });
+    }
+  };
+}
+
+// HR Personnel or HR Admin authorization middleware
+// Allows access to users who are either HR Admin OR designated as HR Personnel
+export function requireHRAccess() {
+  return async (req: any, res: any, next: any) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    try {
+      // Check if user is HR Admin
+      if (req.user.role === 'hr_admin') {
+        return next();
+      }
+
+      // Check if user is designated as HR Personnel
+      const user = await storage.getUser(req.user.id);
+      if (user?.isHRPersonnel) {
+        return next();
+      }
+
+      // User is neither HR Admin nor HR Personnel
+      return res.status(403).json({
+        error: 'Forbidden',
+        message: 'HR access required. You must be HR Admin or designated as HR Personnel.'
+      });
+    } catch (error) {
+      console.error('HR access check error:', error);
+      return res.status(500).json({ error: 'HR access check failed' });
     }
   };
 }

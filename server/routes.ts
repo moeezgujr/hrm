@@ -5,10 +5,9 @@ import fs from 'fs';
 import path from 'path';
 import Stripe from "stripe";
 import { Storage } from "@google-cloud/storage";
-// import { Client as ObjectStorageClient } from "@replit/object-storage";
 import { HRNotifications } from './hr-notifications';
 import { storage } from "./storage";
-import { setupAuth, isAuthenticated, requireRole, requirePermission } from "./auth";
+import { setupAuth, isAuthenticated, requireRole, requirePermission, requireHRAccess } from "./auth";
 import { EmailService } from "./emailService";
 import { TrialNotificationService } from "./trial-notifications";
 import { setupPDFDownload } from "./pdf-download";
@@ -68,6 +67,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Initialize Google Cloud Storage client (used for object/file storage)
+  const storageClient = new Storage();
   // Auth middleware
   await setupAuth(app);
 
@@ -3976,7 +3977,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Create vacancy
   app.post('/api/vacancies', requireRole(['hr_admin', 'admin']), async (req: any, res) => {
     try {
-      const { designation, companyId, description, requirements, responsibilities, count } = req.body;
+      const { designation, companyId, description, requirements, responsibilities, numberOfOpenings } = req.body;
       
       if (!designation || !companyId) {
         return res.status(400).json({ message: 'Designation and company are required' });
@@ -3985,12 +3986,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const vacancy = await storage.createVacancy({
         designation,
         companyId,
-        description,
-        requirements,
-        responsibilities,
-        count: count || 1,
+        description: description || null,
+        requirements: requirements || null,
+        responsibilities: responsibilities || null,
+        numberOfOpenings: numberOfOpenings || 1,
         status: 'open',
-        postedDate: new Date().toISOString(),
+        createdBy: req.user?.id,
       });
       
       res.status(201).json(vacancy);
@@ -6502,33 +6503,261 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get('/api/psychometric-analysis/:email', requireRole(['hr_admin', 'branch_manager']), async (req: any, res) => {
     try {
       const email = req.params.email;
-      const attempts = await storage.getPsychometricTestAttempts({ candidateEmail: email });
       
-      if (!attempts || attempts.length === 0) {
+      // Query with proper joins to get test data
+      const result = await storage.client.query(`
+        SELECT 
+          pta.id,
+          pta.candidate_email,
+          pta.candidate_name,
+          pta.test_id,
+          pta.percentage_score,
+          pta.time_spent,
+          pta.completed_at,
+          pta.responses,
+          pt.test_name,
+          pt.test_type
+        FROM psychometric_test_attempts pta
+        LEFT JOIN psychometric_tests pt ON pta.test_id = pt.id
+        WHERE pta.candidate_email = $1 AND pta.completed_at IS NOT NULL
+        ORDER BY pta.completed_at DESC
+        LIMIT 1
+      `, [email]);
+
+      if (!result.rows || result.rows.length === 0) {
         return res.status(404).json({ message: "No psychometric test results found for this email" });
       }
 
-      // Get the most recent completed attempt
-      const completedAttempts = attempts.filter(attempt => attempt.completedAt && attempt.responses);
-      if (completedAttempts.length === 0) {
-        return res.status(404).json({ message: "No completed psychometric tests found for this email" });
-      }
-
-      // Use the most recent attempt
-      const latestAttempt = completedAttempts.sort((a, b) => 
-        new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime()
-      )[0];
+      const latestAttempt = result.rows[0];
 
       // Get test questions for analysis
-      const questions = await storage.getPsychometricQuestions(latestAttempt.testId);
+      const questions = await storage.getPsychometricQuestions(latestAttempt.test_id);
       
-      // Import the enhanced analysis functions
-      const { analyzeTestResults } = await import('./psychometric-analysis');
+      // Build questions with answers
+      const responses = Array.isArray(latestAttempt.responses) ? latestAttempt.responses : [];
       
-      // Generate comprehensive analysis
-      const detailedAnalysis = analyzeTestResults(latestAttempt, latestAttempt.responses, questions);
+      const questionsWithAnswers = questions.map((question: any) => {
+        const response = responses.find((r: any) => r.questionId === question.id);
+        
+        // Extract the selected value - could be stored in different properties
+        let rawSelectedValue = response?.value ?? response?.selectedValue ?? response?.answer ?? null;
+        const numericValue = rawSelectedValue !== null ? parseInt(String(rawSelectedValue)) : 0;
+        
+        // Look up the answer text from the options based on the selected value
+        const options = question.options || [];
+        let selectedAnswerText = '';
+        
+        if (response?.selectedText) {
+          // If selectedText is already stored, use it
+          selectedAnswerText = response.selectedText;
+        } else if (options.length > 0 && rawSelectedValue !== null) {
+          // Find the matching option by value (compare as numbers)
+          const matchingOption = options.find((opt: any) => {
+            const optValue = parseInt(String(opt.value ?? opt.score ?? opt.id ?? 0));
+            return optValue === numericValue;
+          });
+          
+          if (matchingOption) {
+            selectedAnswerText = matchingOption.text || matchingOption.label || matchingOption.answer || String(rawSelectedValue);
+          } else {
+            // If no matching option found, try to use common scale mappings for 1-5 or 1-3 scales
+            if (!isNaN(numericValue) && numericValue >= 1 && numericValue <= 5) {
+              // Check if this is a 3-point scale based on options
+              if (options.length === 3) {
+                const threePointLabels: { [key: number]: string } = {
+                  1: options[0]?.text || 'Never or rarely true',
+                  2: options[1]?.text || 'Sometimes true',
+                  3: options[2]?.text || 'Often true'
+                };
+                selectedAnswerText = threePointLabels[numericValue] || String(rawSelectedValue);
+              } else {
+                // 5-point Likert scale
+                const scaleLabels: { [key: number]: string } = {
+                  1: 'Strongly Disagree',
+                  2: 'Disagree',
+                  3: 'Neutral',
+                  4: 'Agree',
+                  5: 'Strongly Agree'
+                };
+                selectedAnswerText = scaleLabels[numericValue] || String(rawSelectedValue);
+              }
+            } else {
+              selectedAnswerText = String(rawSelectedValue);
+            }
+          }
+        } else {
+          selectedAnswerText = rawSelectedValue !== null ? String(rawSelectedValue) : 'Not answered';
+        }
+        
+        return {
+          questionId: question.id,
+          questionText: question.question_text || question.questionText || '',
+          category: question.category || '',
+          options: options,
+          selectedAnswer: selectedAnswerText,
+          selectedValue: numericValue,
+        };
+      });
+
+      // Calculate 16PF Factor Scores based on responses
+      const factorDefinitions: { [key: string]: { name: string; lowLabel: string; highLabel: string; description: string } } = {
+        'Warmth': { name: 'Warmth (Factor A)', lowLabel: 'Reserved', highLabel: 'Warm', description: 'Interpersonal warmth and attentiveness to others' },
+        'Reasoning': { name: 'Reasoning (Factor B)', lowLabel: 'Concrete', highLabel: 'Abstract', description: 'Abstract thinking and problem-solving ability' },
+        'Emotional Stability': { name: 'Emotional Stability (Factor C)', lowLabel: 'Reactive', highLabel: 'Emotionally Stable', description: 'Emotional maturity and ability to cope with stress' },
+        'Dominance': { name: 'Dominance (Factor E)', lowLabel: 'Deferential', highLabel: 'Dominant', description: 'Assertiveness and tendency to take charge' },
+        'Liveliness': { name: 'Liveliness (Factor F)', lowLabel: 'Serious', highLabel: 'Lively', description: 'Enthusiasm and spontaneity' },
+        'Rule-Consciousness': { name: 'Rule-Consciousness (Factor G)', lowLabel: 'Expedient', highLabel: 'Rule-Conscious', description: 'Conformity to rules and standards' },
+        'Social Boldness': { name: 'Social Boldness (Factor H)', lowLabel: 'Shy', highLabel: 'Socially Bold', description: 'Confidence in social situations' },
+        'Sensitivity': { name: 'Sensitivity (Factor I)', lowLabel: 'Utilitarian', highLabel: 'Sensitive', description: 'Emotional sensitivity and aesthetic appreciation' },
+        'Vigilance': { name: 'Vigilance (Factor L)', lowLabel: 'Trusting', highLabel: 'Vigilant', description: 'Skepticism and wariness of others' },
+        'Abstractedness': { name: 'Abstractedness (Factor M)', lowLabel: 'Grounded', highLabel: 'Abstracted', description: 'Imagination and idea orientation' },
+        'Privateness': { name: 'Privateness (Factor N)', lowLabel: 'Forthright', highLabel: 'Private', description: 'Disclosure and openness with personal information' },
+        'Apprehension': { name: 'Apprehension (Factor O)', lowLabel: 'Self-Assured', highLabel: 'Apprehensive', description: 'Worry and self-doubt tendency' },
+        'Openness to Change': { name: 'Openness to Change (Factor Q1)', lowLabel: 'Traditional', highLabel: 'Open to Change', description: 'Receptivity to new ideas and change' },
+        'Self-Reliance': { name: 'Self-Reliance (Factor Q2)', lowLabel: 'Group-Oriented', highLabel: 'Self-Reliant', description: 'Preference for independence vs group affiliation' },
+        'Perfectionism': { name: 'Perfectionism (Factor Q3)', lowLabel: 'Tolerates Disorder', highLabel: 'Perfectionistic', description: 'Self-discipline and organization' },
+        'Tension': { name: 'Tension (Factor Q4)', lowLabel: 'Relaxed', highLabel: 'Tense', description: 'Level of nervous tension and frustration' }
+      };
+
+      // Group questions by category and calculate factor scores
+      const factorScores: { [key: string]: { score: number; count: number; responses: number[] } } = {};
       
-      res.json(detailedAnalysis);
+      questionsWithAnswers.forEach((q: any) => {
+        const category = q.category || 'General';
+        if (!factorScores[category]) {
+          factorScores[category] = { score: 0, count: 0, responses: [] };
+        }
+        factorScores[category].score += q.selectedValue;
+        factorScores[category].count += 1;
+        factorScores[category].responses.push(q.selectedValue);
+      });
+
+      // Convert to sten scores (1-10 scale) and generate interpretations
+      const personalityFactors = Object.entries(factorScores).map(([category, data]) => {
+        const avgScore = data.count > 0 ? data.score / data.count : 0;
+        // Convert to sten score (1-10): normalize based on 3-point scale (1-3) to sten (1-10)
+        const stenScore = Math.min(10, Math.max(1, Math.round((avgScore - 1) * 4.5 + 1)));
+        
+        const factorDef = factorDefinitions[category] || { 
+          name: category, 
+          lowLabel: 'Low', 
+          highLabel: 'High',
+          description: 'Personality trait measurement'
+        };
+        
+        let interpretation = '';
+        let level = '';
+        if (stenScore <= 3) {
+          level = 'Low';
+          interpretation = `Shows tendency toward ${factorDef.lowLabel.toLowerCase()} characteristics. ${factorDef.description}.`;
+        } else if (stenScore <= 7) {
+          level = 'Average';
+          interpretation = `Demonstrates balanced characteristics between ${factorDef.lowLabel.toLowerCase()} and ${factorDef.highLabel.toLowerCase()}. Shows adaptability in ${factorDef.description.toLowerCase()}.`;
+        } else {
+          level = 'High';
+          interpretation = `Shows strong tendency toward ${factorDef.highLabel.toLowerCase()} characteristics. ${factorDef.description}.`;
+        }
+
+        return {
+          factor: factorDef.name,
+          category: category,
+          stenScore: stenScore,
+          level: level,
+          lowLabel: factorDef.lowLabel,
+          highLabel: factorDef.highLabel,
+          interpretation: interpretation,
+          questionsAnswered: data.count
+        };
+      });
+
+      // Generate strengths based on high-scoring factors
+      const highFactors = personalityFactors.filter(f => f.stenScore >= 7);
+      const strengths = highFactors.length > 0 
+        ? highFactors.map(f => `Strong ${f.highLabel} tendencies - ${f.interpretation}`)
+        : ['Balanced personality profile across measured dimensions', 'Demonstrates adaptability in various situations', 'Consistent response patterns across assessment'];
+
+      // Generate areas for improvement based on low-scoring factors
+      const lowFactors = personalityFactors.filter(f => f.stenScore <= 3);
+      const areasForImprovement = lowFactors.length > 0
+        ? lowFactors.map(f => `Consider developing ${f.highLabel.toLowerCase()} skills - Currently shows ${f.lowLabel.toLowerCase()} tendencies`)
+        : ['Continue leveraging balanced personality traits', 'Focus on situational adaptability', 'Develop self-awareness in interpersonal dynamics'];
+
+      // Generate comprehensive recommendations
+      const score = latestAttempt.percentage_score || 0;
+      const avgStenScore = personalityFactors.reduce((sum, f) => sum + f.stenScore, 0) / (personalityFactors.length || 1);
+      
+      const hiringRecs = [];
+      const developmentRecs = [];
+      const placementRecs = [];
+
+      // Analyze specific factors for recommendations
+      const warmthFactor = personalityFactors.find(f => f.category === 'Warmth');
+      const dominanceFactor = personalityFactors.find(f => f.category === 'Dominance');
+      const emotionalStabilityFactor = personalityFactors.find(f => f.category === 'Emotional Stability');
+      const ruleConsciousnessFactor = personalityFactors.find(f => f.category === 'Rule-Consciousness');
+
+      if (warmthFactor && warmthFactor.stenScore >= 7) {
+        hiringRecs.push('Strong interpersonal skills - suitable for client-facing roles');
+        placementRecs.push('Consider roles requiring customer interaction, team collaboration, or mentoring');
+      }
+      if (dominanceFactor && dominanceFactor.stenScore >= 7) {
+        hiringRecs.push('Natural leadership tendencies - potential for supervisory positions');
+        placementRecs.push('Suitable for project lead or team management positions');
+      }
+      if (emotionalStabilityFactor && emotionalStabilityFactor.stenScore >= 7) {
+        hiringRecs.push('High stress tolerance - can handle high-pressure environments');
+        placementRecs.push('Appropriate for demanding roles requiring composure under pressure');
+      }
+      if (ruleConsciousnessFactor && ruleConsciousnessFactor.stenScore >= 7) {
+        hiringRecs.push('Strong adherence to protocols - excellent for compliance-critical roles');
+        placementRecs.push('Ideal for positions requiring strict adherence to procedures and standards');
+      }
+
+      // Default recommendations if none were generated
+      if (hiringRecs.length === 0) {
+        hiringRecs.push(
+          avgStenScore >= 6 ? 'Suitable candidate with well-balanced personality profile' : 'Consider for roles matching identified personality strengths',
+          'Recommend structured interview to assess role-specific competencies'
+        );
+      }
+      if (developmentRecs.length === 0) {
+        developmentRecs.push(
+          'Regular feedback sessions to leverage personality strengths',
+          'Coaching opportunities in areas identified for growth',
+          'Team-based projects to enhance interpersonal dynamics'
+        );
+      }
+      if (placementRecs.length === 0) {
+        placementRecs.push(
+          avgStenScore >= 6 ? 'Versatile profile suitable for various operational roles' : 'Consider roles aligned with identified personality strengths',
+          'Match with team dynamics that complement personality profile'
+        );
+      }
+
+      // Compile full 16PF analysis
+      const analysis = {
+        testName: latestAttempt.test_name || '16PF Personality Assessment',
+        testType: '16PF',
+        candidateInfo: {
+          name: latestAttempt.candidate_name || 'Unknown',
+          email: latestAttempt.candidate_email,
+        },
+        overallScore: score,
+        averageStenScore: Math.round(avgStenScore * 10) / 10,
+        completionTime: latestAttempt.time_spent || 0,
+        personalityFactors: personalityFactors,
+        questionsWithAnswers,
+        recommendations: {
+          hiring: hiringRecs,
+          development: developmentRecs,
+          placement: placementRecs
+        },
+        strengths: strengths.slice(0, 5),
+        areasForImprovement: areasForImprovement.slice(0, 5),
+        profileSummary: `This 16PF assessment reveals a ${avgStenScore >= 6 ? 'well-balanced' : 'distinctive'} personality profile across ${personalityFactors.length} measured factors. The candidate demonstrates ${highFactors.length > 0 ? `particular strengths in ${highFactors.map(f => f.category).join(', ')}` : 'balanced characteristics across most dimensions'}${lowFactors.length > 0 ? ` with development opportunities in ${lowFactors.map(f => f.category).join(', ')}` : ''}.`
+      };
+      
+      res.json(analysis);
       
     } catch (error) {
       console.error("Error generating psychometric analysis:", error);
@@ -10402,14 +10631,11 @@ Team Growth: ${dailyReportData.statistics.membersJoined} new members joined`;
     limits: { fileSize: 50 * 1024 * 1024 } // 50MB limit
   });
 
-  // Initialize Replit object storage client
-  // Extract bucket name from PRIVATE_OBJECT_DIR environment variable
+  // Object storage configuration (using Google Cloud Storage on AWS/servers)
+  // Extract bucket name from PRIVATE_OBJECT_DIR environment variable (format: /bucket-name/.private)
   const privateObjectDir = process.env.PRIVATE_OBJECT_DIR || "";
-  const bucketName = privateObjectDir.split('/')[1]; // Extract bucket name from path like /bucket-name/.private
-  
-  // const objectStorage = new ObjectStorageClient({
-  //   bucketId: bucketName
-  // });
+  const bucketName = privateObjectDir.split('/')[1];
+  const gcsBucket = bucketName ? storageClient.bucket(bucketName) : null;
 
   // Download asset file from object storage
   app.get('/api/studio/assets/download/:assetId', isAuthenticated, async (req: any, res) => {
@@ -10426,27 +10652,12 @@ Team Growth: ${dailyReportData.statistics.membersJoined} new members joined`;
         return res.status(400).json({ error: "Invalid asset file path" });
       }
 
-      // Download from Replit object storage using the storage key
-      // const result = await objectStorage.downloadAsBytes(asset.fileUrl);
-
-      // if (!result.ok || !result.value) {
-      //   console.error('Object storage download failed:', result.error);
-      //   return res.status(404).json({ 
-      //     error: "File not found in storage",
-      //     details: result.error?.message 
-      //   });
-      // }
-
-      let fileData = null;
-      
-      // Replit object storage returns an array containing the Buffer
-      // Extract the actual Buffer from the array
-      if (Array.isArray(fileData) && fileData.length > 0) {
-        fileData = fileData[0];
+      // Download from object storage (GCS) using the storage key
+      if (!gcsBucket) {
+        return res.status(500).json({ error: "Object storage not configured" });
       }
-      
-      // Convert to Buffer if necessary
-      const buffer = Buffer.isBuffer(fileData) ? fileData : Buffer.from(fileData);
+      const fileObj = gcsBucket.file(asset.fileUrl);
+      const [buffer] = await fileObj.download();
 
       // Check if this is a download request (vs inline view)
       const isDownload = req.query.download === 'true';
@@ -10513,8 +10724,14 @@ Team Growth: ${dailyReportData.statistics.membersJoined} new members joined`;
       const sanitizedFileName = file.originalname.replace(/[^a-zA-Z0-9.-]/g, '_');
       const storageKey = `studio_assets/${req.user.organizationId}/${timestamp}_${sanitizedFileName}`;
       
-      // Upload to Replit object storage
-      // await objectStorage.uploadFromBytes(storageKey, file.buffer);
+      // Upload to object storage (GCS)
+      if (!gcsBucket) {
+        return res.status(500).json({ error: "Object storage not configured" });
+      }
+      await gcsBucket.file(storageKey).save(file.buffer, {
+        contentType: file.mimetype,
+        metadata: { originalName: file.originalname }
+      });
       
       // Return file metadata with storage key
       // The frontend will use the asset ID to generate a download URL via /api/studio/assets/download/:assetId
@@ -11652,8 +11869,36 @@ Team Growth: ${dailyReportData.statistics.membersJoined} new members joined`;
     }
   });
 
-  // Admin route to add historical/previous leaves for any employee
-  app.post('/api/leave-requests/admin/add-historical', requireRole(['hr_admin']), async (req: any, res) => {
+  // Toggle HR Personnel designation for a user (grants all HR permissions)
+  app.put('/api/users/:id/hr-personnel', requireRole(['hr_admin']), async (req: any, res) => {
+    try {
+      const userId = parseInt(req.params.id);
+      const { isHRPersonnel } = req.body;
+      const currentUser = await storage.getUser(req.user.id);
+      const targetUser = await storage.getUser(userId);
+
+      // Validate same organization
+      if (!currentUser || !targetUser || currentUser.organizationId !== targetUser.organizationId) {
+        return res.status(403).json({ message: 'Cannot manage HR designation for users in other organizations' });
+      }
+
+      // Update user's HR Personnel status
+      const updatedUser = await storage.updateUser(userId, {
+        isHRPersonnel: isHRPersonnel
+      });
+
+      res.json({
+        message: `User ${isHRPersonnel ? 'designated as' : 'removed from'} HR Personnel successfully`,
+        user: updatedUser
+      });
+    } catch (error) {
+      console.error('Error updating HR Personnel designation:', error);
+      res.status(500).json({ message: 'Failed to update HR Personnel designation' });
+    }
+  });
+
+  // Admin/HR Personnel route to add historical/previous leaves for any employee
+  app.post('/api/leave-requests/admin/add-historical', requireHRAccess(), async (req: any, res) => {
     try {
       const currentUser = req.user as User;
       const { employeeId, leaveType, startDate, endDate, totalDays, reason, notes } = req.body;
@@ -11687,6 +11932,80 @@ Team Growth: ${dailyReportData.statistics.membersJoined} new members joined`;
     } catch (error) {
       console.error('Error adding historical leave:', error);
       res.status(500).json({ message: 'Failed to add historical leave' });
+    }
+  });
+
+  // Admin/HR Personnel route to adjust leave balance directly (increase/decrease annual entitlement)
+  app.post('/api/leave-balances/adjust', requireHRAccess(), async (req: any, res) => {
+    try {
+      const { employeeId, leaveType, adjustment, reason } = req.body;
+      
+      // Validate required fields
+      if (!employeeId || !leaveType || adjustment === undefined) {
+        return res.status(400).json({ message: 'Employee ID, leave type, and adjustment amount are required' });
+      }
+      
+      const currentYear = new Date().getFullYear();
+      
+      // Get or create leave balance for current year
+      let balance = await storage.getLeaveBalance(employeeId, currentYear);
+      
+      if (!balance) {
+        // Create new balance record with default values
+        balance = await storage.createLeaveBalance({
+          employeeId,
+          year: currentYear,
+          sickPaid: 0,
+          sickUnpaid: 0,
+          casualPaid: 0,
+          bereavementUsed: 0,
+          publicHolidaysUsed: 0,
+          unpaidUsed: 0
+        });
+      }
+      
+      // Adjust the appropriate balance field
+      const updates: any = {};
+      switch (leaveType) {
+        case 'sick_paid':
+          updates.sickPaid = (balance.sickPaid || 0) + adjustment;
+          break;
+        case 'sick_unpaid':
+          updates.sickUnpaid = (balance.sickUnpaid || 0) + adjustment;
+          break;
+        case 'casual_paid':
+          updates.casualPaid = (balance.casualPaid || 0) + adjustment;
+          break;
+        case 'bereavement':
+          updates.bereavementUsed = (balance.bereavementUsed || 0) + adjustment;
+          break;
+        case 'public_holidays':
+          updates.publicHolidaysUsed = (balance.publicHolidaysUsed || 0) + adjustment;
+          break;
+        case 'unpaid':
+          updates.unpaidUsed = (balance.unpaidUsed || 0) + adjustment;
+          break;
+        default:
+          return res.status(400).json({ message: 'Invalid leave type' });
+      }
+      
+      // Update the balance
+      const updatedBalance = await storage.updateLeaveBalance(balance.id, updates);
+      
+      res.json({
+        message: `Leave balance adjusted successfully. ${adjustment > 0 ? 'Added' : 'Reduced'} ${Math.abs(adjustment)} days.`,
+        balance: updatedBalance,
+        adjustment: {
+          type: leaveType,
+          amount: adjustment,
+          reason: reason || 'Manual adjustment by HR',
+          adjustedBy: req.user.id,
+          adjustedAt: new Date()
+        }
+      });
+    } catch (error) {
+      console.error('Error adjusting leave balance:', error);
+      res.status(500).json({ message: 'Failed to adjust leave balance' });
     }
   });
 
@@ -11926,6 +12245,137 @@ Team Growth: ${dailyReportData.statistics.membersJoined} new members joined`;
     } catch (error) {
       console.error('Error fetching employees in org unit:', error);
       res.status(500).json({ message: 'Failed to fetch employees' });
+    }
+  });
+
+  // CRM Daily Meetings Routes (same access as CRM Inquiries)
+  app.get('/api/crm/daily-meetings', isAuthenticated, async (req: any, res) => {
+    try {
+      const currentUser = req.user as User;
+      
+      if (!currentUser.hasCrmAccess) {
+        return res.status(403).json({ message: 'Access denied - CRM access required' });
+      }
+      
+      const { userId, from, to } = req.query;
+      
+      const filters: { userId?: number; dateFrom?: Date; dateTo?: Date } = {};
+      if (userId) filters.userId = parseInt(userId as string);
+      if (from) filters.dateFrom = new Date(from as string);
+      if (to) filters.dateTo = new Date(to as string);
+      
+      const meetings = await storage.getCrmDailyMeetings(currentUser.organizationId, filters);
+      res.json(meetings);
+    } catch (error) {
+      console.error('Error fetching CRM daily meetings:', error);
+      res.status(500).json({ message: 'Failed to fetch CRM daily meetings' });
+    }
+  });
+
+  app.get('/api/crm/daily-meetings/:id', isAuthenticated, async (req: any, res) => {
+    try {
+      const currentUser = req.user as User;
+      
+      if (!currentUser.hasCrmAccess) {
+        return res.status(403).json({ message: 'Access denied - CRM access required' });
+      }
+      
+      const id = parseInt(req.params.id);
+      const meeting = await storage.getCrmDailyMeeting(id);
+      
+      if (!meeting) {
+        return res.status(404).json({ message: 'CRM daily meeting not found' });
+      }
+      
+      res.json(meeting);
+    } catch (error) {
+      console.error('Error fetching CRM daily meeting:', error);
+      res.status(500).json({ message: 'Failed to fetch CRM daily meeting' });
+    }
+  });
+
+  app.post('/api/crm/daily-meetings', isAuthenticated, async (req: any, res) => {
+    try {
+      const currentUser = req.user as User;
+      
+      if (!currentUser.hasCrmAccess) {
+        return res.status(403).json({ message: 'Access denied - CRM access required' });
+      }
+      
+      const meetingData = {
+        ...req.body,
+        userId: currentUser.id,
+        organizationId: currentUser.organizationId,
+        meetingDate: new Date(req.body.meetingDate),
+      };
+      
+      const meeting = await storage.createCrmDailyMeeting(meetingData);
+      res.status(201).json(meeting);
+    } catch (error) {
+      console.error('Error creating CRM daily meeting:', error);
+      res.status(500).json({ message: 'Failed to create CRM daily meeting' });
+    }
+  });
+
+  app.patch('/api/crm/daily-meetings/:id', isAuthenticated, async (req: any, res) => {
+    try {
+      const currentUser = req.user as User;
+      
+      if (!currentUser.hasCrmAccess) {
+        return res.status(403).json({ message: 'Access denied - CRM access required' });
+      }
+      
+      const id = parseInt(req.params.id);
+      const updateData = {
+        ...req.body,
+        meetingDate: req.body.meetingDate ? new Date(req.body.meetingDate) : undefined,
+      };
+      
+      const meeting = await storage.updateCrmDailyMeeting(id, updateData);
+      res.json(meeting);
+    } catch (error) {
+      console.error('Error updating CRM daily meeting:', error);
+      res.status(500).json({ message: 'Failed to update CRM daily meeting' });
+    }
+  });
+
+  app.delete('/api/crm/daily-meetings/:id', isAuthenticated, async (req: any, res) => {
+    try {
+      const currentUser = req.user as User;
+      
+      if (!currentUser.hasCrmAccess) {
+        return res.status(403).json({ message: 'Access denied - CRM access required' });
+      }
+      
+      const id = parseInt(req.params.id);
+      await storage.deleteCrmDailyMeeting(id);
+      res.status(204).send();
+    } catch (error) {
+      console.error('Error deleting CRM daily meeting:', error);
+      res.status(500).json({ message: 'Failed to delete CRM daily meeting' });
+    }
+  });
+
+  app.get('/api/crm/daily-summary', isAuthenticated, async (req: any, res) => {
+    try {
+      const currentUser = req.user as User;
+      
+      if (!currentUser.hasCrmAccess) {
+        return res.status(403).json({ message: 'Access denied - CRM access required' });
+      }
+      
+      const { from, to } = req.query;
+      
+      const summary = await storage.getCrmDailyMeetingSummary(
+        currentUser.organizationId,
+        from ? new Date(from as string) : undefined,
+        to ? new Date(to as string) : undefined
+      );
+      
+      res.json(summary);
+    } catch (error) {
+      console.error('Error fetching CRM daily summary:', error);
+      res.status(500).json({ message: 'Failed to fetch CRM daily summary' });
     }
   });
 

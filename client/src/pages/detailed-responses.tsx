@@ -70,12 +70,10 @@ export default function DetailedResponses() {
           <FileText className="w-12 h-12 text-red-500 mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-gray-800 mb-2">Unable to Load Responses</h2>
           <p className="text-gray-600">Could not load the detailed question responses for this test attempt.</p>
-          <Link href={`/psychometric-report/${attemptId}`}>
-            <Button className="mt-4" variant="outline">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Report
-            </Button>
-          </Link>
+          <Button className="mt-4" variant="outline" onClick={() => window.history.back()}>
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Go Back
+          </Button>
         </div>
       </div>
     );
@@ -135,12 +133,10 @@ export default function DetailedResponses() {
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
-            <Link href={`/psychometric-report/${attemptId}`}>
-              <Button variant="outline">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Report
-              </Button>
-            </Link>
+            <Button variant="outline" onClick={() => window.location.href = `/psychometric-report/${encodeURIComponent(attempt?.candidateEmail || '')}`}>
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Report
+            </Button>
             <div className="text-right">
               <p className="text-sm text-gray-600">Test Attempt ID: {attempt.id}</p>
             </div>

@@ -87,29 +87,38 @@
   }
 }
 
-/* Meeting Matters specific styles */
-.meeting-matters-primary {
+/* Q361 specific styles */
+.q361-primary {
   @apply bg-primary text-primary-foreground;
 }
 
-.meeting-matters-secondary {
+.q361-secondary {
   @apply bg-secondary text-secondary-foreground;
 }
 
-.meeting-matters-surface {
+.q361-surface {
   @apply bg-card text-card-foreground;
 }
 
-.meeting-matters-accent {
+.q361-accent {
   @apply bg-accent text-accent-foreground;
 }
 
-.meeting-matters-warning {
+.q361-warning {
   @apply bg-yellow-500 text-yellow-50;
 }
 
-.meeting-matters-error {
+.q361-error {
   @apply bg-destructive text-destructive-foreground;
+}
+
+/* Q361 Brand Colors */
+.q361-gradient {
+  @apply bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600;
+}
+
+.q361-gradient-text {
+  @apply bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent;
 }
 
 /* Sidebar styles */

@@ -24,6 +24,7 @@ export const sessions = pgTable(
     sess: jsonb("sess").notNull(),
     expire: timestamp("expire").notNull(),
   },
+  (table) => [index("IDX_session_expire").on(table.expire)],
 );
 
 // User roles enum
@@ -166,6 +167,8 @@ export const users = pgTable("users", {
   hasCrmAccess: boolean("has_crm_access").default(false),
   // Job Applications Access Control
   hasJobApplicationsAccess: boolean("has_job_applications_access").default(false),
+  // HR Personnel designation - automatically grants all HR permissions
+  isHRPersonnel: boolean("is_hr_personnel").default(false),
   // Organization isolation for multi-tenancy
   organizationId: varchar("organization_id"), // Links user to their organization
   // Stripe subscription fields
@@ -495,7 +498,7 @@ export const leaveRequests = pgTable("leave_requests", {
 // Vacancies table for HR visibility of open positions
 export const vacancies = pgTable("vacancies", {
   id: serial("id").primaryKey(),
-  designation: designationEnum("designation").notNull(),
+  designation: text("designation").notNull(), // Free text to allow custom positions
   companyId: integer("company_id").references(() => companies.id),
   numberOfOpenings: integer("number_of_openings").default(1),
   description: text("description"),
@@ -542,7 +545,7 @@ export const announcements = pgTable("announcements", {
   id: serial("id").primaryKey(),
   title: varchar("title").notNull(),
   content: text("content").notNull(),
-  authorId: integer("author_id").references(() => users.id),
+  authorId: varchar("author_id").references(() => users.id),
   isPublished: boolean("is_published").default(false),
   targetRoles: jsonb("target_roles"), // Array of roles this announcement is for
   createdAt: timestamp("created_at").defaultNow(),
@@ -552,13 +555,13 @@ export const announcements = pgTable("announcements", {
 // Recognition table
 export const recognition = pgTable("recognition", {
   id: serial("id").primaryKey(),
-  nomineeId: integer("nominee_id").references(() => users.id),
-  nominatedBy: integer("nominated_by").references(() => users.id),
+  nomineeId: varchar("nominee_id").references(() => users.id),
+  nominatedBy: varchar("nominated_by").references(() => users.id),
   title: varchar("title").notNull(),
   description: text("description").notNull(),
   type: varchar("type").notNull(), // "employee_of_month", "achievement", "milestone"
   isApproved: boolean("is_approved").default(false),
-  approvedBy: integer("approved_by").references(() => users.id),
+  approvedBy: varchar("approved_by").references(() => users.id),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
@@ -584,7 +587,7 @@ export const logisticsItems = pgTable("logistics_items", {
 // Logistics requests table
 export const logisticsRequests = pgTable("logistics_requests", {
   id: serial("id").primaryKey(),
-  requesterId: integer("requester_id").references(() => users.id),
+  requesterId: varchar("requester_id").references(() => users.id),
   itemId: integer("item_id").references(() => logisticsItems.id),
   itemName: varchar("item_name"), // For requests without existing items
   description: text("description"), // Item description for new items
@@ -600,7 +603,7 @@ export const logisticsRequests = pgTable("logistics_requests", {
   receiptUrl: varchar("receipt_url"),
   receiptFilename: varchar("receipt_filename"),
   notes: text("notes"),
-  approvedBy: integer("approved_by").references(() => users.id),
+  approvedBy: varchar("approved_by").references(() => users.id),
   approvedAt: timestamp("approved_at"),
   rejectionReason: text("rejection_reason"),
   category: varchar("category"), // office_supplies, equipment, software, maintenance, etc
@@ -630,8 +633,8 @@ export const logisticsExpenses = pgTable("logistics_expenses", {
   receiptUrl: varchar("receipt_url"),
   paymentMethod: varchar("payment_method"), // credit_card, bank_transfer, cash, check
   paymentStatus: varchar("payment_status").default("pending"), // pending, paid, overdue, cancelled
-  approvedBy: integer("approved_by").references(() => users.id),
-  recordedBy: integer("recorded_by").references(() => users.id),
+  approvedBy: varchar("approved_by").references(() => users.id),
+  recordedBy: varchar("recorded_by").references(() => users.id),
   notes: text("notes"),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
@@ -649,7 +652,7 @@ export const logisticsMovements = pgTable("logistics_movements", {
   location: varchar("location"),
   referenceId: integer("reference_id"), // Reference to request or other transaction
   referenceType: varchar("reference_type"), // request, purchase, adjustment, etc
-  performedBy: integer("performed_by").references(() => users.id),
+  performedBy: varchar("performed_by").references(() => users.id),
   notes: text("notes"),
   createdAt: timestamp("created_at").defaultNow(),
 });
@@ -661,7 +664,7 @@ export const onboardingChecklists = pgTable("onboarding_checklists", {
   itemTitle: varchar("item_title").notNull(),
   description: text("description"),
   isCompleted: boolean("is_completed").default(false),
-  completedBy: integer("completed_by").references(() => users.id),
+  completedBy: varchar("completed_by").references(() => users.id),
   completedAt: timestamp("completed_at"),
   dueDate: timestamp("due_date"),
   order: integer("order").default(0),
@@ -670,7 +673,7 @@ export const onboardingChecklists = pgTable("onboarding_checklists", {
   documentUrl: varchar("document_url"),
   documentName: varchar("document_name"),
   isDocumentVerified: boolean("is_document_verified").default(false),
-  verifiedBy: integer("verified_by").references(() => users.id),
+  verifiedBy: varchar("verified_by").references(() => users.id),
   verifiedAt: timestamp("verified_at"),
   verificationNotes: text("verification_notes"),
   // Psychometric test integration
@@ -687,7 +690,7 @@ export const onboardingChecklists = pgTable("onboarding_checklists", {
 export const taskRequests = pgTable("task_requests", {
   id: serial("id").primaryKey(),
   taskId: integer("task_id").references(() => tasks.id),
-  requesterId: integer("requester_id").references(() => users.id).notNull(),
+  requesterId: varchar("requester_id").references(() => users.id).notNull(),
   requestType: varchar("request_type").notNull(), // 'time_extension', 'document_request', 'help_request', 'clarification', 'department_task_request', 'hr_task_request'
   requestTitle: varchar("request_title").notNull(),
   requestDescription: text("request_description").notNull(),
@@ -695,13 +698,13 @@ export const taskRequests = pgTable("task_requests", {
   urgencyLevel: varchar("urgency_level").default('medium'), // 'low', 'medium', 'high', 'urgent'
   status: varchar("status").default('pending'), // 'pending', 'approved', 'rejected', 'in_review', 'assigned'
   responseMessage: text("response_message"),
-  respondedBy: integer("responded_by").references(() => users.id),
+  respondedBy: varchar("responded_by").references(() => users.id),
   respondedAt: timestamp("responded_at", { mode: 'string' }),
   attachmentUrl: varchar("attachment_url"),
   attachmentName: varchar("attachment_name"),
   // Department head task request specific fields
   departmentId: integer("department_id").references(() => departments.id),
-  assignedToEmployeeId: integer("assigned_to_employee_id").references(() => users.id),
+  assignedToEmployeeId: varchar("assigned_to_employee_id").references(() => users.id),
   estimatedHours: integer("estimated_hours"),
   dueDate: timestamp("due_date", { mode: 'string' }),
   assignedAt: timestamp("assigned_at", { mode: 'string' }),
@@ -717,11 +720,11 @@ export const documents = pgTable("documents", {
   originalName: varchar("original_name").notNull(),
   mimeType: varchar("mime_type").notNull(),
   size: integer("size").notNull(),
-  uploadedBy: integer("uploaded_by").references(() => users.id),
+  uploadedBy: varchar("uploaded_by").references(() => users.id),
   relatedTo: varchar("related_to"), // employee_id, task_id, etc.
   relatedType: varchar("related_type"), // "employee", "task", "logistics"
   isApproved: boolean("is_approved").default(false),
-  approvedBy: integer("approved_by").references(() => users.id),
+  approvedBy: varchar("approved_by").references(() => users.id),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
@@ -1235,7 +1238,7 @@ export const projectMessages = pgTable("project_messages", {
   senderId: integer("sender_id").references(() => users.id).notNull(),
   message: text("message").notNull(),
   messageType: varchar("message_type").default("text"), // text, file, announcement
-  replyToId: integer("reply_to_id").references((): any => projectMessages.id),
+  replyToId: integer("reply_to_id"),
   isEdited: boolean("is_edited").default(false),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
@@ -3038,3 +3041,82 @@ export const insertOrgUnitAssignmentSchema = createInsertSchema(orgUnitAssignmen
 });
 export type InsertOrgUnitAssignment = z.infer<typeof insertOrgUnitAssignmentSchema>;
 export type OrgUnitAssignment = typeof orgUnitAssignments.$inferSelect;
+
+// CRM Daily Meetings Table - For tracking daily CRM team activities
+export const crmDailyMeetings = pgTable("crm_daily_meetings", {
+  id: serial("id").primaryKey(),
+  organizationId: varchar("organization_id").notNull(),
+  userId: integer("user_id").notNull().references(() => users.id),
+  meetingDate: timestamp("meeting_date").notNull(), // Date of the CRM activity
+  
+  // Session tracking
+  totalSessions: integer("total_sessions").default(0).notNull(),
+  inductionSessions: integer("induction_sessions").default(0).notNull(),
+  followUpSessions: integer("follow_up_sessions").default(0).notNull(),
+  cancelledRescheduled: integer("cancelled_rescheduled").default(0).notNull(),
+  cancelReason: text("cancel_reason"),
+  totalInquiries: integer("total_inquiries").default(0).notNull(),
+  newLeads: integer("new_leads").default(0).notNull(),
+  followUps: integer("follow_ups").default(0).notNull(),
+  closedDeals: integer("closed_deals").default(0).notNull(),
+  
+  // Communication tracking
+  callsPlaced: integer("calls_placed").default(0).notNull(),
+  callsReceived: integer("calls_received").default(0).notNull(),
+  emailsSent: integer("emails_sent").default(0).notNull(),
+  whatsappMessages: integer("whatsapp_messages").default(0).notNull(),
+  preCounseling: integer("pre_counseling").default(0).notNull(),
+  preCounselingNotes: text("pre_counseling_notes"),
+  
+  // Time tracking
+  totalCallDuration: integer("total_call_duration").default(0).notNull(), // in minutes
+  averageCallDuration: integer("average_call_duration").default(0).notNull(), // in minutes
+  
+  // Performance metrics
+  conversionRate: decimal("conversion_rate", { precision: 5, scale: 2 }).default("0.00"),
+  inquirySourceBreakdown: jsonb("inquiry_source_breakdown").default({}), // Track sources: call, email, walk_in, etc.
+  
+  // Notes and summary
+  notes: text("notes"),
+  summary: text("summary"),
+  attachments: jsonb("attachments").default([]),
+  
+  // Critical Clients Section
+  criticalClients: jsonb("critical_clients").default([]), // Array of {name, contact, status, notes}
+  
+  // CEO Clients Section
+  ceoClients: jsonb("ceo_clients").default([]), // Array of {name, contact, followupDate, status, notes}
+  
+  // CEO Availability Section
+  ceoAvailability: jsonb("ceo_availability").default({}), // {status, availableHours, notes}
+  
+  // Section-specific notes
+  sessionNotes: text("session_notes"),
+  communicationNotes: text("communication_notes"),
+  timeMetricsNotes: text("time_metrics_notes"),
+  criticalClientsNotes: text("critical_clients_notes"),
+  ceoClientsNotes: text("ceo_clients_notes"),
+  
+  // Google Reviews Section
+  googleReviews: jsonb("google_reviews").default([]), // Array of {rating, reviewText, reviewer, date, notes}
+  googleReviewsNotes: text("google_reviews_notes"),
+  
+  // Timestamps
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+}, (table) => [
+  index("idx_crm_meetings_org").on(table.organizationId),
+  index("idx_crm_meetings_user").on(table.userId),
+  index("idx_crm_meetings_date").on(table.meetingDate),
+]);
+
+// Zod schemas for CRM Daily Meetings
+export const insertCrmDailyMeetingSchema = createInsertSchema(crmDailyMeetings).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+export type InsertCrmDailyMeeting = z.infer<typeof insertCrmDailyMeetingSchema>;
+export type CrmDailyMeeting = typeof crmDailyMeetings.$inferSelect;
+
+

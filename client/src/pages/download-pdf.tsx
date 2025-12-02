@@ -66,7 +66,7 @@ export default function DownloadPDF() {
     <div className="container mx-auto p-6 space-y-6">
       <div className="text-center">
         <h1 className="text-3xl font-bold mb-2">Download PDF Documentation</h1>
-        <p className="text-gray-600">Meeting Matters Subscription Model Documentation</p>
+        <p className="text-gray-600">Q361 Subscription Model Documentation</p>
       </div>
 
       <Card className="max-w-2xl mx-auto">

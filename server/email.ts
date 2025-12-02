@@ -77,7 +77,7 @@ export async function sendEmail(options: EmailOptions): Promise<boolean> {
     const transporter = createTransporter();
     
     const mailOptions = {
-      from: process.env.EMAIL_FROM || 'noreply@themeetingmatters.com',
+      from: process.env.EMAIL_FROM || 'noreply@q361.qanzakglobal.com',
       to: options.to,
       subject: options.subject,
       html: options.html,

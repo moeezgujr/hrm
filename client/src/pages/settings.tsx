@@ -58,8 +58,8 @@ export default function Settings() {
 
   // System settings state (for admins)
   const [systemSettings, setSystemSettings] = useState({
-    companyName: 'Q361',
-    emailDomain: '@q361.com',
+    companyName: 'Q361 by Qanzak Global',
+    emailDomain: '@q361.qanzakglobal.com',
     defaultOnboardingDays: '7',
     maxProjectMembers: '15',
     autoApproveRegistrations: false,

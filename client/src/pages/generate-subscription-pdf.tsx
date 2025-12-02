@@ -81,7 +81,7 @@ export default function GenerateSubscriptionPDF() {
     };
 
     // Start building the PDF content
-    addTitle('Meeting Matters SaaS', 20, [34, 139, 34]);
+    addTitle('Q361 SaaS by Qanzak Global', 20, [34, 139, 34]);
     addTitle('Subscription Model Documentation', 16, [34, 139, 34]);
     addSpacing(10);
 
@@ -90,7 +90,7 @@ export default function GenerateSubscriptionPDF() {
 
     // Overview Section
     addTitle('Overview', 14, [0, 0, 0]);
-    addText('Meeting Matters has been transformed into a comprehensive SaaS (Software as a Service) business management platform with a multi-tier subscription model designed to serve organizations of all sizes. The system features automated trial request processing, Stripe payment integration, and role-based access control.');
+    addText('Q361 has been developed as a comprehensive SaaS (Software as a Service) business management platform by Qanzak Global with a multi-tier subscription model designed to serve organizations of all sizes. The system features automated trial request processing, Stripe payment integration, and role-based access control.');
     addSpacing(8);
 
     // Subscription Tiers
@@ -205,9 +205,9 @@ export default function GenerateSubscriptionPDF() {
     addSpacing(5);
 
     addSubtitle('Email Service', 12, [34, 139, 34]);
-    addBulletPoint('Professional Gmail integration (meetingmatters786@gmail.com)');
-    addBulletPoint('HTML templates with company branding');
-    addBulletPoint('Reliable delivery through Google infrastructure');
+    addBulletPoint('Professional email integration via Qanzak Global');
+    addBulletPoint('HTML templates with Q361 branding');
+    addBulletPoint('Reliable delivery through enterprise infrastructure');
     addSpacing(8);
 
     // User Roles
@@ -222,7 +222,7 @@ export default function GenerateSubscriptionPDF() {
     addBulletPoint('Logistics Manager: Inventory and logistics');
     addSpacing(5);
 
-    addSubtitle('For Meeting Matters (Platform Provider)', 12, [34, 139, 34]);
+    addSubtitle('For Q361 (Platform Provider)', 12, [34, 139, 34]);
     addBulletPoint('System Admin: Platform-wide management');
     addBulletPoint('Support Team: Customer assistance');
     addBulletPoint('Sales Team: Trial request review and conversion');
@@ -234,7 +234,7 @@ export default function GenerateSubscriptionPDF() {
 
     addText('1. Discovery & Research', 11, [0, 0, 0], 5);
     addBulletPoint('Prospect visits marketing website');
-    addBulletPoint('Learns about Meeting Matters features');
+    addBulletPoint('Learns about Q361 features');
     addBulletPoint('Compares subscription plans');
     addSpacing(3);
 
@@ -307,18 +307,18 @@ export default function GenerateSubscriptionPDF() {
     // Contact Information
     addTitle('Contact and Support', 14, [0, 0, 0]);
     addSpacing(3);
-    addBulletPoint('Email: meetingmatters786@gmail.com');
+    addBulletPoint('Email: support@q361.qanzakglobal.com');
     addBulletPoint('Trial Requests: Handled through admin dashboard');
     addBulletPoint('Technical Support: Available during business hours');
     addBulletPoint('Account Management: Dedicated support for Enterprise customers');
     addSpacing(10);
 
     // Footer
-    addText('This documentation is maintained by the Meeting Matters development team.', 9, [100, 100, 100]);
+    addText('This documentation is maintained by the Q361 development team at Qanzak Global.', 9, [100, 100, 100]);
     addText('Last updated: August 2025', 9, [100, 100, 100]);
 
     // Save the PDF
-    doc.save('Meeting_Matters_Subscription_Model.pdf');
+    doc.save('Q361_Subscription_Model.pdf');
   };
 
   return (

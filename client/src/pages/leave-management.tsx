@@ -6,10 +6,10 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage, FormDescription } from '@/components/ui/form';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Calendar, Plus, Clock, CheckCircle, XCircle, AlertCircle, Users } from 'lucide-react';
+import { Calendar, Plus, Clock, CheckCircle, XCircle, AlertCircle, Users, TrendingUp } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -73,10 +73,21 @@ const historicalLeaveSchema = z.object({
   path: ['endDate']
 });
 
+// Schema for leave balance adjustment form (HR Admin/HR Personnel only)
+const leaveBalanceAdjustmentSchema = z.object({
+  employeeId: z.string().min(1, 'Employee is required'),
+  leaveType: z.string().min(1, 'Leave type is required'),
+  adjustment: z.string().min(1, 'Adjustment amount is required').refine((val) => !isNaN(Number(val)), {
+    message: 'Must be a valid number'
+  }),
+  reason: z.string().optional(),
+});
+
 export default function LeaveManagement() {
   const { toast } = useToast();
   const [showRequestDialog, setShowRequestDialog] = useState(false);
   const [showHistoricalDialog, setShowHistoricalDialog] = useState(false);
+  const [showAdjustmentDialog, setShowAdjustmentDialog] = useState(false);
 
   // Fetch current user
   const { data: currentUser } = useQuery({
@@ -102,15 +113,23 @@ export default function LeaveManagement() {
     enabled: !!currentEmployee?.id
   });
 
+  // Check if user has HR access (HR Admin OR HR Personnel)
+  const hasHRAccess = currentUser && (
+    (currentUser as any).role === 'hr_admin' || 
+    (currentUser as any).isHRPersonnel === true
+  );
+
   // Check if user has manage permission for leave management
   const hasManagePermission = currentUser && (
     (currentUser as any).role === 'hr_admin' || 
+    (currentUser as any).isHRPersonnel === true ||
     (currentUser as any).permissions?.leave_management === 'manage'
   );
 
   // Check if user can approve leave requests (includes both view and manage)
   const canApproveLeave = currentUser && (
     (currentUser as any).role === 'hr_admin' || 
+    (currentUser as any).isHRPersonnel === true ||
     (currentUser as any).permissions?.leave_management === 'manage' ||
     (currentUser as any).permissions?.leave_management === 'view'
   );
@@ -234,6 +253,49 @@ export default function LeaveManagement() {
 
   const handleSubmitHistoricalLeave = (data: z.infer<typeof historicalLeaveSchema>) => {
     createHistoricalLeaveMutation.mutate(data);
+  };
+
+  // Leave balance adjustment form (HR Admin/HR Personnel only)
+  const adjustmentForm = useForm({
+    resolver: zodResolver(leaveBalanceAdjustmentSchema),
+    defaultValues: {
+      employeeId: '',
+      leaveType: '',
+      adjustment: '',
+      reason: ''
+    }
+  });
+
+  // Adjust leave balance mutation (HR Admin/HR Personnel only)
+  const adjustLeaveBalanceMutation = useMutation({
+    mutationFn: async (data: z.infer<typeof leaveBalanceAdjustmentSchema>) => {
+      return await apiRequest('POST', '/api/leave-balances/adjust', {
+        employeeId: parseInt(data.employeeId),
+        leaveType: data.leaveType,
+        adjustment: parseFloat(data.adjustment),
+        reason: data.reason
+      });
+    },
+    onSuccess: (response) => {
+      toast({
+        title: 'Success',
+        description: response.message || 'Leave balance adjusted successfully'
+      });
+      queryClient.invalidateQueries({ queryKey: ['/api/leave-balances'] });
+      setShowAdjustmentDialog(false);
+      adjustmentForm.reset();
+    },
+    onError: (error: any) => {
+      toast({
+        title: 'Error',
+        description: error.message || 'Failed to adjust leave balance',
+        variant: 'destructive'
+      });
+    }
+  });
+
+  const handleSubmitAdjustment = (data: z.infer<typeof leaveBalanceAdjustmentSchema>) => {
+    adjustLeaveBalanceMutation.mutate(data);
   };
 
   // Approve leave request mutation
@@ -462,8 +524,8 @@ export default function LeaveManagement() {
           </DialogContent>
         </Dialog>
 
-          {/* Admin Historical Leave Dialog */}
-          {currentUser?.role === 'hr_admin' && (
+          {/* Admin/HR Personnel Historical Leave Dialog */}
+          {hasHRAccess && (
             <Dialog open={showHistoricalDialog} onOpenChange={setShowHistoricalDialog}>
               <DialogTrigger asChild>
                 <Button variant="outline" data-testid="button-add-historical-leave">
@@ -614,6 +676,141 @@ export default function LeaveManagement() {
                         data-testid="button-submit-historical-leave"
                       >
                         {createHistoricalLeaveMutation.isPending ? 'Adding...' : 'Add Historical Leave'}
+                      </Button>
+                    </div>
+                  </form>
+                </Form>
+              </DialogContent>
+            </Dialog>
+          )}
+
+          {/* Admin/HR Personnel Leave Balance Adjustment Dialog */}
+          {hasHRAccess && (
+            <Dialog open={showAdjustmentDialog} onOpenChange={setShowAdjustmentDialog}>
+              <DialogTrigger asChild>
+                <Button variant="outline" data-testid="button-adjust-leave-balance">
+                  <TrendingUp size={16} className="mr-2" />
+                  Adjust Leave Balance
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto pb-16">
+                <DialogHeader>
+                  <DialogTitle>Adjust Employee Leave Balance</DialogTitle>
+                </DialogHeader>
+                <Form {...adjustmentForm}>
+                  <form onSubmit={adjustmentForm.handleSubmit(handleSubmitAdjustment)} className="space-y-4">
+                    <FormField
+                      control={adjustmentForm.control}
+                      name="employeeId"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Employee</FormLabel>
+                          <FormControl>
+                            <Select value={field.value} onValueChange={field.onChange}>
+                              <SelectTrigger data-testid="select-adjustment-employee">
+                                <SelectValue placeholder="Select employee" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {employees?.map((emp: any) => (
+                                  <SelectItem key={emp.id} value={emp.id.toString()}>
+                                    {emp.preferredName || emp.firstName + ' ' + emp.lastName} - {emp.position || 'No Position'}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={adjustmentForm.control}
+                      name="leaveType"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Leave Type</FormLabel>
+                          <FormControl>
+                            <Select value={field.value} onValueChange={field.onChange}>
+                              <SelectTrigger data-testid="select-adjustment-leave-type">
+                                <SelectValue placeholder="Select leave type" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="sick_paid">Sick Leave (Paid)</SelectItem>
+                                <SelectItem value="sick_unpaid">Sick Leave (Unpaid)</SelectItem>
+                                <SelectItem value="casual_paid">Casual Leave (Paid)</SelectItem>
+                                <SelectItem value="bereavement">Bereavement Leave</SelectItem>
+                                <SelectItem value="public_holidays">Public Holidays</SelectItem>
+                                <SelectItem value="unpaid">Unpaid Leave</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={adjustmentForm.control}
+                      name="adjustment"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Adjustment Amount (Days)</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="number"
+                              step="0.5"
+                              placeholder="e.g., 5 to add, -3 to subtract"
+                              {...field}
+                              data-testid="input-adjustment-amount"
+                            />
+                          </FormControl>
+                          <FormDescription>
+                            Enter a positive number to add days, or a negative number to subtract days
+                          </FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={adjustmentForm.control}
+                      name="reason"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Reason (Optional)</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder="Explain the reason for this adjustment..."
+                              className="resize-none min-h-[60px]"
+                              {...field}
+                              data-testid="textarea-adjustment-reason"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <div className="flex justify-end space-x-2 pt-4 border-t mt-6">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => {
+                          setShowAdjustmentDialog(false);
+                          adjustmentForm.reset();
+                        }}
+                        data-testid="button-cancel-adjustment"
+                      >
+                        Cancel
+                      </Button>
+                      <Button
+                        type="submit"
+                        disabled={adjustLeaveBalanceMutation.isPending}
+                        className="btn-primary"
+                        data-testid="button-submit-adjustment"
+                      >
+                        {adjustLeaveBalanceMutation.isPending ? 'Adjusting...' : 'Adjust Balance'}
                       </Button>
                     </div>
                   </form>

@@ -16,7 +16,8 @@ import {
 } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { Shield, Check, X, Lock, Unlock } from 'lucide-react';
+import { Switch } from '@/components/ui/switch';
+import { Shield, Check, X, Lock, Unlock, Briefcase } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
 
@@ -74,6 +75,12 @@ export function PermissionManagementDialog({
     enabled: open,
   });
 
+  // Fetch user details to get isHRPersonnel status
+  const { data: userDetails } = useQuery<any>({
+    queryKey: ['/api/users', userId],
+    enabled: open,
+  });
+
   // Grant permission mutation
   const grantPermissionMutation = useMutation({
     mutationFn: async ({ module, level }: { module: string; level: string }) => {
@@ -115,6 +122,50 @@ export function PermissionManagementDialog({
       toast({
         title: 'Error',
         description: 'Failed to revoke permission. Please try again.',
+        variant: 'destructive',
+      });
+    },
+  });
+
+  // Toggle HR Personnel designation mutation
+  const toggleHRPersonnelMutation = useMutation({
+    mutationFn: async (isHRPersonnel: boolean) => {
+      return await apiRequest('PUT', `/api/users/${userId}/hr-personnel`, { isHRPersonnel });
+    },
+    onMutate: async (isHRPersonnel) => {
+      // Cancel any outgoing refetches
+      await queryClient.cancelQueries({ queryKey: ['/api/users', userId] });
+      
+      // Snapshot the previous value
+      const previousUser = queryClient.getQueryData(['/api/users', userId]);
+      
+      // Optimistically update to the new value
+      queryClient.setQueryData(['/api/users', userId], (old: any) => ({
+        ...old,
+        isHRPersonnel
+      }));
+      
+      return { previousUser };
+    },
+    onSuccess: (_, isHRPersonnel) => {
+      queryClient.invalidateQueries({ queryKey: ['/api/users', userId] });
+      queryClient.invalidateQueries({ queryKey: ['/api/users', userId, 'aggregated-permissions'] });
+      queryClient.invalidateQueries({ queryKey: ['/api/employees'] });
+      toast({
+        title: isHRPersonnel ? 'HR Personnel Designated' : 'HR Personnel Removed',
+        description: isHRPersonnel 
+          ? 'User now has full access to all HR-related modules.' 
+          : 'User no longer has automatic HR access.',
+      });
+    },
+    onError: (err, variables, context) => {
+      // Rollback to previous value on error
+      if (context?.previousUser) {
+        queryClient.setQueryData(['/api/users', userId], context.previousUser);
+      }
+      toast({
+        title: 'Error',
+        description: 'Failed to update HR Personnel designation.',
         variant: 'destructive',
       });
     },
@@ -173,6 +224,39 @@ export function PermissionManagementDialog({
         </DialogHeader>
 
         <div className="space-y-6 mt-4">
+          {/* HR Personnel Designation */}
+          <Card className="bg-gradient-to-r from-purple-50 to-indigo-50 border-purple-200">
+            <CardContent className="p-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="bg-purple-100 p-2 rounded-lg">
+                    <Briefcase className="h-5 w-5 text-purple-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm">HR Personnel</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Designate this user as HR personnel to grant full access to all HR modules
+                    </p>
+                  </div>
+                </div>
+                <Switch
+                  checked={userDetails?.isHRPersonnel || false}
+                  onCheckedChange={(checked) => toggleHRPersonnelMutation.mutate(checked)}
+                  disabled={toggleHRPersonnelMutation.isPending}
+                  data-testid="switch-hr-personnel"
+                />
+              </div>
+              {userDetails?.isHRPersonnel && (
+                <div className="mt-3 bg-purple-100 border border-purple-200 rounded-lg p-3">
+                  <p className="text-xs text-purple-900">
+                    <strong>✓ Active:</strong> This user has automatic <strong>manage</strong> permissions for all HR modules:
+                    Employee Management, Contract Management, Announcements, and Leave Management.
+                  </p>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+
           {/* Current Permissions */}
           <div>
             <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">

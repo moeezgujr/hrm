@@ -38,18 +38,19 @@ export default function StatsCard({ title, value, change, changeType, icon: Icon
 
   return (
     <Card className={`stats-card ${onClick ? 'cursor-pointer hover:shadow-md transition-shadow' : ''}`} onClick={onClick}>
-      <CardContent className="p-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-gray-600 text-sm font-medium">{title}</p>
-            <p className="text-3xl font-bold text-gray-900 mt-2">{value}</p>
-            <p className={`text-sm font-medium mt-2 flex items-center ${getChangeColor()}`}>
+      <CardContent className="p-3 md:p-6">
+        <div className="flex items-start md:items-center justify-between">
+          <div className="min-w-0 flex-1">
+            <p className="text-gray-600 text-xs md:text-sm font-medium truncate">{title}</p>
+            <p className="text-xl md:text-3xl font-bold text-gray-900 mt-1 md:mt-2">{value}</p>
+            <p className={`text-xs md:text-sm font-medium mt-1 md:mt-2 flex items-center ${getChangeColor()}`}>
               {getChangeIcon()}
-              {change}
+              <span className="truncate">{change}</span>
             </p>
           </div>
-          <div className={`stats-card-icon ${color}`}>
-            <Icon size={24} />
+          <div className={`stats-card-icon ${color} w-8 h-8 md:w-12 md:h-12 flex-shrink-0 ml-2`}>
+            <Icon size={16} className="md:hidden" />
+            <Icon size={24} className="hidden md:block" />
           </div>
         </div>
       </CardContent>

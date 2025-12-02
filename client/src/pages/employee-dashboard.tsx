@@ -201,23 +201,23 @@ export default function EmployeeDashboard() {
     : 0;
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-4 md:space-y-6">
       {/* Welcome Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 className="text-2xl font-semibold text-gray-900">
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-900">
             Welcome back, {user?.firstName}!
           </h2>
-          <p className="text-gray-600 mt-1">
+          <p className="text-sm md:text-base text-gray-600 mt-1">
             {getRoleDisplayName(user?.role || 'employee')} • {user?.department || 'No department assigned'}
           </p>
         </div>
-        <div className="flex items-center space-x-3">
+        <div className="flex flex-wrap items-center gap-2">
           <Badge className="bg-blue-100 text-blue-800">
             {user?.status}
           </Badge>
-          <Button variant="outline" onClick={() => setLocation('/settings')}>
-            <Settings className="mr-2" size={16} />
+          <Button variant="outline" size="sm" onClick={() => setLocation('/settings')}>
+            <Settings className="mr-2" size={14} />
             Settings
           </Button>
         </div>

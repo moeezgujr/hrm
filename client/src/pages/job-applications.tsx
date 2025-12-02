@@ -65,9 +65,32 @@ import {
   Video,
   Users,
   AlertCircle,
-  Brain
+  Brain,
+  Plus,
+  Building2,
+  Trash2,
+  Edit,
+  Sparkles
 } from "lucide-react";
 import { format } from "date-fns";
+
+type Vacancy = {
+  id: number;
+  designation: string;
+  companyId: number;
+  numberOfOpenings: number;
+  description: string | null;
+  requirements: string | null;
+  responsibilities: string | null;
+  status: string;
+  postedDate: string;
+  company?: { name: string };
+};
+
+type Company = {
+  id: number;
+  name: string;
+};
 
 export default function JobApplications() {
   const { toast } = useToast();
@@ -76,6 +99,16 @@ export default function JobApplications() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedApplication, setSelectedApplication] = useState<JobApplication | null>(null);
   const [showInterviewDialog, setShowInterviewDialog] = useState(false);
+  const [showVacancyDialog, setShowVacancyDialog] = useState(false);
+  const [editingVacancy, setEditingVacancy] = useState<Vacancy | null>(null);
+  const [vacancyForm, setVacancyForm] = useState({
+    designation: "",
+    companyId: "",
+    numberOfOpenings: "1",
+    description: "",
+    requirements: "",
+    responsibilities: ""
+  });
   const [interviewForm, setInterviewForm] = useState({
     date: "",
     time: "",
@@ -88,6 +121,114 @@ export default function JobApplications() {
     queryKey: ["/api/applications"],
     retry: false,
   });
+
+  const { data: vacancies = [], isLoading: isLoadingVacancies } = useQuery<Vacancy[]>({
+    queryKey: ["/api/vacancies"],
+    retry: false,
+  });
+
+  const { data: companies = [] } = useQuery<Company[]>({
+    queryKey: ["/api/companies"],
+    retry: false,
+  });
+
+  const createVacancy = useMutation({
+    mutationFn: async (data: typeof vacancyForm) => {
+      const response = await apiRequest("POST", "/api/vacancies", {
+        designation: data.designation,
+        companyId: parseInt(data.companyId),
+        numberOfOpenings: parseInt(data.numberOfOpenings),
+        description: data.description,
+        requirements: data.requirements,
+        responsibilities: data.responsibilities
+      });
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({ title: "Vacancy Created", description: "New vacancy has been added successfully." });
+      queryClient.invalidateQueries({ queryKey: ["/api/vacancies"] });
+      setShowVacancyDialog(false);
+      resetVacancyForm();
+    },
+    onError: () => {
+      toast({ title: "Error", description: "Failed to create vacancy.", variant: "destructive" });
+    }
+  });
+
+  const updateVacancy = useMutation({
+    mutationFn: async ({ id, data }: { id: number; data: Partial<typeof vacancyForm> }) => {
+      const response = await apiRequest("PATCH", `/api/vacancies/${id}`, {
+        ...data,
+        companyId: data.companyId ? parseInt(data.companyId) : undefined,
+        numberOfOpenings: data.numberOfOpenings ? parseInt(data.numberOfOpenings) : undefined
+      });
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({ title: "Vacancy Updated", description: "Vacancy has been updated successfully." });
+      queryClient.invalidateQueries({ queryKey: ["/api/vacancies"] });
+      setShowVacancyDialog(false);
+      setEditingVacancy(null);
+      resetVacancyForm();
+    },
+    onError: () => {
+      toast({ title: "Error", description: "Failed to update vacancy.", variant: "destructive" });
+    }
+  });
+
+  const deleteVacancy = useMutation({
+    mutationFn: async (id: number) => {
+      await apiRequest("DELETE", `/api/vacancies/${id}`);
+    },
+    onSuccess: () => {
+      toast({ title: "Vacancy Deleted", description: "Vacancy has been removed." });
+      queryClient.invalidateQueries({ queryKey: ["/api/vacancies"] });
+    },
+    onError: () => {
+      toast({ title: "Error", description: "Failed to delete vacancy.", variant: "destructive" });
+    }
+  });
+
+  const resetVacancyForm = () => {
+    setVacancyForm({
+      designation: "",
+      companyId: "",
+      numberOfOpenings: "1",
+      description: "",
+      requirements: "",
+      responsibilities: ""
+    });
+  };
+
+  const handleEditVacancy = (vacancy: Vacancy) => {
+    setEditingVacancy(vacancy);
+    setVacancyForm({
+      designation: vacancy.designation,
+      companyId: vacancy.companyId?.toString() || "",
+      numberOfOpenings: vacancy.numberOfOpenings?.toString() || "1",
+      description: vacancy.description || "",
+      requirements: vacancy.requirements || "",
+      responsibilities: vacancy.responsibilities || ""
+    });
+    setShowVacancyDialog(true);
+  };
+
+  const handleVacancySubmit = () => {
+    if (editingVacancy) {
+      updateVacancy.mutate({ id: editingVacancy.id, data: vacancyForm });
+    } else {
+      createVacancy.mutate(vacancyForm);
+    }
+  };
+
+  const designationOptions = [
+    "CEO", "Clinical Director", "Business Development Manager", "Marketing Manager",
+    "Sales Manager", "Operations Manager", "HR Manager", "Finance Manager",
+    "IT Manager", "Customer Service Manager", "Project Manager", "Team Lead",
+    "Senior Developer", "Developer", "Designer", "Analyst", "Consultant",
+    "Psychologist", "Therapist", "Counselor", "Nurse", "Administrator",
+    "Receptionist", "Intern", "Other"
+  ];
 
   // Fetch detailed application when one is selected
   const { data: applicationDetails, isLoading: isLoadingDetails } = useQuery<JobApplication>({
@@ -239,7 +380,7 @@ export default function JobApplications() {
       doc.setFontSize(8);
       doc.setFont("helvetica", "normal");
       doc.text(`Generated on: ${new Date().toLocaleString()}`, margin, yPosition);
-      doc.text("Business Management System - Meeting Matters", pageWidth - margin - 60, yPosition);
+      doc.text("Q361 Business Management System", pageWidth - margin - 60, yPosition);
       yPosition += 15;
 
       // Personal Information Section
@@ -638,7 +779,7 @@ export default function JobApplications() {
 
   if (isLoading) {
     return (
-      <div className="p-6">
+      <div className="p-4 md:p-6">
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
         </div>
@@ -647,16 +788,213 @@ export default function JobApplications() {
   }
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-4 md:space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Job Applications</h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Job Applications</h1>
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">
             Review and manage pre-employment applications
           </p>
         </div>
       </div>
+
+      {/* Available Vacancies Section */}
+      <Card className="border-2 border-dashed border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20">
+        <CardHeader className="pb-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="p-2 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-500">
+                <Sparkles className="h-5 w-5 text-white" />
+              </div>
+              <div>
+                <CardTitle className="text-lg text-emerald-800 dark:text-emerald-200">Available Vacancies</CardTitle>
+                <p className="text-sm text-emerald-600 dark:text-emerald-400">Open positions for new applicants</p>
+              </div>
+            </div>
+            <Dialog open={showVacancyDialog} onOpenChange={(open) => {
+              setShowVacancyDialog(open);
+              if (!open) {
+                setEditingVacancy(null);
+                resetVacancyForm();
+              }
+            }}>
+              <DialogTrigger asChild>
+                <Button className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white">
+                  <Plus className="h-4 w-4 mr-2" />
+                  Add Vacancy
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-lg max-h-[85vh] overflow-hidden flex flex-col">
+                <DialogHeader>
+                  <DialogTitle>{editingVacancy ? 'Edit Vacancy' : 'Create New Vacancy'}</DialogTitle>
+                  <DialogDescription>
+                    {editingVacancy ? 'Update the vacancy details below.' : 'Add a new open position for candidates to apply for.'}
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="space-y-4 pt-4 overflow-y-auto pr-2 flex-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label>Position/Designation *</Label>
+                      <Input 
+                        placeholder="e.g., Marketing Manager"
+                        value={vacancyForm.designation}
+                        onChange={(e) => setVacancyForm({...vacancyForm, designation: e.target.value})}
+                        list="designation-options"
+                      />
+                      <datalist id="designation-options">
+                        {designationOptions.map(opt => (
+                          <option key={opt} value={opt} />
+                        ))}
+                      </datalist>
+                      <p className="text-xs text-gray-500">Type or select from suggestions</p>
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Company *</Label>
+                      <Select 
+                        value={vacancyForm.companyId} 
+                        onValueChange={(value) => setVacancyForm({...vacancyForm, companyId: value})}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select company" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {companies.map(company => (
+                            <SelectItem key={company.id} value={company.id.toString()}>{company.name}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Number of Openings</Label>
+                    <Input 
+                      type="number" 
+                      min="1" 
+                      value={vacancyForm.numberOfOpenings}
+                      onChange={(e) => setVacancyForm({...vacancyForm, numberOfOpenings: e.target.value})}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Description</Label>
+                    <Textarea 
+                      placeholder="Brief description of the role..."
+                      value={vacancyForm.description}
+                      onChange={(e) => setVacancyForm({...vacancyForm, description: e.target.value})}
+                      rows={3}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Requirements</Label>
+                    <Textarea 
+                      placeholder="Skills, qualifications, experience..."
+                      value={vacancyForm.requirements}
+                      onChange={(e) => setVacancyForm({...vacancyForm, requirements: e.target.value})}
+                      rows={3}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Responsibilities</Label>
+                    <Textarea 
+                      placeholder="Key responsibilities of the role..."
+                      value={vacancyForm.responsibilities}
+                      onChange={(e) => setVacancyForm({...vacancyForm, responsibilities: e.target.value})}
+                      rows={3}
+                    />
+                  </div>
+                </div>
+                <div className="flex justify-end gap-2 pt-4 border-t mt-4">
+                  <Button variant="outline" onClick={() => {
+                    setShowVacancyDialog(false);
+                    setEditingVacancy(null);
+                    resetVacancyForm();
+                  }}>
+                    Cancel
+                  </Button>
+                  <Button 
+                    onClick={handleVacancySubmit}
+                    disabled={!vacancyForm.designation || !vacancyForm.companyId || createVacancy.isPending || updateVacancy.isPending}
+                    className="bg-gradient-to-r from-emerald-500 to-teal-500"
+                  >
+                    {createVacancy.isPending || updateVacancy.isPending ? 'Saving...' : editingVacancy ? 'Update' : 'Create'}
+                  </Button>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
+        </CardHeader>
+        <CardContent>
+          {isLoadingVacancies ? (
+            <div className="flex items-center justify-center py-8">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500"></div>
+            </div>
+          ) : vacancies.length === 0 ? (
+            <div className="text-center py-8">
+              <Briefcase className="h-12 w-12 text-emerald-300 mx-auto mb-3" />
+              <p className="text-emerald-700 dark:text-emerald-300 font-medium">No open vacancies</p>
+              <p className="text-sm text-emerald-600 dark:text-emerald-400">Click "Add Vacancy" to create your first open position</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {vacancies.filter(v => v.status === 'open').map(vacancy => (
+                <div 
+                  key={vacancy.id} 
+                  className="bg-white dark:bg-gray-800 rounded-lg border border-emerald-200 dark:border-emerald-700 p-4 hover:shadow-md transition-shadow"
+                >
+                  <div className="flex items-start justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <div className="p-1.5 rounded-md bg-emerald-100 dark:bg-emerald-800">
+                        <Briefcase className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                      </div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white capitalize">
+                        {vacancy.designation?.replace(/_/g, ' ')}
+                      </h4>
+                    </div>
+                    <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-800 dark:text-emerald-300">
+                      {vacancy.numberOfOpenings} {vacancy.numberOfOpenings === 1 ? 'opening' : 'openings'}
+                    </Badge>
+                  </div>
+                  
+                  {vacancy.company && (
+                    <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      <Building2 className="h-3 w-3" />
+                      <span>{vacancy.company.name}</span>
+                    </div>
+                  )}
+                  
+                  {vacancy.description && (
+                    <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">
+                      {vacancy.description}
+                    </p>
+                  )}
+                  
+                  <div className="flex items-center justify-between text-xs text-gray-500">
+                    <span>Posted: {vacancy.postedDate ? format(new Date(vacancy.postedDate), 'MMM d, yyyy') : 'N/A'}</span>
+                    <div className="flex gap-1">
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="h-7 w-7 p-0 text-blue-600 hover:text-blue-700 hover:bg-blue-50"
+                        onClick={() => handleEditVacancy(vacancy)}
+                      >
+                        <Edit className="h-3.5 w-3.5" />
+                      </Button>
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="h-7 w-7 p-0 text-red-600 hover:text-red-700 hover:bg-red-50"
+                        onClick={() => deleteVacancy.mutate(vacancy.id)}
+                      >
+                        <Trash2 className="h-3.5 w-3.5" />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
 
       {/* Filters */}
       <Card>
@@ -1013,8 +1351,7 @@ export default function JobApplications() {
                                           variant="outline"
                                           size="sm"
                                           onClick={() => {
-                                            // Open comprehensive psychometric analysis report
-                                            window.open(`/psychometric-report/${selectedApplication.email}`, '_blank', 'width=1200,height=800');
+                                            window.location.href = `/psychometric-report/${encodeURIComponent(selectedApplication.email)}`;
                                           }}
                                         >
                                           <BrainCircuit className="w-4 h-4 mr-2" />
@@ -1095,7 +1432,7 @@ export default function JobApplications() {
                                                       size="sm"
                                                       className="mt-3"
                                                       onClick={() => {
-                                                        window.open(`/psychometric-report/${selectedApplication.email}`, '_blank', 'width=1200,height=800');
+                                                        window.location.href = `/psychometric-report/${encodeURIComponent(selectedApplication.email)}`;
                                                       }}
                                                     >
                                                       <BrainCircuit className="w-4 h-4 mr-2" />
@@ -1214,7 +1551,7 @@ export default function JobApplications() {
                                                         variant="outline"
                                                         size="sm"
                                                         onClick={() => {
-                                                          window.open(`/psychometric-report/${selectedApplication.email}`, '_blank', 'width=1200,height=800');
+                                                          window.location.href = `/psychometric-report/${encodeURIComponent(selectedApplication.email)}`;
                                                         }}
                                                       >
                                                         <BrainCircuit className="w-4 h-4 mr-2" />
@@ -1273,7 +1610,7 @@ export default function JobApplications() {
                                                     variant="outline"
                                                     size="sm"
                                                     onClick={() => {
-                                                      window.open(`/psychometric-report/${selectedApplication.email}`, '_blank', 'width=1200,height=800');
+                                                      window.location.href = `/psychometric-report/${encodeURIComponent(selectedApplication.email)}`;
                                                     }}
                                                   >
                                                     <BrainCircuit className="w-4 h-4 mr-2" />

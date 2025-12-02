@@ -10,19 +10,14 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Verify transporter configuration (with error handling)
-try {
-  transporter.verify((error: any, success: any) => {
-    if (error) {
-      console.warn('⚠️ Email configuration warning:', error.message);
-      console.log('📧 Email notifications will be skipped until configured properly');
-    } else {
-      console.log('✅ Email service ready to send notifications');
-    }
-  });
-} catch (error: any) {
-  console.warn('⚠️ Email service initialization warning:', error?.message);
-}
+// Verify transporter configuration
+transporter.verify((error: any, success: any) => {
+  if (error) {
+    console.error('Email configuration error:', error);
+  } else {
+    console.log('Email service ready to send notifications');
+  }
+});
 
 interface EmailTemplate {
   subject: string;
@@ -31,8 +26,8 @@ interface EmailTemplate {
 }
 
 export class EmailService {
-  private static fromEmail = process.env.GMAIL_USER || 'meetingmatters786@gmail.com';
-  private static companyName = 'Meeting Matters';
+  private static fromEmail = process.env.GMAIL_USER || 'support@q361.qanzakglobal.com';
+  private static companyName = 'Q361 by Qanzak Global';
 
   // Send task assignment notification
   static async sendTaskAssignmentEmail(
@@ -104,7 +99,7 @@ export class EmailService {
     // Send email to HR
     const hrTemplate = this.getContractSigningHRTemplate(employee, contractDetails);
     await this.sendEmail(
-      'hr@themeetingmatters.com',
+      'hr@q361.qanzakglobal.com',
       hrTemplate.subject,
       hrTemplate.html,
       hrTemplate.text
@@ -937,9 +932,9 @@ export class EmailService {
     user: any,
     password: string
   ): Promise<void> {
-    const baseUrl = process.env.FRONTEND_URL || 'http://localhost:5000';
-    // ? `https://${process.env.REPLIT_DOMAINS.split(',')[0]}`
-    // : 'https://your-app.replit.dev';
+    const baseUrl = process.env.REPLIT_DOMAINS 
+      ? `https://${process.env.REPLIT_DOMAINS.split(',')[0]}`
+      : 'https://your-app.replit.dev';
 
     const template = this.getTrialCredentialsTemplate(user, password, baseUrl);
     
@@ -956,9 +951,9 @@ export class EmailService {
     user: any,
     password: string
   ): Promise<void> {
-    const baseUrl = process.env.FRONTEND_URL || 'http://localhost:5000';
-    // ? `https://${process.env.REPLIT_DOMAINS.split(',')[0]}`
-    // : 'https://your-app.replit.dev';
+    const baseUrl = process.env.REPLIT_DOMAINS 
+      ? `https://${process.env.REPLIT_DOMAINS.split(',')[0]}`
+      : 'https://your-app.replit.dev';
 
     const template = this.getTrialLoginInstructionsTemplate(user, password, baseUrl);
     

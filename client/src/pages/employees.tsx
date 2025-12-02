@@ -309,15 +309,15 @@ export default function Employees() {
   });
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-4 md:space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 className="text-2xl font-semibold text-gray-900">Employee Management</h2>
-          <p className="text-gray-600 mt-1">Manage and view employee information</p>
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-900">Employee Management</h2>
+          <p className="text-sm md:text-base text-gray-600 mt-1">Manage and view employee information</p>
         </div>
         
-        <div className="flex items-center space-x-3">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           {(user?.role === 'hr_admin' || user?.role === 'branch_manager') && (
             <>
               <div className="flex border rounded-lg">
@@ -555,7 +555,7 @@ export default function Employees() {
                               <SelectItem value="branch_manager">Branch Manager</SelectItem>
                               <SelectItem value="hr_admin">HR Admin</SelectItem>
                               <SelectItem value="logistics_manager">Logistics Manager</SelectItem>
-                              <div className="px-2 py-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 mt-2">Meeting Matters Studio</div>
+                              <div className="px-2 py-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 mt-2">Q361 Studio</div>
                               <SelectItem value="studio_manager">Studio Manager</SelectItem>
                               <SelectItem value="content_creator">Content Creator</SelectItem>
                               <SelectItem value="content_editor">Content Editor</SelectItem>
@@ -647,7 +647,7 @@ export default function Employees() {
                     name="designation"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Designation (Meeting Matters Hierarchy)</FormLabel>
+                        <FormLabel>Designation (Q361 Hierarchy)</FormLabel>
                         <FormControl>
                           <Select value={field.value} onValueChange={field.onChange}>
                             <SelectTrigger data-testid="select-designation">
@@ -971,7 +971,7 @@ export default function Employees() {
                           <SelectItem value="branch_manager">Branch Manager</SelectItem>
                           <SelectItem value="hr_admin">HR Admin</SelectItem>
                           <SelectItem value="logistics_manager">Logistics Manager</SelectItem>
-                          <div className="px-2 py-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 mt-2">Meeting Matters Studio</div>
+                          <div className="px-2 py-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 mt-2">Q361 Studio</div>
                           <SelectItem value="studio_manager">Studio Manager</SelectItem>
                           <SelectItem value="content_creator">Content Creator</SelectItem>
                           <SelectItem value="content_editor">Content Editor</SelectItem>
@@ -1063,7 +1063,7 @@ export default function Employees() {
                 name="designation"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Designation (Meeting Matters Hierarchy)</FormLabel>
+                    <FormLabel>Designation (Q361 Hierarchy)</FormLabel>
                     <FormControl>
                       <Select value={field.value} onValueChange={field.onChange}>
                         <SelectTrigger data-testid="select-designation-add">

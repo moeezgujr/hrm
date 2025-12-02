@@ -45,11 +45,11 @@ export default function BankingOverview() {
   const incompleteBanking = bankingData?.filter(emp => !emp.isComplete) || [];
 
   return (
-    <div className="p-6 space-y-6">
-      <div className="flex items-center justify-between">
+    <div className="p-4 md:p-6 space-y-4 md:space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 className="text-2xl font-semibold text-gray-900">Banking Information Overview</h2>
-          <p className="text-gray-600 mt-1">View employee banking details and completion status</p>
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-900">Banking Information Overview</h2>
+          <p className="text-sm md:text-base text-gray-600 mt-1">View employee banking details and completion status</p>
           <div className="mt-2 p-3 bg-amber-50 border border-amber-200 rounded-lg">
             <p className="text-sm text-amber-800 font-medium">
               🔒 Confidential Payroll Information - Full account numbers displayed for authorized payroll processing

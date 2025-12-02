@@ -69,6 +69,9 @@ import CrmInquiries from "@/pages/crm-inquiries";
 import CrmAccessManagement from "@/pages/crm-access-management";
 import JobApplicationsAccessManagement from "@/pages/job-applications-access-management";
 import Organization from "@/pages/organization";
+import CrmDailyLog from "@/pages/crm-daily-log";
+import CrmManagementDashboard from "@/pages/crm-management-dashboard";
+import CeoCrmMeeting from "@/pages/ceo-crm-meeting";
 
 function Router() {
   const { user, isLoading, error } = useAuth();
@@ -150,7 +153,7 @@ function Router() {
             <Route path="/onboarding-pdf-export" component={EmployeeOnboardingPDFExport} />
             <Route path="/logistics-pdf-export" component={LogisticsPDFExport} />
             <Route path="/psychometric-admin" component={PsychometricAdmin} />
-            <Route path="/psychometric-report/:attemptId" component={PsychometricReport} />
+            <Route path="/psychometric-report/:email" component={PsychometricReport} />
             <Route path="/detailed-responses/:attemptId" component={DetailedResponses} />
             <Route path="/all-psychometric-responses" component={AllPsychometricResponses} />
             <Route path="/tasks" component={Tasks} />
@@ -158,6 +161,9 @@ function Router() {
             <Route path="/leave-management" component={LeaveManagement} />
             <Route path="/crm-inquiries" component={CrmInquiries} />
             <Route path="/crm-access-management" component={CrmAccessManagement} />
+            <Route path="/crm-daily-log" component={CrmDailyLog} />
+            <Route path="/crm-management-dashboard" component={CrmManagementDashboard} />
+            <Route path="/ceo-crm-meeting" component={CeoCrmMeeting} />
             <Route path="/job-applications-access-management" component={JobApplicationsAccessManagement} />
             <Route path="/organization" component={Organization} />
             <Route path="/projects" component={ProjectsPage} />
@@ -175,7 +181,6 @@ function Router() {
             <Route path="/handbook-management" component={HandbookManagement} />
             <Route path="/team-meetings" component={lazy(() => import('./pages/team-meetings'))} />
             <Route path="/psychometric-results" component={lazy(() => import('./pages/psychometric-results-dashboard'))} />
-            <Route path="/psychometric-report/:email" component={lazy(() => import('./pages/psychometric-report'))} />
             <Route path="/social-media" component={SocialMediaDashboard} />
             <Route path="/social-media-manager" component={SocialMediaManager} />
             <Route path="/daily-reports" component={DailyReports} />

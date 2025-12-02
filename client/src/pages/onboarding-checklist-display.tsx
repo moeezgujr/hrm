@@ -290,7 +290,10 @@ export function OnboardingChecklistDisplay({ employeeId, isHRView = false, onEdi
                                 ) : (
                                   <div className="mt-3">
                                     <Button
-                                      onClick={() => setShowPersonalProfileModal(true)}
+                                      onClick={() => {
+                                        setSelectedItem(item);
+                                        setShowPersonalProfileModal(true);
+                                      }}
                                       className="bg-blue-600 hover:bg-blue-700 text-white"
                                     >
                                       <UserCheck className="w-4 h-4 mr-2" />
@@ -512,7 +515,10 @@ export function OnboardingChecklistDisplay({ employeeId, isHRView = false, onEdi
                                 <p className="text-gray-600 mb-3">{item.description}</p>
                               )}
                               <Button 
-                                onClick={() => setShowPersonalProfileModal(true)}
+                                onClick={() => {
+                                  setSelectedItem(item);
+                                  setShowPersonalProfileModal(true);
+                                }}
                                 className="bg-blue-600 hover:bg-blue-700"
                                 disabled={!!item.isCompleted}
                               >
@@ -687,6 +693,9 @@ export function OnboardingChecklistDisplay({ employeeId, isHRView = false, onEdi
           </DialogHeader>
           <PersonalProfileForm 
             onComplete={() => {
+              if (selectedItem) {
+                handleToggleComplete(selectedItem.id, true);
+              }
               setShowPersonalProfileModal(false);
               queryClient.invalidateQueries({ queryKey: [`/api/onboarding/${employeeId}`] });
               queryClient.invalidateQueries({ queryKey: ['/api/my-onboarding'] });

@@ -1,8 +1,8 @@
-# Meeting Matters SaaS Subscription Model Documentation
+# Q361 SaaS Subscription Model Documentation
 
 ## Overview
 
-Meeting Matters has been transformed into a comprehensive SaaS (Software as a Service) HR management platform with a multi-tier subscription model designed to serve organizations of all sizes. The system features automated trial request processing, Stripe payment integration, and role-based access control.
+Q361 by Qanzak Global has been developed as a comprehensive SaaS (Software as a Service) Business Management platform with a multi-tier subscription model designed to serve organizations of all sizes. The system features automated trial request processing, Stripe payment integration, and role-based access control.
 
 ## Subscription Tiers
 
@@ -98,9 +98,9 @@ Meeting Matters has been transformed into a comprehensive SaaS (Software as a Se
 - Payment confirmations and receipts
 
 ### Email Service
-- Professional Gmail integration (meetingmatters786@gmail.com)
-- HTML templates with company branding
-- Reliable delivery through Google's infrastructure
+- Professional email integration via Qanzak Global
+- HTML templates with Q361 branding
+- Reliable delivery through enterprise infrastructure
 
 ## User Roles and Access Control
 
@@ -111,7 +111,7 @@ Meeting Matters has been transformed into a comprehensive SaaS (Software as a Se
 - **Employee**: Personal dashboard and tasks
 - **Logistics Manager**: Inventory and logistics
 
-### For Meeting Matters (Platform Provider)
+### For Q361 (Platform Provider)
 - **System Admin**: Platform-wide management
 - **Support Team**: Customer assistance
 - **Sales Team**: Trial request review and conversion
@@ -154,7 +154,7 @@ customer_subscriptions (
 
 ### 1. Discovery & Research
 - Prospect visits marketing website
-- Learns about Meeting Matters features
+- Learns about Q361 features
 - Compares subscription plans
 
 ### 2. Trial Request
@@ -284,11 +284,11 @@ customer_subscriptions (
 
 ## Contact and Support
 
-- **Email**: meetingmatters786@gmail.com
+- **Email**: support@q361.qanzakglobal.com
 - **Trial Requests**: Handled through admin dashboard
 - **Technical Support**: Available during business hours
 - **Account Management**: Dedicated support for Enterprise customers
 
 ---
 
-*This documentation is maintained by the Meeting Matters development team. Last updated: August 2025*
+*This documentation is maintained by the Q361 development team at Qanzak Global. Last updated: December 2025*

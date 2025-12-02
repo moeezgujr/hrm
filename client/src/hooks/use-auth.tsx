@@ -108,11 +108,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         title: "Login successful",
         description: `Welcome back, ${user.firstName}!`,
       });
-      // Force navigation to dashboard root after successful login
-      // Using direct location change ensures leaving /auth even if routing state lags
-      if (window.location.pathname === '/auth') {
-        window.location.replace('/');
-      }
     },
     onError: (error: Error) => {
       toast({

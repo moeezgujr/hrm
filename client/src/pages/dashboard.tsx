@@ -55,9 +55,11 @@ export default function Dashboard() {
   });
 
   // Employee queries - fetch personal data
-  const { data: myOnboardingData, isLoading: myOnboardingLoading } = useQuery({
+  const { data: myOnboardingData, isLoading: myOnboardingLoading, refetch: refetchOnboarding } = useQuery({
     queryKey: ['/api/my-onboarding'],
-    enabled: isEmployeeRole,
+    enabled: isEmployeeRole && !!user,
+    refetchOnMount: true,
+    staleTime: 0,
   });
 
   const { data: myTasks, isLoading: myTasksLoading } = useQuery({
@@ -90,11 +92,11 @@ export default function Dashboard() {
 
   if (adminLoading || employeeLoading) {
     return (
-      <div className="p-6 space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="p-4 md:p-6 space-y-4 md:space-y-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {[...Array(4)].map((_, i) => (
             <div key={i} className="stats-card animate-pulse">
-              <div className="h-20 bg-gray-200 rounded"></div>
+              <div className="h-16 md:h-20 bg-gray-200 rounded"></div>
             </div>
           ))}
         </div>
@@ -119,16 +121,16 @@ export default function Dashboard() {
     const myProjectsList = myProjects || [];
 
     return (
-      <div className="p-6 space-y-6">
+      <div className="p-4 md:p-6 space-y-4 md:space-y-6">
         {DEMO_MODE && <DemoBanner />}
         
-        <div className="mb-6">
-          <h2 className="text-2xl font-semibold text-gray-900">My Dashboard</h2>
-          <p className="text-gray-600 mt-1">Welcome back, {user?.firstName}! Here's your personal overview</p>
+        <div className="mb-4 md:mb-6">
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-900">My Dashboard</h2>
+          <p className="text-sm md:text-base text-gray-600 mt-1">Welcome back, {user?.firstName}! Here's your personal overview</p>
         </div>
 
         {/* Personal Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           <StatsCard
             title="Onboarding Progress"
             value={`${onboardingProgress}%`}
@@ -491,25 +493,25 @@ export default function Dashboard() {
   const urgentTasks = tasks?.filter(task => task.priority === 'urgent').slice(0, 2) || [];
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-4 md:space-y-6">
       {/* Demo Banner */}
       {DEMO_MODE && <DemoBanner />}
       
       {/* Welcome Header */}
-      <div className="mb-6">
-        <h2 className="text-2xl font-semibold text-gray-900">Dashboard</h2>
-        <p className="text-gray-600 mt-1">Welcome back, here's what's happening today</p>
+      <div className="mb-4 md:mb-6">
+        <h2 className="text-xl md:text-2xl font-semibold text-gray-900">Dashboard</h2>
+        <p className="text-sm md:text-base text-gray-600 mt-1">Welcome back, here's what's happening today</p>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
         {statsData.map((stat, index) => (
           <StatsCard key={index} {...stat} />
         ))}
       </div>
 
       {/* Main Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
         {/* Recent Activities */}
         <div className="lg:col-span-2">
           <ActivityFeed activities={activities || []} isLoading={activitiesLoading} />

@@ -15,9 +15,10 @@ import { useAuth } from "@/hooks/use-auth";
 
 // Make sure to call `loadStripe` outside of a component's render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = import.meta.env.VITE_STRIPE_PUBLIC_KEY 
-  ? loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY)
-  : Promise.resolve(null);
+if (!import.meta.env.VITE_STRIPE_PUBLIC_KEY) {
+  throw new Error('Missing required Stripe key: VITE_STRIPE_PUBLIC_KEY');
+}
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 const planIcons = {
   starter: <Zap className="h-6 w-6" />,
@@ -245,7 +246,24 @@ export default function Subscribe() {
     }
   });
 
-  const plan = plans?.find((p: any) => p.planId === planId);
+  // Define the free trial plan locally since it's not in the API
+  const freePlan = {
+    planId: 'free',
+    name: 'Free Trial',
+    monthlyPrice: '0',
+    yearlyPrice: '0',
+    features: [
+      'Full access for 7 days',
+      'Up to 5 employees',
+      'Basic HR features',
+      'Email support',
+      'Single organization'
+    ],
+    maxEmployees: 5,
+    maxProjects: 3
+  };
+
+  const plan = planId === 'free' ? freePlan : plans?.find((p: any) => p.planId === planId);
 
   const createSubscription = () => {
     if (!plan) return;
@@ -294,7 +312,12 @@ export default function Subscribe() {
       if (user) {
         setEmail(user.email || '');
         setName(`${user.firstName || ''} ${user.lastName || ''}`.trim() || user.username || '');
-        createSubscription(); // Call immediately if user is authenticated
+        // For free plan, show the trial request form instead of creating payment subscription
+        if (planId === 'free') {
+          setNeedsUserInfo(true);
+        } else {
+          createSubscription(); // Call immediately if user is authenticated and not free plan
+        }
       } else {
         // For unauthenticated users, show the form to collect info
         setNeedsUserInfo(true);
@@ -361,9 +384,11 @@ export default function Subscribe() {
           // Show comprehensive user info collection form
           <Card className="max-w-3xl mx-auto">
             <CardHeader>
-              <CardTitle>Complete Your Information</CardTitle>
+              <CardTitle>{planId === 'free' ? 'Request Your 7-Day Free Trial' : 'Complete Your Information'}</CardTitle>
               <p className="text-gray-600 dark:text-gray-400">
-                Tell us about your organization to get started with Q361.
+                {planId === 'free' 
+                  ? 'Fill out the form below to request your free trial. Our team will review and approve your request.' 
+                  : 'Tell us about your organization to get started with Q361.'}
               </p>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -449,7 +474,7 @@ export default function Subscribe() {
                   Start with a Free Trial
                 </h3>
                 <p className="text-blue-700 dark:text-blue-300 text-sm mb-3">
-                  Get 14 days free access to all {plan.name} plan features. No payment required upfront.
+                  Get 7 days free access to all {planId === 'free' ? 'Q361' : plan.name + ' plan'} features. No credit card required.
                 </p>
                 <Button
                   onClick={async () => {
@@ -490,26 +515,38 @@ export default function Subscribe() {
                 </div>
               )}
 
-              <div className="border-t pt-4">
-                <p className="text-center text-gray-600 dark:text-gray-400 text-sm mb-4">
-                  Or proceed directly to payment
-                </p>
-                <div className="flex space-x-4">
-                  <Link to="/subscription-plans" className="flex-1">
+              {planId !== 'free' && (
+                <div className="border-t pt-4">
+                  <p className="text-center text-gray-600 dark:text-gray-400 text-sm mb-4">
+                    Or proceed directly to payment
+                  </p>
+                  <div className="flex space-x-4">
+                    <Link to="/subscription-plans" className="flex-1">
+                      <Button variant="outline" className="w-full">
+                        <ArrowLeft className="h-4 w-4 mr-2" />
+                        Back to Plans
+                      </Button>
+                    </Link>
+                    <Button 
+                      onClick={createSubscription}
+                      className="flex-1 bg-gray-900 hover:bg-gray-800 text-white"
+                      disabled={!email.trim() || !name.trim() || !company.trim() || !jobTitle.trim() || !teamSize}
+                    >
+                      Continue to Payment
+                    </Button>
+                  </div>
+                </div>
+              )}
+              {planId === 'free' && (
+                <div className="border-t pt-4">
+                  <Link to="/subscription-plans">
                     <Button variant="outline" className="w-full">
                       <ArrowLeft className="h-4 w-4 mr-2" />
                       Back to Plans
                     </Button>
                   </Link>
-                  <Button 
-                    onClick={createSubscription}
-                    className="flex-1 bg-gray-900 hover:bg-gray-800 text-white"
-                    disabled={!email.trim() || !name.trim() || !company.trim() || !jobTitle.trim() || !teamSize}
-                  >
-                    Continue to Payment
-                  </Button>
                 </div>
-              </div>
+              )}
             </CardContent>
           </Card>
         ) : trialRequested ? (
@@ -526,7 +563,7 @@ export default function Subscribe() {
                     Trial Request Submitted
                   </h3>
                   <p className="text-green-700 dark:text-green-300">
-                    Thank you for your interest in Q361! We've received your free trial request for the {plan.name} plan.
+                    Thank you for your interest in Q361! We've received your 7-day free trial request{planId !== 'free' && plan ? ` for the ${plan.name} plan` : ''}.
                   </p>
                 </div>
                 
@@ -535,7 +572,7 @@ export default function Subscribe() {
                   <ul className="text-blue-700 dark:text-blue-300 text-sm space-y-1 text-left">
                     <li>• Our HR specialists will review your request within 24 hours</li>
                     <li>• You'll receive an email with your trial account setup instructions</li>
-                    <li>• Get 14 days of full access to all {plan.name} features</li>
+                    <li>• Get 7 days of full access to all Q361 features</li>
                     <li>• Personal onboarding session with our team</li>
                   </ul>
                 </div>

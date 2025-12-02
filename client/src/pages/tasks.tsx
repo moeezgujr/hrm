@@ -308,15 +308,15 @@ export default function ListTodo() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-4 md:space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 className="text-2xl font-semibold text-gray-900">Task Management</h2>
-          <p className="text-gray-600 mt-1">Manage and track task assignments</p>
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-900">Task Management</h2>
+          <p className="text-sm md:text-base text-gray-600 mt-1">Manage and track task assignments</p>
         </div>
         
-        <div className="flex space-x-2">
+        <div className="flex flex-wrap gap-2">
           <Button 
             variant="outline"
             onClick={() => {
