@@ -634,10 +634,17 @@ export default function SocialMediaDashboard() {
   });
 
   // Dashboard Sections queries
-  const { data: dashboardSections = [], isLoading: sectionsLoading } = useQuery({
+  const { data: dashboardSectionsRaw = [], isLoading: sectionsLoading } = useQuery({
     queryKey: ['/api/studio/dashboard-sections'],
     queryFn: () => fetch('/api/studio/dashboard-sections').then(res => res.json()),
   });
+
+  // Normalize dashboard sections to always be an array to avoid runtime errors
+  const dashboardSections = Array.isArray(dashboardSectionsRaw)
+    ? dashboardSectionsRaw
+    : (dashboardSectionsRaw && typeof dashboardSectionsRaw === 'object' && Array.isArray((dashboardSectionsRaw as any).data))
+      ? (dashboardSectionsRaw as any).data
+      : [];
 
   // Post-meeting work items for presentation view (only when selectedMeeting exists)
   const { data: presentationWorkItems = [] } = useQuery({
